@@ -38,14 +38,28 @@
         CCSprite* icon = [CCSprite spriteWithFile:@"Icon.png"];
         [icon setPosition:ccp(50, 50)];
         [self addChild:icon];
+        CCSprite* icon2 = [CCSprite spriteWithFile:@"Icon.png"];
+        [icon2 setPosition:ccp(250, 50)];
+        [self addChild:icon2];
         CCMoveTo* move = [CCMoveBy actionWithDuration:1.0f position:ccp(100,0)];
         CCAction* movereverse = [move reverse];
+        CCMoveTo* move2 = [CCMoveBy actionWithDuration:1.0f position:ccp(-100,0)];
+        CCAction* move2reverse = [move2 reverse];
         CCSequence* seq = [CCSequence actions:move, movereverse, nil];
+        CCSequence* seq2 = [CCSequence actions:move2, move2reverse, nil];
         CCRepeatForever* backandforth = [CCRepeatForever actionWithAction:seq];
+        CCRepeatForever* forthandback = [CCRepeatForever actionWithAction:seq2];
         [icon runAction:backandforth];
+        [icon2 runAction:forthandback];
         
+       
 			}
 	return self;
+}
+
+- (void) myMethod:(ccTime)dt
+{
+    NSLog(@"Your method should do something every frame here...");
 }
 
 -(void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event 
@@ -53,15 +67,15 @@
     UITouch* touch = [touches anyObject];
     CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:touch.view]];
     self.isTouchEnabled = YES;
-    CCSprite* icon = [CCSprite spriteWithFile:@"Icon.png"];
-    [icon setPosition:ccp(location.x, location.y)];
-    [self addChild:icon];
+    CCSprite* icon2 = [CCSprite spriteWithFile:@"Icon.png"];
+    [icon2 setPosition:ccp(location.x, location.y)];
+    [self addChild:icon2];
     CCMoveTo* move = [CCMoveBy actionWithDuration:1.0f position:ccp(100,0)];
     CCAction* movereverse = [move reverse];
     CCSequence* seq = [CCSequence actions:move, movereverse, nil];
     CCRepeatForever* backandforth = [CCRepeatForever actionWithAction:seq];
-    [icon runAction:backandforth];
-    
+    [icon2 runAction:backandforth];
+
 }
 
 // on "dealloc" you need to release all your retained objects
