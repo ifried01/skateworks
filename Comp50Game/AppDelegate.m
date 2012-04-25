@@ -10,8 +10,10 @@
 
 #import "AppDelegate.h"
 #import "GameConfig.h"
-#import "HelloWorldLayer.h"
+#import "PlayerClass.h"
 #import "RootViewController.h"
+#import "SpriteClass.h"
+#import "GameLayer.h"
 
 @implementation AppDelegate
 
@@ -109,8 +111,12 @@
 	// Removes the startup flicker
 	[self removeStartupFlicker];
 	
+    // Turn on acceleration
+    [[UIAccelerometer sharedAccelerometer] setUpdateInterval:1.0f/10.0f];
+    
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [HelloWorldLayer scene]];
+	[[CCDirector sharedDirector] runWithScene: [GameLayer scene]];
+    //[[CCDirector sharedDirector] runWithScene: [SpriteClass scene]];
 }
 
 

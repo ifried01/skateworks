@@ -11,11 +11,13 @@
 #import "cocos2d.h"
 
 // HelloWorldLayer
-@interface HelloWorldLayer : CCLayer
+@interface PlayerClass : CCSprite
 {
+    bool* up;
+    bool* down;
+    int speed;
 }
 
-// returns a CCScene that contains the HelloWorldLayer as the only child
-+(CCScene *) scene;
+- (id)initWithFile:(NSString*)filename;
 
 @end

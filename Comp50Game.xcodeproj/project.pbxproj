@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D2A9E081548628A00F88EBA /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A9E071548628A00F88EBA /* GameLayer.m */; };
+		5D84B0401541DD0B00240656 /* SpriteClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D84B03F1541DD0B00240656 /* SpriteClass.m */; };
 		5D95AE2A1538F9910062205C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D95AE291538F9910062205C /* QuartzCore.framework */; };
 		5D95AE2C1538F9910062205C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D95AE2B1538F9910062205C /* OpenGLES.framework */; };
 		5D95AE2E1538F9910062205C /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D95AE2D1538F9910062205C /* OpenAL.framework */; };
@@ -121,10 +123,14 @@
 		5D95AF8A1538F9940062205C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D95AF891538F9940062205C /* main.m */; };
 		5D95AF8D1538F9940062205C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D95AF8C1538F9940062205C /* AppDelegate.m */; };
 		5D95AF901538F9940062205C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D95AF8F1538F9940062205C /* RootViewController.m */; };
-		5D95AF931538F9940062205C /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D95AF921538F9940062205C /* HelloWorldLayer.m */; };
+		5D95AF931538F9940062205C /* PlayerClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D95AF921538F9940062205C /* PlayerClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D2A9E061548628A00F88EBA /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
+		5D2A9E071548628A00F88EBA /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
+		5D84B03E1541DD0B00240656 /* SpriteClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteClass.h; sourceTree = "<group>"; };
+		5D84B03F1541DD0B00240656 /* SpriteClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpriteClass.m; sourceTree = "<group>"; };
 		5D95AE251538F9910062205C /* Comp50Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Comp50Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D95AE291538F9910062205C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5D95AE2B1538F9910062205C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -357,8 +363,8 @@
 		5D95AF8C1538F9940062205C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5D95AF8E1538F9940062205C /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		5D95AF8F1538F9940062205C /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		5D95AF911538F9940062205C /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		5D95AF921538F9940062205C /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
+		5D95AF911538F9940062205C /* PlayerClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerClass.h; sourceTree = "<group>"; };
+		5D95AF921538F9940062205C /* PlayerClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerClass.m; sourceTree = "<group>"; };
 		5D95AF941538F9940062205C /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -420,8 +426,12 @@
 				5D95AF8C1538F9940062205C /* AppDelegate.m */,
 				5D95AF8E1538F9940062205C /* RootViewController.h */,
 				5D95AF8F1538F9940062205C /* RootViewController.m */,
-				5D95AF911538F9940062205C /* HelloWorldLayer.h */,
-				5D95AF921538F9940062205C /* HelloWorldLayer.m */,
+				5D84B03E1541DD0B00240656 /* SpriteClass.h */,
+				5D84B03F1541DD0B00240656 /* SpriteClass.m */,
+				5D95AF911538F9940062205C /* PlayerClass.h */,
+				5D95AF921538F9940062205C /* PlayerClass.m */,
+				5D2A9E061548628A00F88EBA /* GameLayer.h */,
+				5D2A9E071548628A00F88EBA /* GameLayer.m */,
 				5D95AF941538F9940062205C /* GameConfig.h */,
 				5D95AE3A1538F9910062205C /* Resources */,
 				5D95AE4E1538F9910062205C /* libs */,
@@ -925,7 +935,9 @@
 				5D95AF8A1538F9940062205C /* main.m in Sources */,
 				5D95AF8D1538F9940062205C /* AppDelegate.m in Sources */,
 				5D95AF901538F9940062205C /* RootViewController.m in Sources */,
-				5D95AF931538F9940062205C /* HelloWorldLayer.m in Sources */,
+				5D95AF931538F9940062205C /* PlayerClass.m in Sources */,
+				5D84B0401541DD0B00240656 /* SpriteClass.m in Sources */,
+				5D2A9E081548628A00F88EBA /* GameLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -936,6 +948,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Eric Douglas (NK3EVH6X22)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -948,6 +961,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PROVISIONING_PROFILE = "8F118898-2A86-4538-9E40-05752D09A23B";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -956,6 +970,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Eric Douglas (NK3EVH6X22)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
@@ -964,6 +979,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "8F118898-2A86-4538-9E40-05752D09A23B";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
