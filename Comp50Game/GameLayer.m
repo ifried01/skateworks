@@ -44,7 +44,7 @@
         PlayerClass* tempPlayer = [[PlayerClass alloc] initWithFile:@"player1.png"];
         player = tempPlayer;
     
-        NSMutableArray* tempSprites = [NSMutableArray arrayWithCapacity:100];
+        NSMutableArray* tempSprites = [[NSMutableArray alloc] initWithCapacity:100];
         sprites = tempSprites;
         [self addChild:tempPlayer];        
         
@@ -67,9 +67,9 @@
         currentX = currentX - acceleration.x;
     }
 //
-//    [player setPosition:<#(CGPoint)#>]*/
+//    [player setPosition:(CGPoint)]*/
     
-    NSLog(@"x: %g", acceleration.x);
+    //NSLog(@"x: %g", acceleration.x);
     /*
     NSLog(@"y: %g", acceleration.y);
     NSLog(@"z: %g", acceleration.z);
@@ -80,12 +80,11 @@
 }
 
 - (void)update:(ccTime)dt {
-    NSLog(@"Inbar");
     
-    /*COLLISION HANDLING AND CAR SPAWNING
+    //COLLISION HANDLING AND CAR SPAWNING
      
     CCArray* deleteMe = [CCArray array];
-    CCArray* sprites = [self children];
+    /*CCArray* sprites = [self children];
     if ([[SpriteClass self] children] != nil) {
         CCArray* playerArray = [[PlayerClass self] children];
         CCSprite* player = [playerArray objectAtIndex:0];
@@ -105,13 +104,25 @@
      NSInteger c = arc4random()%100 + 1;
      if (c == 75) {
          SpriteClass* tempSprite = [[SpriteClass alloc] initWithFile:@"car1.png"];
-         
+         [self addChild:tempSprite];
          [sprites addObject:tempSprite];
      }
 
-     //for (int b = 0; b < [sprites count]; b++) {
-     //   if ([[sprites objectAtIndex:b] ]
-     //}
+     for (int b = 0; b < [sprites count]; b++) {
+         SpriteClass* temp = [sprites objectAtIndex:b];
+         [temp setSpritex];
+         [temp setPosition:ccp([temp getSpritex], [temp getSpritey])];
+         if ([temp getSpritex] < -30) {
+             [deleteMe addObject:temp];
+         }
+         if (CGRectIntersectsRect([temp boundingBox], [player boundingBox])) {
+             [player setCollide:true];
+         }
+     }
+    for (int a = 0; a < [deleteMe count]; a++) {
+        [self removeChild:[deleteMe objectAtIndex:a] cleanup:YES];
+    }
+
     
 } 
 // on "dealloc" you need to release all your retained objects

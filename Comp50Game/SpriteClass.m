@@ -16,9 +16,10 @@
 @implementation SpriteClass
 
 
-- (void)update:(ccTime)dt {
+//- (void)update:(ccTime)dt {
     
-    [self setSpritex];
+    //[self setSpritex];
+    //[self setPosition:ccp(x, y)];
     // NSLog(@"Updating!");
     /*
     NSInteger r = arc4random()%200 + 1;
@@ -37,25 +38,27 @@
     //   if ([[sprites objectAtIndex:b] ]
     //}
      */
-}
+//}
 
 - (int)setSpritex {
-    x = speed - x;
+    x = x - speed;
     return x;
 }
 
 - (int)getSpritex {
     return x;
 }
+- (int)getSpritey {
+    return y;
+}
 
 // on "init" you need to initialize your instance
 - (id)initWithFile:(NSString *)filename {
     if( self = [super initWithFile:filename]) {
-        [self schedule:@selector(update:) interval:1.0/60];
-        [self setPosition:ccp(50, 50)];
-        speed = 3;
-        x = 200;
         NSInteger r = arc4random()%200 + 1;
+        [self setPosition:ccp(500, r)];
+        speed = 3;
+        x = 500;
         y = r;
         
     }

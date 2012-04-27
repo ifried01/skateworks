@@ -18,11 +18,14 @@
     bool up;
     bool down;
     int speed;
+    bool collide;
 }   
 
 - (int)getPlayery;
 - (id)initWithFile:(NSString*)filename;
 - (void)setUpDown:(double)acceleration;
 - (int)setPlayery;
+- (bool)setCollide:(bool)collided;
+- (bool)getCollide;
 
 @end

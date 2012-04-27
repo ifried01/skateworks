@@ -17,11 +17,11 @@
 }
 
 - (void)setUpDown:(double)acceleration {
-    if (acceleration < -0.01) {
+    if (acceleration < -0.1) {
         down = true;
         up = false;
     }
-    else if (acceleration > 0.01) {
+    else if (acceleration > 0.1) {
         up = true;
         down = false;
     }
@@ -31,6 +31,17 @@
     }
     
 }
+
+
+- (bool) setCollide:(bool)collided {
+    collide = collided;
+    return collide;
+}
+
+- (bool) getCollide {
+    return collide;
+}
+
 
 - (int) setPlayery {
     if (down == true && y < 300) {
@@ -56,6 +67,7 @@
         speed = 3;
         x = 50;
         y = 50;
+        collide = false;
         
     }
     return self;
@@ -74,6 +86,7 @@
 - (void)update:(ccTime)dt {
     [self setPlayery];
     [self setPosition:ccp(x, y)];
+    NSLog(@"Collide = %d", (int)collide);
     
 }
 
