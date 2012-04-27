@@ -8,6 +8,7 @@
 
 #import "GameLayer.h"
 #import "PlayerClass.h"
+#import "SpriteClass.h"
 
 
 @implementation GameLayer
@@ -35,32 +36,84 @@
 	if( (self=[super init])) {
         self.isTouchEnabled = YES;
         
-        
+        [self schedule:@selector(update:) interval:1.0/60];
         self.isAccelerometerEnabled = YES;
         [[UIAccelerometer sharedAccelerometer] setDelegate:self];
         
         
-        PlayerClass* tempPlayer = [[PlayerClass alloc] initWithFile:@"Icon.png"];
+        PlayerClass* tempPlayer = [[PlayerClass alloc] initWithFile:@"player1.png"];
         player = tempPlayer;
+    
+        NSMutableArray* tempSprites = [NSMutableArray arrayWithCapacity:100];
+        sprites = tempSprites;
         [self addChild:tempPlayer];        
+        
+        //SpriteClass* tempSprite = [[SpriteClass alloc] initWithFile:@"car6.png"];
+        //sprite = tempSprite;
+        //[self addChild:tempSprite];    
     }
 	return self;
 }
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
     // Do stuff like sending accel information to player to make him move'
-    
+    /*
     int currentX = player.position.x;
-    int currentY = player.position.y;
+    //int currentY = player.position.y;
     
-    if (acceleration.y > 0.25) {
+    if (acceleration.x > 0.25) {
         //player.position.x = currentX - acceleration.x
-        currentY = currentY - acceleration.y;
+        printf("HERE\n");
+        currentX = currentX - acceleration.x;
     }
+//
+//    [player setPosition:<#(CGPoint)#>]*/
+    
+    NSLog(@"x: %g", acceleration.x);
+    /*
+    NSLog(@"y: %g", acceleration.y);
+    NSLog(@"z: %g", acceleration.z);
+    */
+    [player setUpDown:acceleration.x];
 
-//    [player setPosition:<#(CGPoint)#>]
+    
 }
 
+- (void)update:(ccTime)dt {
+    NSLog(@"Inbar");
+    
+    /*COLLISION HANDLING AND CAR SPAWNING
+     
+    CCArray* deleteMe = [CCArray array];
+    CCArray* sprites = [self children];
+    if ([[SpriteClass self] children] != nil) {
+        CCArray* playerArray = [[PlayerClass self] children];
+        CCSprite* player = [playerArray objectAtIndex:0];
+        for (int i = 0; i < [sprites count]; i++) {
+            if (CGRectIntersectsRect([[sprites objectAtIndex:i] boundingBox], [player boundingBox])) {
+                //NSLog(@"Colliding");
+                [deleteMe addObject:player];
+            }
+        }
+        for (int a = 0; a < [deleteMe count]; a++) {
+            [self removeChild:[deleteMe objectAtIndex:a] cleanup:YES];
+        }
+    }
+    
+     // NSLog(@"Updating!");
+     */
+     NSInteger c = arc4random()%100 + 1;
+     if (c == 75) {
+         SpriteClass* tempSprite = [[SpriteClass alloc] initWithFile:@"car1.png"];
+         
+         [sprites addObject:tempSprite];
+     }
+
+     //for (int b = 0; b < [sprites count]; b++) {
+     //   if ([[sprites objectAtIndex:b] ]
+     //}
+    
+} 
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc
 {

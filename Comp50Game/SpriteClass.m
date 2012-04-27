@@ -17,26 +17,14 @@
 
 
 - (void)update:(ccTime)dt {
+    
+    [self setSpritex];
     // NSLog(@"Updating!");
-    CCArray* deleteMe = [CCArray array];
-    CCArray* sprites = [self children];
-    if ([[SpriteClass self] children] != nil) {
-        CCArray* playerArray = [[PlayerClass self] children];
-        CCSprite* player = [playerArray objectAtIndex:0];
-        for (int i = 0; i < [sprites count]; i++) {
-            if (CGRectIntersectsRect([[sprites objectAtIndex:i] boundingBox], [player boundingBox])) {
-                //NSLog(@"Colliding");
-                [deleteMe addObject:player];
-            }
-        }
-        for (int a = 0; a < [deleteMe count]; a++) {
-            [self removeChild:[deleteMe objectAtIndex:a] cleanup:YES];
-        }
-    }
+    /*
     NSInteger r = arc4random()%200 + 1;
     NSInteger c = arc4random()%100 + 1;
     if (c == 75) {
-        CCSprite* icon = [CCSprite spriteWithFile:@"Icon-Small.png"];
+        CCSprite* icon = [CCSprite spriteWithFile:@"car1.png"];
         [icon setPosition:ccp(500, r)];
         [self addChild:icon];
     }
@@ -48,20 +36,30 @@
     //for (int b = 0; b < [sprites count]; b++) {
     //   if ([[sprites objectAtIndex:b] ]
     //}
+     */
+}
+
+- (int)setSpritex {
+    x = speed - x;
+    return x;
+}
+
+- (int)getSpritex {
+    return x;
 }
 
 // on "init" you need to initialize your instance
--(id) init
-{
-	// always call "super" init
-	// Apple recommends to re-assign "self" with the "super" return value
-	if( (self=[super init])) {
-        
+- (id)initWithFile:(NSString *)filename {
+    if( self = [super initWithFile:filename]) {
         [self schedule:@selector(update:) interval:1.0/60];
+        [self setPosition:ccp(50, 50)];
+        speed = 3;
+        x = 200;
+        NSInteger r = arc4random()%200 + 1;
+        y = r;
         
-		// self.isTouchEnabled = YES;
     }
-	return self;
+    return self;
 }
 
 - (void) myMethod:(ccTime)dt

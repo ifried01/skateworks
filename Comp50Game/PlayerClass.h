@@ -13,11 +13,16 @@
 // HelloWorldLayer
 @interface PlayerClass : CCSprite
 {
-    bool* up;
-    bool* down;
+    int x;
+    int y;
+    bool up;
+    bool down;
     int speed;
-}
+}   
 
+- (int)getPlayery;
 - (id)initWithFile:(NSString*)filename;
+- (void)setUpDown:(double)acceleration;
+- (int)setPlayery;
 
 @end

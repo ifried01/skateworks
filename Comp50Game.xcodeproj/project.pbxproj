@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		5D2A9E081548628A00F88EBA /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A9E071548628A00F88EBA /* GameLayer.m */; };
 		5D84B0401541DD0B00240656 /* SpriteClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D84B03F1541DD0B00240656 /* SpriteClass.m */; };
+		5D8C1D7D154B0A930080344B /* car3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1D76154B0A930080344B /* car3.png */; };
+		5D8C1D7E154B0A930080344B /* car6.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1D77154B0A930080344B /* car6.png */; };
+		5D8C1D7F154B0A930080344B /* car4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1D78154B0A930080344B /* car4.png */; };
+		5D8C1D80154B0A930080344B /* road1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1D79154B0A930080344B /* road1.png */; };
+		5D8C1D82154B0A930080344B /* car5.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1D7B154B0A930080344B /* car5.png */; };
+		5D8C1D88154B10D70080344B /* car1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1D87154B10D70080344B /* car1.png */; };
+		5D8C1D8C154B116C0080344B /* player1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1D8B154B116C0080344B /* player1.png */; };
 		5D95AE2A1538F9910062205C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D95AE291538F9910062205C /* QuartzCore.framework */; };
 		5D95AE2C1538F9910062205C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D95AE2B1538F9910062205C /* OpenGLES.framework */; };
 		5D95AE2E1538F9910062205C /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D95AE2D1538F9910062205C /* OpenAL.framework */; };
@@ -131,6 +138,13 @@
 		5D2A9E071548628A00F88EBA /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
 		5D84B03E1541DD0B00240656 /* SpriteClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteClass.h; sourceTree = "<group>"; };
 		5D84B03F1541DD0B00240656 /* SpriteClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpriteClass.m; sourceTree = "<group>"; };
+		5D8C1D76154B0A930080344B /* car3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = car3.png; path = ../../../../../../../../Desktop/car3.png; sourceTree = "<group>"; };
+		5D8C1D77154B0A930080344B /* car6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = car6.png; path = ../../../../../../../../Desktop/car6.png; sourceTree = "<group>"; };
+		5D8C1D78154B0A930080344B /* car4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = car4.png; path = ../../../../../../../../Desktop/car4.png; sourceTree = "<group>"; };
+		5D8C1D79154B0A930080344B /* road1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = road1.png; path = ../../../../../../../../Desktop/road1.png; sourceTree = "<group>"; };
+		5D8C1D7B154B0A930080344B /* car5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = car5.png; path = ../../../../../../../../Desktop/car5.png; sourceTree = "<group>"; };
+		5D8C1D87154B10D70080344B /* car1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = car1.png; path = ../../../../../../../../Desktop/car1.png; sourceTree = "<group>"; };
+		5D8C1D8B154B116C0080344B /* player1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = player1.png; path = ../../../../../../../../Desktop/player1.png; sourceTree = "<group>"; };
 		5D95AE251538F9910062205C /* Comp50Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Comp50Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D95AE291538F9910062205C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5D95AE2B1538F9910062205C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -443,6 +457,13 @@
 		5D95AE3A1538F9910062205C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5D8C1D8B154B116C0080344B /* player1.png */,
+				5D8C1D87154B10D70080344B /* car1.png */,
+				5D8C1D76154B0A930080344B /* car3.png */,
+				5D8C1D77154B0A930080344B /* car6.png */,
+				5D8C1D78154B0A930080344B /* car4.png */,
+				5D8C1D79154B0A930080344B /* road1.png */,
+				5D8C1D7B154B0A930080344B /* car5.png */,
 				5D95AE3B1538F9910062205C /* Default.png */,
 				5D95AE3D1538F9910062205C /* fps_images.png */,
 				5D95AE3F1538F9910062205C /* Icon-72.png */,
@@ -828,6 +849,13 @@
 				5D95AE481538F9910062205C /* Icon.png in Resources */,
 				5D95AE4A1538F9910062205C /* Icon@2x.png in Resources */,
 				5D95AE4D1538F9910062205C /* iTunesArtwork in Resources */,
+				5D8C1D7D154B0A930080344B /* car3.png in Resources */,
+				5D8C1D7E154B0A930080344B /* car6.png in Resources */,
+				5D8C1D7F154B0A930080344B /* car4.png in Resources */,
+				5D8C1D80154B0A930080344B /* road1.png in Resources */,
+				5D8C1D82154B0A930080344B /* car5.png in Resources */,
+				5D8C1D88154B10D70080344B /* car1.png in Resources */,
+				5D8C1D8C154B116C0080344B /* player1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

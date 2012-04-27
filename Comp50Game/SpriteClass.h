@@ -13,8 +13,14 @@
 // HelloWorldLayer
 @interface SpriteClass : CCSprite
 {
+    int speed;
+    int x;
+    int y;
 }
 
+- (int)getSpritex;
+- (id)initWithFile:(NSString*)filename;
+- (int)setSpritex;
 // returns a CCScene that contains the HelloWorldLayer as the only child
 
 

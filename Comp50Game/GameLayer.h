@@ -10,9 +10,11 @@
 #import "cocos2d.h"
 
 @class PlayerClass;
+@class SpriteClass;
 
 @interface GameLayer : CCLayer <UIAccelerometerDelegate> {
     PlayerClass* player;
+    NSMutableArray *sprites;
 }
 
 @end

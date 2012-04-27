@@ -11,13 +11,51 @@
 
 @implementation PlayerClass
 
+
+- (int) getPlayery {
+    return y;
+}
+
+- (void)setUpDown:(double)acceleration {
+    if (acceleration < -0.01) {
+        down = true;
+        up = false;
+    }
+    else if (acceleration > 0.01) {
+        up = true;
+        down = false;
+    }
+    else {
+        up = false;
+        down = false;
+    }
+    
+}
+
+- (int) setPlayery {
+    if (down == true && y < 300) {
+        y = y + speed;
+        //down = false;
+        //up = false;
+    }
+    else if (up == true && y > 20) {
+        y = y - speed;
+        //down = false;
+        //up = false;
+    }
+    
+    return y;
+}
+
 - (id)initWithFile:(NSString *)filename {
     if( self = [super initWithFile:filename]) {
         [self schedule:@selector(update:) interval:1.0/60];
         [self setPosition:ccp(50, 50)];
         up = false;
         down = false;
-        speed = 10;
+        speed = 3;
+        x = 50;
+        y = 50;
         
     }
     return self;
@@ -34,9 +72,8 @@
 }*/
 
 - (void)update:(ccTime)dt {
-    if (up == true) {
-        
-    }
+    [self setPlayery];
+    [self setPosition:ccp(x, y)];
     
 }
 
