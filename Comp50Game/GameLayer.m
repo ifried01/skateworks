@@ -40,7 +40,24 @@
         self.isAccelerometerEnabled = YES;
         [[UIAccelerometer sharedAccelerometer] setDelegate:self];
         
+       //NSArray* inputImages = [NSArray arrayWithObjects:@"car1.png", @"car3.png", @"car4.png", @"car5.png", @"car6.png", nil];
         
+        NSString* image1 = @"car1.png";
+        NSString* image2 = @"car3.png";
+        NSString* image3 = @"car4.png";
+        NSString* image4 = @"car5.png";
+        NSString* image5 = @"car6.png";
+        NSMutableArray *tempImages = [[NSMutableArray alloc] initWithCapacity:10];
+        [tempImages addObject:image1];
+        [tempImages addObject:image2];
+        [tempImages addObject:image3];
+        [tempImages addObject:image4];
+        [tempImages addObject:image5];
+         
+        images = tempImages;
+        
+        //NSInteger i = arc4random()%[images count] + 1;
+        //NSString *carImage = [images objectAtIndex:i];
         PlayerClass* tempPlayer = [[PlayerClass alloc] initWithFile:@"player1.png"];
         player = tempPlayer;
     
@@ -103,7 +120,9 @@
      */
      NSInteger c = arc4random()%100 + 1;
      if (c == 75) {
-         SpriteClass* tempSprite = [[SpriteClass alloc] initWithFile:@"car1.png"];
+         NSInteger i = arc4random()%[images count];
+         NSString *carImage = [images objectAtIndex:i];
+         SpriteClass* tempSprite = [[SpriteClass alloc] initWithFile:carImage];
          [self addChild:tempSprite];
          [sprites addObject:tempSprite];
      }

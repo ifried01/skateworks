@@ -25,7 +25,7 @@
         up = true;
         down = false;
     }
-    else {
+   else {
         up = false;
         down = false;
     }

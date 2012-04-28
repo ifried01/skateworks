@@ -15,6 +15,7 @@
 @interface GameLayer : CCLayer <UIAccelerometerDelegate> {
     PlayerClass* player;
     NSMutableArray *sprites;
+    NSMutableArray *images;
 }
 
 @end

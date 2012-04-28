@@ -55,11 +55,14 @@
 // on "init" you need to initialize your instance
 - (id)initWithFile:(NSString *)filename {
     if( self = [super initWithFile:filename]) {
-        NSInteger r = arc4random()%200 + 1;
-        [self setPosition:ccp(500, r)];
+        NSInteger i = arc4random()%5 + 1;
+        
+         //= [NSArray arrayWithObjects:25, 80, 135, 190, nil];
+        [self setPosition:ccp(500, 200/i)];
         speed = 3;
         x = 500;
-        y = r;
+        y = 200/i;
+        
         
     }
     return self;
