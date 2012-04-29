@@ -36,6 +36,11 @@
 	if( (self=[super init])) {
         self.isTouchEnabled = YES;
         
+        gameTimer = 0;
+        //print "Time:" to screen
+        CCLabelTTF *timer = [CCLabelTTF labelWithString:@"Time: "  fontName:@"Helvetica" fontSize:24];
+        timer.position = ccp(240, 160);
+        
         [self schedule:@selector(update:) interval:1.0/60];
         self.isAccelerometerEnabled = YES;
         [[UIAccelerometer sharedAccelerometer] setDelegate:self];
@@ -55,16 +60,46 @@
         [tempImages addObject:image5];
          
         images = tempImages;
-        
+        roadImage = @"road1.png";
         //NSInteger i = arc4random()%[images count] + 1;
         //NSString *carImage = [images objectAtIndex:i];
-        PlayerClass* tempPlayer = [[PlayerClass alloc] initWithFile:@"player1.png"];
-        player = tempPlayer;
     
         NSMutableArray* tempSprites = [[NSMutableArray alloc] initWithCapacity:100];
         sprites = tempSprites;
-        [self addChild:tempPlayer];        
         
+        //Road spawn
+        NSMutableArray* newLanes = [[NSMutableArray alloc] initWithCapacity:6];
+        CCSprite *lane1 = [[CCSprite alloc] initWithFile:roadImage];
+        [lane1 setPosition:ccp(240, 27)];
+        [self addChild:lane1];
+        [newLanes addObject:lane1];
+        CCSprite *lane2 = [[CCSprite alloc] initWithFile:roadImage];
+        [lane2 setPosition:ccp(240, 27*3)];
+        [self addChild:lane2];
+        [newLanes addObject:lane2];
+        CCSprite *lane3 = [[CCSprite alloc] initWithFile:roadImage];
+        [lane3 setPosition:ccp(240, 27*5)];
+        [self addChild:lane3];
+        [newLanes addObject:lane3];
+        CCSprite *lane4 = [[CCSprite alloc] initWithFile:roadImage];
+        [lane4 setPosition:ccp(240, 27*7)];
+        [self addChild:lane4];
+        [newLanes addObject:lane4];
+        CCSprite *lane5 = [[CCSprite alloc] initWithFile:roadImage];
+        [lane5 setPosition:ccp(240, 27*9)];
+        [self addChild:lane5];
+        [newLanes addObject:lane5];
+        CCSprite *lane6 = [[CCSprite alloc] initWithFile:roadImage];
+        [lane6 setPosition:ccp(240, 27*11)];
+        [self addChild:lane6];
+        [newLanes addObject:lane6];
+        
+        lanes = newLanes;
+        
+        PlayerClass* tempPlayer = [[PlayerClass alloc] initWithFile:@"player1.png"];
+        player = tempPlayer;
+        [self addChild:tempPlayer];
+        [self addChild:timer];
         //SpriteClass* tempSprite = [[SpriteClass alloc] initWithFile:@"car6.png"];
         //sprite = tempSprite;
         //[self addChild:tempSprite];    
@@ -99,7 +134,7 @@
 - (void)update:(ccTime)dt {
     
     //COLLISION HANDLING AND CAR SPAWNING
-     
+    gameTimer += dt;
     CCArray* deleteMe = [CCArray array];
     /*CCArray* sprites = [self children];
     if ([[SpriteClass self] children] != nil) {
@@ -118,8 +153,14 @@
     
      // NSLog(@"Updating!");
      */
-     NSInteger c = arc4random()%100 + 1;
-     if (c == 75) {
+    NSInteger c;
+    if (gameTimer < 15) {
+     c = arc4random()%100;
+    }
+    else {
+        c = arc4random()%1;
+    }
+     if (c == 0) {
          NSInteger i = arc4random()%[images count];
          NSString *carImage = [images objectAtIndex:i];
          SpriteClass* tempSprite = [[SpriteClass alloc] initWithFile:carImage];
@@ -129,7 +170,7 @@
 
      for (int b = 0; b < [sprites count]; b++) {
          SpriteClass* temp = [sprites objectAtIndex:b];
-         [temp setSpritex];
+         [temp setCarx];
          [temp setPosition:ccp([temp getSpritex], [temp getSpritey])];
          if ([temp getSpritex] < -30) {
              [deleteMe addObject:temp];
@@ -138,6 +179,14 @@
              [player setCollide:true];
          }
      }
+    /*for (int z = 0; z < [lanes count]; z++) {
+        SpriteClass* tempLane = [lanes objectAtIndex:z];
+        [tempLane setRoadx];
+        [tempLane setPosition:ccp([tempLane getSpritex], [tempLane getSpritey])];
+        if ([tempLane getSpritex] < -250) {
+            [deleteMe addObject:tempLane];
+        }
+    }*/
     for (int a = 0; a < [deleteMe count]; a++) {
         [self removeChild:[deleteMe objectAtIndex:a] cleanup:YES];
     }

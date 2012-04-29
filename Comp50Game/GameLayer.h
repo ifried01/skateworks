@@ -16,6 +16,9 @@
     PlayerClass* player;
     NSMutableArray *sprites;
     NSMutableArray *images;
+    NSString* roadImage;
+    NSMutableArray* lanes;
+    double gameTimer;
 }
 
 @end

@@ -19,26 +19,26 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Comp50Game/GameLayer.m"
-         timestampString = "357276373.013674"
+         timestampString = "357428730.202524"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "125"
-         endingLineNumber = "125"
+         startingLineNumber = "166"
+         endingLineNumber = "166"
          landmarkName = "-update:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Comp50Game/SpriteClass.h"
-         timestampString = "357277969.374543"
+         filePath = "Comp50Game/SpriteClass.m"
+         timestampString = "357427365.950572"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "24"
-         endingLineNumber = "24"
-         landmarkName = "@interface SpriteClass"
-         landmarkType = "2">
+         startingLineNumber = "16"
+         endingLineNumber = "16"
+         landmarkName = "@implementation SpriteClass"
+         landmarkType = "3">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

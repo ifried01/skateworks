@@ -86,7 +86,7 @@
 - (void)update:(ccTime)dt {
     [self setPlayery];
     [self setPosition:ccp(x, y)];
-    NSLog(@"Collide = %d", (int)collide);
+    //NSLog(@"Collide = %d", (int)collide);
     
 }
 

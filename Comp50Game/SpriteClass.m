@@ -40,10 +40,11 @@
      */
 //}
 
-- (int)setSpritex {
+- (int)setCarx {
     x = x - speed;
     return x;
 }
+
 
 - (int)getSpritex {
     return x;
@@ -55,18 +56,21 @@
 // on "init" you need to initialize your instance
 - (id)initWithFile:(NSString *)filename {
     if( self = [super initWithFile:filename]) {
-        NSInteger i = arc4random()%5 + 1;
         
+        //NSInteger i = arc4random()%5 + 1;
+        int i = rand() % 5 + 1;
          //= [NSArray arrayWithObjects:25, 80, 135, 190, nil];
-        [self setPosition:ccp(500, 200/i)];
-        speed = 3;
+        [self setPosition:ccp(500, i*54)];
+        speed = 5;
         x = 500;
-        y = 200/i;
+        y = 54*i;
         
         
     }
     return self;
 }
+
+
 
 - (void) myMethod:(ccTime)dt
 {

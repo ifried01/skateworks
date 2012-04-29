@@ -10,6 +10,7 @@
 		5D06CBE3154B4B490086190D /* player1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D06CBE2154B4B490086190D /* player1.png */; };
 		5D06CBE5154B4B510086190D /* car1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D06CBE4154B4B510086190D /* car1.png */; };
 		5D2A9E081548628A00F88EBA /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A9E071548628A00F88EBA /* GameLayer.m */; };
+		5D63AFAD154DD7EA008A2DED /* road1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D63AFAC154DD7EA008A2DED /* road1.png */; };
 		5D84B0401541DD0B00240656 /* SpriteClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D84B03F1541DD0B00240656 /* SpriteClass.m */; };
 		5D95AE2A1538F9910062205C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D95AE291538F9910062205C /* QuartzCore.framework */; };
 		5D95AE2C1538F9910062205C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D95AE2B1538F9910062205C /* OpenGLES.framework */; };
@@ -137,6 +138,9 @@
 		5D06CBE4154B4B510086190D /* car1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car1.png; sourceTree = SOURCE_ROOT; };
 		5D2A9E061548628A00F88EBA /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		5D2A9E071548628A00F88EBA /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
+		5D63AFAC154DD7EA008A2DED /* road1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = road1.png; sourceTree = SOURCE_ROOT; };
+		5D63AFB5154DEF05008A2DED /* RoadSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoadSprite.h; sourceTree = "<group>"; };
+		5D63AFB6154DEF05008A2DED /* RoadSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoadSprite.m; sourceTree = "<group>"; };
 		5D84B03E1541DD0B00240656 /* SpriteClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteClass.h; sourceTree = "<group>"; };
 		5D84B03F1541DD0B00240656 /* SpriteClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpriteClass.m; sourceTree = "<group>"; };
 		5D95AE251538F9910062205C /* Comp50Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Comp50Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -434,6 +438,8 @@
 		5D95AE391538F9910062205C /* Comp50Game */ = {
 			isa = PBXGroup;
 			children = (
+				5D63AFB5154DEF05008A2DED /* RoadSprite.h */,
+				5D63AFB6154DEF05008A2DED /* RoadSprite.m */,
 				5D95AF8B1538F9940062205C /* AppDelegate.h */,
 				5D95AF8C1538F9940062205C /* AppDelegate.m */,
 				5D95AF8E1538F9940062205C /* RootViewController.h */,
@@ -455,6 +461,7 @@
 		5D95AE3A1538F9910062205C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5D63AFAC154DD7EA008A2DED /* road1.png */,
 				5DF38FFD154B8AC60026298C /* car3.png */,
 				5DF38FFE154B8AC60026298C /* car4.png */,
 				5DF38FFF154B8AC60026298C /* car5.png */,
@@ -852,6 +859,7 @@
 				5DF39002154B8AC60026298C /* car4.png in Resources */,
 				5DF39003154B8AC60026298C /* car5.png in Resources */,
 				5DF39004154B8AC60026298C /* car6.png in Resources */,
+				5D63AFAD154DD7EA008A2DED /* road1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
