@@ -12,6 +12,7 @@
 #import "PlayerClass.h"
 #import "SpriteClass.h"
 
+
 // HelloWorldLayer implementation
 @implementation SpriteClass
 
@@ -59,9 +60,23 @@
         
         //NSInteger i = arc4random()%5 + 1;
         int i = rand() % 5 + 1;
+        if (i == 5) {
+            speed = 7;
+        }
+        else if (i == 1) {
+            speed = 5;
+        }
+        else if (i == 4) {
+            speed = 4;
+        }
+        else if (i == 3) {
+            speed = 6;
+        }
+        else {
+            speed = 3;
+        }
          //= [NSArray arrayWithObjects:25, 80, 135, 190, nil];
         [self setPosition:ccp(500, i*54)];
-        speed = 5;
         x = 500;
         y = 54*i;
         

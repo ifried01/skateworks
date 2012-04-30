@@ -127,6 +127,12 @@
 		5D95AF8D1538F9940062205C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D95AF8C1538F9940062205C /* AppDelegate.m */; };
 		5D95AF901538F9940062205C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D95AF8F1538F9940062205C /* RootViewController.m */; };
 		5D95AF931538F9940062205C /* PlayerClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D95AF921538F9940062205C /* PlayerClass.m */; };
+		5DB765AC154E6CC5001BD560 /* horngoby.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5DB765AB154E6CC5001BD560 /* horngoby.wav */; };
+		5DB765AF154E6F62001BD560 /* Winter.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5DB765AE154E6F62001BD560 /* Winter.mp3 */; };
+		5DB765B3154ED9DA001BD560 /* skateboard.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5DB765B2154ED9DA001BD560 /* skateboard.mp3 */; };
+		5DB765B5154EDE61001BD560 /* carcrash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5DB765B4154EDE61001BD560 /* carcrash.mp3 */; };
+		5DB765B9154EE73A001BD560 /* skateicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DB765B8154EE73A001BD560 /* skateicon.png */; };
+		5DB765BB154EE994001BD560 /* skateboarder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DB765BA154EE994001BD560 /* skateboarder.png */; };
 		5DF39001154B8AC60026298C /* car3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF38FFD154B8AC60026298C /* car3.png */; };
 		5DF39002154B8AC60026298C /* car4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF38FFE154B8AC60026298C /* car4.png */; };
 		5DF39003154B8AC60026298C /* car5.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF38FFF154B8AC60026298C /* car5.png */; };
@@ -378,6 +384,12 @@
 		5D95AF911538F9940062205C /* PlayerClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerClass.h; sourceTree = "<group>"; };
 		5D95AF921538F9940062205C /* PlayerClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerClass.m; sourceTree = "<group>"; };
 		5D95AF941538F9940062205C /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
+		5DB765AB154E6CC5001BD560 /* horngoby.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = horngoby.wav; sourceTree = SOURCE_ROOT; };
+		5DB765AE154E6F62001BD560 /* Winter.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Winter.mp3; sourceTree = SOURCE_ROOT; };
+		5DB765B2154ED9DA001BD560 /* skateboard.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = skateboard.mp3; sourceTree = SOURCE_ROOT; };
+		5DB765B4154EDE61001BD560 /* carcrash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = carcrash.mp3; sourceTree = SOURCE_ROOT; };
+		5DB765B8154EE73A001BD560 /* skateicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = skateicon.png; path = ../skateicon.png; sourceTree = "<group>"; };
+		5DB765BA154EE994001BD560 /* skateboarder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = skateboarder.png; path = ../skateboarder.png; sourceTree = "<group>"; };
 		5DF38FFD154B8AC60026298C /* car3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car3.png; sourceTree = SOURCE_ROOT; };
 		5DF38FFE154B8AC60026298C /* car4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car4.png; sourceTree = SOURCE_ROOT; };
 		5DF38FFF154B8AC60026298C /* car5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car5.png; sourceTree = SOURCE_ROOT; };
@@ -461,6 +473,12 @@
 		5D95AE3A1538F9910062205C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5DB765B8154EE73A001BD560 /* skateicon.png */,
+				5DB765BA154EE994001BD560 /* skateboarder.png */,
+				5DB765B4154EDE61001BD560 /* carcrash.mp3 */,
+				5DB765B2154ED9DA001BD560 /* skateboard.mp3 */,
+				5DB765AE154E6F62001BD560 /* Winter.mp3 */,
+				5DB765AB154E6CC5001BD560 /* horngoby.wav */,
 				5D63AFAC154DD7EA008A2DED /* road1.png */,
 				5DF38FFD154B8AC60026298C /* car3.png */,
 				5DF38FFE154B8AC60026298C /* car4.png */,
@@ -796,9 +814,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5D95AE241538F9910062205C /* Comp50Game */ = {
+		5D95AE241538F9910062205C /* SkateWorks */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5D95AF971538F9940062205C /* Build configuration list for PBXNativeTarget "Comp50Game" */;
+			buildConfigurationList = 5D95AF971538F9940062205C /* Build configuration list for PBXNativeTarget "SkateWorks" */;
 			buildPhases = (
 				5D95AE211538F9910062205C /* Sources */,
 				5D95AE221538F9910062205C /* Frameworks */,
@@ -808,7 +826,7 @@
 			);
 			dependencies = (
 			);
-			name = Comp50Game;
+			name = SkateWorks;
 			productName = Comp50Game;
 			productReference = 5D95AE251538F9910062205C /* Comp50Game.app */;
 			productType = "com.apple.product-type.application";
@@ -834,7 +852,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5D95AE241538F9910062205C /* Comp50Game */,
+				5D95AE241538F9910062205C /* SkateWorks */,
 			);
 		};
 /* End PBXProject section */
@@ -860,6 +878,12 @@
 				5DF39003154B8AC60026298C /* car5.png in Resources */,
 				5DF39004154B8AC60026298C /* car6.png in Resources */,
 				5D63AFAD154DD7EA008A2DED /* road1.png in Resources */,
+				5DB765AC154E6CC5001BD560 /* horngoby.wav in Resources */,
+				5DB765AF154E6F62001BD560 /* Winter.mp3 in Resources */,
+				5DB765B3154ED9DA001BD560 /* skateboard.mp3 in Resources */,
+				5DB765B5154EDE61001BD560 /* carcrash.mp3 in Resources */,
+				5DB765B9154EE73A001BD560 /* skateicon.png in Resources */,
+				5DB765BB154EE994001BD560 /* skateboarder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1062,7 +1086,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5D95AF971538F9940062205C /* Build configuration list for PBXNativeTarget "Comp50Game" */ = {
+		5D95AF971538F9940062205C /* Build configuration list for PBXNativeTarget "SkateWorks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5D95AF981538F9940062205C /* Debug */,

@@ -9,6 +9,10 @@
 #import "GameLayer.h"
 #import "PlayerClass.h"
 #import "SpriteClass.h"
+#import "RoadSprite.h"
+#import "SimpleAudioEngine.h"
+#import "CDAudioManager.h"
+#import "CocosDenshion.h"
 
 
 @implementation GameLayer
@@ -39,7 +43,7 @@
         gameTimer = 0;
         //print "Time:" to screen
         CCLabelTTF *timer = [CCLabelTTF labelWithString:@"Time: "  fontName:@"Helvetica" fontSize:24];
-        timer.position = ccp(240, 160);
+        timer.position = ccp(400, 10);
         
         [self schedule:@selector(update:) interval:1.0/60];
         self.isAccelerometerEnabled = YES;
@@ -60,12 +64,30 @@
         [tempImages addObject:image5];
          
         images = tempImages;
+        
         roadImage = @"road1.png";
         //NSInteger i = arc4random()%[images count] + 1;
         //NSString *carImage = [images objectAtIndex:i];
     
         NSMutableArray* tempSprites = [[NSMutableArray alloc] initWithCapacity:100];
         sprites = tempSprites;
+        
+        /*
+        NSString* road1 = roadImage;
+        NSString* road2 = roadImage;
+        NSString* road3 = roadImage;
+        NSString* road4 = roadImage;
+        NSString* road5 = roadImage;
+        NSString* road6 = roadImage;
+        NSMutableArray *tempRoads = [[NSMutableArray alloc] initWithCapacity:6];
+        [tempRoads addObject:road1];
+        [tempRoads addObject:road2];
+        [tempRoads addObject:road3];
+        [tempRoads addObject:road4];
+        [tempRoads addObject:road5];
+        [tempRoads addObject:road6];
+        
+        lanes = tempRoads;*/
         
         //Road spawn
         NSMutableArray* newLanes = [[NSMutableArray alloc] initWithCapacity:6];
@@ -102,10 +124,12 @@
         [self addChild:timer];
         //SpriteClass* tempSprite = [[SpriteClass alloc] initWithFile:@"car6.png"];
         //sprite = tempSprite;
-        //[self addChild:tempSprite];    
+        //[self addChild:tempSprite]; 
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"skateboard.mp3"];
     }
 	return self;
 }
+
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
     // Do stuff like sending accel information to player to make him move'
@@ -131,6 +155,7 @@
     
 }
 
+
 - (void)update:(ccTime)dt {
     
     //COLLISION HANDLING AND CAR SPAWNING
@@ -153,22 +178,49 @@
     
      // NSLog(@"Updating!");
      */
+    
+    //NSInteger z = [lanes count];
+
     NSInteger c;
-    if (gameTimer < 15) {
-     c = arc4random()%100;
+    if (gameTimer < 45) {
+     c = arc4random()%50;
+    }
+    else if (gameTimer >= 45 && gameTimer < 90) {
+        c = arc4random()%35;
     }
     else {
-        c = arc4random()%1;
+        c = arc4random()%20;
     }
      if (c == 0) {
          NSInteger i = arc4random()%[images count];
          NSString *carImage = [images objectAtIndex:i];
          SpriteClass* tempSprite = [[SpriteClass alloc] initWithFile:carImage];
-         [self addChild:tempSprite];
          [sprites addObject:tempSprite];
+         [self addChild:tempSprite];
+         for (int x = 0; x < [sprites count]; x++) {
+             if (CGRectIntersectsRect([tempSprite boundingBox], [[sprites objectAtIndex:x] boundingBox]) && tempSprite != [sprites objectAtIndex:x]) {
+                 [deleteMe addObject:tempSprite];
+             }
+         }
      }
-
-     for (int b = 0; b < [sprites count]; b++) {
+    
+    
+    //WHY CAN'T XCODE RECOGNIZE the class ROADSPRITE?????!!!!!??!?!?!?!
+    /*//add road pictures
+    for (int h = 0; h < [lanes count]; h++){
+        NSString *roadPic = [lanes objectAtIndex:h];
+        RoadSprite* road1 = [[RoadSprite alloc] initWithFile:roadPic];
+        [self addChild:road1];
+    }
+    
+    //move the lanes to give the impression that the player is moving
+    for (int g = 0; g < [lanes count]; g++){
+        RoadSprite* temp = [lanes objectAtIndex:g];
+        [temp setRoadx];
+        [temp setPosition:ccp([temp getRoadx], [temp getRoady])];
+    }*/
+    
+    for (int b = 0; b < [sprites count]; b++) {
          SpriteClass* temp = [sprites objectAtIndex:b];
          [temp setCarx];
          [temp setPosition:ccp([temp getSpritex], [temp getSpritey])];
@@ -177,6 +229,8 @@
          }
          if (CGRectIntersectsRect([temp boundingBox], [player boundingBox])) {
              [player setCollide:true];
+             //[[SimpleAudioEngine sharedEngine] playEffect:@"carcrash.mp3"];
+             //[deleteMe addObject:player];
          }
      }
     /*for (int z = 0; z < [lanes count]; z++) {
@@ -190,7 +244,10 @@
     for (int a = 0; a < [deleteMe count]; a++) {
         [self removeChild:[deleteMe objectAtIndex:a] cleanup:YES];
     }
-
+    /*NSInteger s = arc4random()%200;
+    if (s == 0) {
+        [[SimpleAudioEngine sharedEngine] playEffect:@"horngoby.wav"];
+    }*/
     
 } 
 // on "dealloc" you need to release all your retained objects

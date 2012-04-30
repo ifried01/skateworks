@@ -15,7 +15,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5D95AE241538F9910062205C"
                BuildableName = "Comp50Game.app"
-               BlueprintName = "Comp50Game"
+               BlueprintName = "SkateWorks"
                ReferencedContainer = "container:Comp50Game.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,7 +33,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5D95AE241538F9910062205C"
             BuildableName = "Comp50Game.app"
-            BlueprintName = "Comp50Game"
+            BlueprintName = "SkateWorks"
             ReferencedContainer = "container:Comp50Game.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -46,13 +46,14 @@
       buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
+      enablesOpenGLESFrameCapture = "YES"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5D95AE241538F9910062205C"
             BuildableName = "Comp50Game.app"
-            BlueprintName = "Comp50Game"
+            BlueprintName = "SkateWorks"
             ReferencedContainer = "container:Comp50Game.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -70,7 +71,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5D95AE241538F9910062205C"
             BuildableName = "Comp50Game.app"
-            BlueprintName = "Comp50Game"
+            BlueprintName = "SkateWorks"
             ReferencedContainer = "container:Comp50Game.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

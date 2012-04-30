@@ -11,6 +11,7 @@
 
 @class PlayerClass;
 @class SpriteClass;
+@class RoadSprite;
 
 @interface GameLayer : CCLayer <UIAccelerometerDelegate> {
     PlayerClass* player;
