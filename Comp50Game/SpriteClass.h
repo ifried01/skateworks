@@ -21,7 +21,7 @@
 - (int)getSpritex;
 - (int)getSpritey;
 - (id)initWithFile:(NSString*)filename;
-- (int)setSpritex;
+- (int)setCarx;
 // returns a CCScene that contains the HelloWorldLayer as the only child
 
 

@@ -1,0 +1,176 @@
+<html>
+    <head>
+        <title>Skate Works</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <script src="jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.js"></script>
+        <link rel="stylesheet" type="text/css" href="jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+        <script src="bootstrap/js/bootstrap.js"></script>
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.css">
+        <script type="text/javascript">
+            $('.carousel').carousel({
+                interval: 2000
+            })
+            $(".collapse").collapse()
+            
+        $(document).ready(function() {
+
+            $("#youtube").click(function() {
+                $.fancybox({
+                        'padding'        : 0,
+                        'autoScale'      : false,
+                        'transitionIn'   : 'elastic',
+                        'transitionOut'  : 'elastic',
+                        'title'          : this.title,
+                        'width'          : 680,
+                        'height'         : 495,
+                        'href'           : this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'),
+                        'type'           : 'swf',
+                        'swf'            : {
+                            'wmode'              : 'transparent',
+                            'allowfullscreen'    : 'true'
+                        }
+                    });
+                return false;
+            });
+        });
+        $('#foo').bind('click', function() {
+              alert($(this).text());
+            });
+            $('#foo').trigger('click');
+            
+        </script>
+    </head>
+    <body>
+        <div class="hero-unit">
+            <h1>Skate Works</h1>
+            <p style="margin-left:40px">A Game By Eric Dougles, Inbar Fried, and Aaron Wishnick</p>
+        </div>
+        <div style="margin-left: 400px" class="span5 columns carousel slide" id="myCarousel">
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="random0.jpg">
+                </div>
+                <div class="item">
+                    <img src="random1.png">
+                </div>
+                <div class="item">
+                    <img src="random2.png">
+                </div>
+            </div>
+            <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+            <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+        </div>
+        <div style="clear:both"></div>
+        <hr class="soften">
+        <div class="subnav">
+            <ul class="nav nav-tabs">
+                <li class="active" style="margin-left:100px"><a href="#home" data-toggle="tab">The Game</a></li>
+                <li><a href="#about" data-toggle="tab">The Team</a></li>
+                <li><a href="#resources" data-toggle="tab">The Resources</a></li>
+                <li><a href="#extras" data-toggle="tab">The Extras</a></li>
+            </ul>
+        </div>
+        <div class="tab-content">
+            <div class="tab-pane active" id="home">
+                <div class="row">
+                    <div style="margin-left:100px" class="span4">
+                        <h2><img class="bs-icon" src="../player1.png">Skate to Survive</h2>
+                        <p style="margin-left:25px;margin-top:-10px">You are skateboarding in oncoming traffic and the only way to survive is to dodge the cars.</p>
+                    </div>
+                    <div class="span4">
+                        <h2><img src="../car1.png"> The Cars</h2>
+                        <p>The cars will be coming towards you from the right side of the screen,
+                        dodge them by tilting the phone up and down. Dodge the cars and the game will continue, hit a car and you will die!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="about">
+                <div class="span9 columns">
+                    <div class="accordion" id="accordion2">
+                        <div class="accordion-group">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#eric">Eric Douglas</a>
+                            </div>
+                            <div id="eric" class="accordion-body collapse in">
+                                <div class="accordion-inner">
+                                    <div class="span2">
+                                        <img src="eric.jpg">
+                                    </div>
+                                    <div class="span5">
+                                        <p>Eric Douglas is a Sophomore Computer Science Major at Tufts University.</p>
+                                        <p>Contact Info: <a href="mailto:eric.douglas@tufts.edu">eric.douglas@tufts.edu</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-group">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#inbar">Inbar Fried</a>
+                            </div>
+                            <div id="inbar" class="accordion-body collapse">
+                                <div class="accordion-inner">
+                                    <div class="span2">
+                                        <img src="inbar.jpg">
+                                    </div>
+                                    <div class="span5">
+                                        <p>Inbar Fried is a Sophomore Computer Science Major at Tufts University.</p>
+                                        <p>Contact Info: <a href="mailto:inbar.fried@tufts.edu">inbar.fried@tufts.edu</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-group">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#aaron">Aaron Wishnick</a>
+                            </div>
+                            <div id="aaron" class="accordion-body collapse">
+                                <div class="accordion-inner">
+                                    <div class="span2">
+                                        <img src="aaron.jpg">
+                                    </div>
+                                    <div class="span5">
+                                        <p>Aaron Wishnick is a Sophomore Computer Science Major at Tufts University.</p>
+                                        <p>Contact Info: <a href="mailto:Aaron_B.Wishnick@tufts.edu">Aaron_B.Wishnick@tufts.edu</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="resources">
+                <div style="margin-left:50px" class="span4">
+                    <h2>XCode 4.3.2</h2>
+                    <p>Xcode is Apple's powerful integrated development environment for creating great apps for Mac,
+                    iPhone, and iPad. Xcode includes the Instruments analysis tool, iOS Simulator, and the latest Mac OS X and iOS SDKs.</p>
+                    <a href="http://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12" class="btn btn-primary"><span>View in Mac App Store</span></a>
+                </div>
+                <div class="span4">
+                    <h2>Cocos2d</h2>
+                    <p>Cocos2d for iPhone is a framework for building 2D games, demos, and other
+                    graphical/interactive applications. It is based on the cocos2d design:
+                    it uses the same concepts, but instead of using python it uses objective-c.</p>
+                    <a href="http://www.cocos2d-iphone.org/" class="btn btn-primary"><span>View More Details</span></a>
+                </div>
+                <div class="span4">
+                    <h2>Twitter Bootstrap</h2>
+                    <p>Simple and flexible HTML, CSS, and Javascript for popular user interface components and interactions.</p>
+                    <a href="http://twitter.github.com/bootstrap/index.html" class="btn btn-primary"><span>View the Bootstrap</span></a>
+                </div>
+            </div>
+            <div class="tab-pane" id="extras">
+                <div style="text-align: center">
+                    <h6>Thank you for visiting our site, now enjoy this video of skateboarding.</h6>
+                    <a id="youtube" href="http://www.youtube.com/watch?v=iN1Umj3_bPc&hd=1">
+                        <img alt='Skateboarding video' height='252' src='video.png' width'420'/>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div style="clear:both"></div>
+        
+        <h4 style="margin-left:50px">&copy; SkateWorksCo 2012</h4>
+    </body>
+</html>

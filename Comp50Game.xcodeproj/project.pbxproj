@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D06CBE3154B4B490086190D /* player1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D06CBE2154B4B490086190D /* player1.png */; };
+		5D06CBE5154B4B510086190D /* car1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D06CBE4154B4B510086190D /* car1.png */; };
 		5D2A9E081548628A00F88EBA /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A9E071548628A00F88EBA /* GameLayer.m */; };
+		5D63AFAD154DD7EA008A2DED /* road1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D63AFAC154DD7EA008A2DED /* road1.png */; };
 		5D84B0401541DD0B00240656 /* SpriteClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D84B03F1541DD0B00240656 /* SpriteClass.m */; };
-		5D8C1D88154B10D70080344B /* car1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1D87154B10D70080344B /* car1.png */; };
-		5D8C1D8C154B116C0080344B /* player1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C1D8B154B116C0080344B /* player1.png */; };
 		5D95AE2A1538F9910062205C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D95AE291538F9910062205C /* QuartzCore.framework */; };
 		5D95AE2C1538F9910062205C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D95AE2B1538F9910062205C /* OpenGLES.framework */; };
 		5D95AE2E1538F9910062205C /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D95AE2D1538F9910062205C /* OpenAL.framework */; };
@@ -126,15 +127,28 @@
 		5D95AF8D1538F9940062205C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D95AF8C1538F9940062205C /* AppDelegate.m */; };
 		5D95AF901538F9940062205C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D95AF8F1538F9940062205C /* RootViewController.m */; };
 		5D95AF931538F9940062205C /* PlayerClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D95AF921538F9940062205C /* PlayerClass.m */; };
+		5DB765AC154E6CC5001BD560 /* horngoby.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5DB765AB154E6CC5001BD560 /* horngoby.wav */; };
+		5DB765AF154E6F62001BD560 /* Winter.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5DB765AE154E6F62001BD560 /* Winter.mp3 */; };
+		5DB765B3154ED9DA001BD560 /* skateboard.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5DB765B2154ED9DA001BD560 /* skateboard.mp3 */; };
+		5DB765B5154EDE61001BD560 /* carcrash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5DB765B4154EDE61001BD560 /* carcrash.mp3 */; };
+		5DB765B9154EE73A001BD560 /* skateicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DB765B8154EE73A001BD560 /* skateicon.png */; };
+		5DB765BB154EE994001BD560 /* skateboarder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DB765BA154EE994001BD560 /* skateboarder.png */; };
+		5DF39001154B8AC60026298C /* car3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF38FFD154B8AC60026298C /* car3.png */; };
+		5DF39002154B8AC60026298C /* car4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF38FFE154B8AC60026298C /* car4.png */; };
+		5DF39003154B8AC60026298C /* car5.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF38FFF154B8AC60026298C /* car5.png */; };
+		5DF39004154B8AC60026298C /* car6.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF39000154B8AC60026298C /* car6.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D06CBE2154B4B490086190D /* player1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player1.png; sourceTree = SOURCE_ROOT; };
+		5D06CBE4154B4B510086190D /* car1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car1.png; sourceTree = SOURCE_ROOT; };
 		5D2A9E061548628A00F88EBA /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		5D2A9E071548628A00F88EBA /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
+		5D63AFAC154DD7EA008A2DED /* road1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = road1.png; sourceTree = SOURCE_ROOT; };
+		5D63AFB5154DEF05008A2DED /* RoadSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoadSprite.h; sourceTree = "<group>"; };
+		5D63AFB6154DEF05008A2DED /* RoadSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoadSprite.m; sourceTree = "<group>"; };
 		5D84B03E1541DD0B00240656 /* SpriteClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteClass.h; sourceTree = "<group>"; };
 		5D84B03F1541DD0B00240656 /* SpriteClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpriteClass.m; sourceTree = "<group>"; };
-		5D8C1D87154B10D70080344B /* car1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = car1.png; path = ../../../../../../../../Desktop/car1.png; sourceTree = "<group>"; };
-		5D8C1D8B154B116C0080344B /* player1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = player1.png; path = ../../../../../../../../Desktop/player1.png; sourceTree = "<group>"; };
 		5D95AE251538F9910062205C /* Comp50Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Comp50Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D95AE291538F9910062205C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5D95AE2B1538F9910062205C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -370,6 +384,16 @@
 		5D95AF911538F9940062205C /* PlayerClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerClass.h; sourceTree = "<group>"; };
 		5D95AF921538F9940062205C /* PlayerClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerClass.m; sourceTree = "<group>"; };
 		5D95AF941538F9940062205C /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
+		5DB765AB154E6CC5001BD560 /* horngoby.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = horngoby.wav; sourceTree = SOURCE_ROOT; };
+		5DB765AE154E6F62001BD560 /* Winter.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Winter.mp3; sourceTree = SOURCE_ROOT; };
+		5DB765B2154ED9DA001BD560 /* skateboard.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = skateboard.mp3; sourceTree = SOURCE_ROOT; };
+		5DB765B4154EDE61001BD560 /* carcrash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = carcrash.mp3; sourceTree = SOURCE_ROOT; };
+		5DB765B8154EE73A001BD560 /* skateicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = skateicon.png; path = ../skateicon.png; sourceTree = "<group>"; };
+		5DB765BA154EE994001BD560 /* skateboarder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = skateboarder.png; path = ../skateboarder.png; sourceTree = "<group>"; };
+		5DF38FFD154B8AC60026298C /* car3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car3.png; sourceTree = SOURCE_ROOT; };
+		5DF38FFE154B8AC60026298C /* car4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car4.png; sourceTree = SOURCE_ROOT; };
+		5DF38FFF154B8AC60026298C /* car5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car5.png; sourceTree = SOURCE_ROOT; };
+		5DF39000154B8AC60026298C /* car6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car6.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -426,6 +450,8 @@
 		5D95AE391538F9910062205C /* Comp50Game */ = {
 			isa = PBXGroup;
 			children = (
+				5D63AFB5154DEF05008A2DED /* RoadSprite.h */,
+				5D63AFB6154DEF05008A2DED /* RoadSprite.m */,
 				5D95AF8B1538F9940062205C /* AppDelegate.h */,
 				5D95AF8C1538F9940062205C /* AppDelegate.m */,
 				5D95AF8E1538F9940062205C /* RootViewController.h */,
@@ -447,8 +473,19 @@
 		5D95AE3A1538F9910062205C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5D8C1D8B154B116C0080344B /* player1.png */,
-				5D8C1D87154B10D70080344B /* car1.png */,
+				5DB765B8154EE73A001BD560 /* skateicon.png */,
+				5DB765BA154EE994001BD560 /* skateboarder.png */,
+				5DB765B4154EDE61001BD560 /* carcrash.mp3 */,
+				5DB765B2154ED9DA001BD560 /* skateboard.mp3 */,
+				5DB765AE154E6F62001BD560 /* Winter.mp3 */,
+				5DB765AB154E6CC5001BD560 /* horngoby.wav */,
+				5D63AFAC154DD7EA008A2DED /* road1.png */,
+				5DF38FFD154B8AC60026298C /* car3.png */,
+				5DF38FFE154B8AC60026298C /* car4.png */,
+				5DF38FFF154B8AC60026298C /* car5.png */,
+				5DF39000154B8AC60026298C /* car6.png */,
+				5D06CBE4154B4B510086190D /* car1.png */,
+				5D06CBE2154B4B490086190D /* player1.png */,
 				5D95AE3B1538F9910062205C /* Default.png */,
 				5D95AE3D1538F9910062205C /* fps_images.png */,
 				5D95AE3F1538F9910062205C /* Icon-72.png */,
@@ -777,9 +814,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5D95AE241538F9910062205C /* Comp50Game */ = {
+		5D95AE241538F9910062205C /* SkateWorks */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5D95AF971538F9940062205C /* Build configuration list for PBXNativeTarget "Comp50Game" */;
+			buildConfigurationList = 5D95AF971538F9940062205C /* Build configuration list for PBXNativeTarget "SkateWorks" */;
 			buildPhases = (
 				5D95AE211538F9910062205C /* Sources */,
 				5D95AE221538F9910062205C /* Frameworks */,
@@ -789,7 +826,7 @@
 			);
 			dependencies = (
 			);
-			name = Comp50Game;
+			name = SkateWorks;
 			productName = Comp50Game;
 			productReference = 5D95AE251538F9910062205C /* Comp50Game.app */;
 			productType = "com.apple.product-type.application";
@@ -815,7 +852,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5D95AE241538F9910062205C /* Comp50Game */,
+				5D95AE241538F9910062205C /* SkateWorks */,
 			);
 		};
 /* End PBXProject section */
@@ -834,8 +871,19 @@
 				5D95AE481538F9910062205C /* Icon.png in Resources */,
 				5D95AE4A1538F9910062205C /* Icon@2x.png in Resources */,
 				5D95AE4D1538F9910062205C /* iTunesArtwork in Resources */,
-				5D8C1D88154B10D70080344B /* car1.png in Resources */,
-				5D8C1D8C154B116C0080344B /* player1.png in Resources */,
+				5D06CBE3154B4B490086190D /* player1.png in Resources */,
+				5D06CBE5154B4B510086190D /* car1.png in Resources */,
+				5DF39001154B8AC60026298C /* car3.png in Resources */,
+				5DF39002154B8AC60026298C /* car4.png in Resources */,
+				5DF39003154B8AC60026298C /* car5.png in Resources */,
+				5DF39004154B8AC60026298C /* car6.png in Resources */,
+				5D63AFAD154DD7EA008A2DED /* road1.png in Resources */,
+				5DB765AC154E6CC5001BD560 /* horngoby.wav in Resources */,
+				5DB765AF154E6F62001BD560 /* Winter.mp3 in Resources */,
+				5DB765B3154ED9DA001BD560 /* skateboard.mp3 in Resources */,
+				5DB765B5154EDE61001BD560 /* carcrash.mp3 in Resources */,
+				5DB765B9154EE73A001BD560 /* skateicon.png in Resources */,
+				5DB765BB154EE994001BD560 /* skateboarder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1038,7 +1086,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5D95AF971538F9940062205C /* Build configuration list for PBXNativeTarget "Comp50Game" */ = {
+		5D95AF971538F9940062205C /* Build configuration list for PBXNativeTarget "SkateWorks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5D95AF981538F9940062205C /* Debug */,

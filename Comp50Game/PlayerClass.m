@@ -17,18 +17,30 @@
 }
 
 - (void)setUpDown:(double)acceleration {
-    if (acceleration < -0.1) {
-        down = true;
-        up = false;
-    }
-    else if (acceleration > 0.1) {
+    if (acceleration < -0.15 && acceleration > -0.65) {
         up = true;
         down = false;
+        speed = 3;
     }
-    else {
+    else if (acceleration > 0.15 && acceleration < 0.65) {
+        down = true;
         up = false;
-        down = false;
+        speed = 3;
     }
+   else if (acceleration <= -0.65 && acceleration > -1) {
+        up = true;
+        down = false;
+       speed = 5;
+    }
+   else if (acceleration >= 0.65 && acceleration < 1) {
+       up = false;
+       down = true;
+       speed = 5;
+   }
+   else {
+       up = false;
+       down = false;
+   }
     
 }
 
@@ -44,12 +56,12 @@
 
 
 - (int) setPlayery {
-    if (down == true && y < 300) {
+    if (down == true && y < 280) {
         y = y + speed;
         //down = false;
         //up = false;
     }
-    else if (up == true && y > 20) {
+    else if (up == true && y > 35) {
         y = y - speed;
         //down = false;
         //up = false;
@@ -86,7 +98,7 @@
 - (void)update:(ccTime)dt {
     [self setPlayery];
     [self setPosition:ccp(x, y)];
-    NSLog(@"Collide = %d", (int)collide);
+    //NSLog(@"Collide = %d", (int)collide);
     
 }
 

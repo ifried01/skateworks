@@ -11,10 +11,15 @@
 
 @class PlayerClass;
 @class SpriteClass;
+@class RoadSprite;
 
 @interface GameLayer : CCLayer <UIAccelerometerDelegate> {
     PlayerClass* player;
     NSMutableArray *sprites;
+    NSMutableArray *images;
+    NSString* roadImage;
+    NSMutableArray* lanes;
+    double gameTimer;
 }
 
 @end
