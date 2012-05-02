@@ -14,7 +14,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5D95AE241538F9910062205C"
-               BuildableName = "Comp50Game.app"
+               BuildableName = "SkateWorks.app"
                BlueprintName = "SkateWorks"
                ReferencedContainer = "container:Comp50Game.xcodeproj">
             </BuildableReference>
@@ -32,7 +32,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5D95AE241538F9910062205C"
-            BuildableName = "Comp50Game.app"
+            BuildableName = "SkateWorks.app"
             BlueprintName = "SkateWorks"
             ReferencedContainer = "container:Comp50Game.xcodeproj">
          </BuildableReference>
@@ -52,7 +52,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5D95AE241538F9910062205C"
-            BuildableName = "Comp50Game.app"
+            BuildableName = "SkateWorks.app"
             BlueprintName = "SkateWorks"
             ReferencedContainer = "container:Comp50Game.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5D95AE241538F9910062205C"
-            BuildableName = "Comp50Game.app"
+            BuildableName = "SkateWorks.app"
             BlueprintName = "SkateWorks"
             ReferencedContainer = "container:Comp50Game.xcodeproj">
          </BuildableReference>

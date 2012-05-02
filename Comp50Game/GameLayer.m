@@ -9,7 +9,7 @@
 #import "GameLayer.h"
 #import "PlayerClass.h"
 #import "SpriteClass.h"
-#import "RoadSprite.h"
+#import "RoadClass.h"
 #import "SimpleAudioEngine.h"
 #import "CDAudioManager.h"
 #import "CocosDenshion.h"
@@ -90,31 +90,44 @@
         lanes = tempRoads;*/
         
         //Road spawn
-        NSMutableArray* newLanes = [[NSMutableArray alloc] initWithCapacity:6];
-        CCSprite *lane1 = [[CCSprite alloc] initWithFile:roadImage];
-        [lane1 setPosition:ccp(240, 27)];
+        NSMutableArray* newLanes = [[NSMutableArray alloc] initWithCapacity:12];
+        RoadClass *lane1 = [[RoadClass alloc] initWithFile:roadImage atPositionx:240 atPositiony:27];
         [self addChild:lane1];
         [newLanes addObject:lane1];
-        CCSprite *lane2 = [[CCSprite alloc] initWithFile:roadImage];
-        [lane2 setPosition:ccp(240, 27*3)];
+        RoadClass *lane2 = [[RoadClass alloc] initWithFile:roadImage atPositionx:240 atPositiony:27*3];
         [self addChild:lane2];
         [newLanes addObject:lane2];
-        CCSprite *lane3 = [[CCSprite alloc] initWithFile:roadImage];
-        [lane3 setPosition:ccp(240, 27*5)];
+        RoadClass *lane3 = [[RoadClass alloc] initWithFile:roadImage atPositionx:240 atPositiony:27*5];
         [self addChild:lane3];
         [newLanes addObject:lane3];
-        CCSprite *lane4 = [[CCSprite alloc] initWithFile:roadImage];
-        [lane4 setPosition:ccp(240, 27*7)];
+        RoadClass *lane4 = [[RoadClass alloc] initWithFile:roadImage atPositionx:240 atPositiony:27*7];
         [self addChild:lane4];
         [newLanes addObject:lane4];
-        CCSprite *lane5 = [[CCSprite alloc] initWithFile:roadImage];
-        [lane5 setPosition:ccp(240, 27*9)];
+        RoadClass *lane5 = [[RoadClass alloc] initWithFile:roadImage atPositionx:240 atPositiony:27*9];
         [self addChild:lane5];
         [newLanes addObject:lane5];
-        CCSprite *lane6 = [[CCSprite alloc] initWithFile:roadImage];
-        [lane6 setPosition:ccp(240, 27*11)];
+        RoadClass *lane6 = [[RoadClass alloc] initWithFile:roadImage atPositionx:240 atPositiony:27*11];
         [self addChild:lane6];
         [newLanes addObject:lane6];
+        
+        RoadClass *lane7 = [[RoadClass alloc] initWithFile:roadImage atPositionx:240+480 atPositiony:27];
+        [self addChild:lane7];
+        [newLanes addObject:lane7];
+        RoadClass *lane8 = [[RoadClass alloc] initWithFile:roadImage atPositionx:240+480 atPositiony:27*3];
+        [self addChild:lane8];
+        [newLanes addObject:lane8];
+        RoadClass *lane9 = [[RoadClass alloc] initWithFile:roadImage atPositionx:240+480 atPositiony:27*5];
+        [self addChild:lane9];
+        [newLanes addObject:lane9];
+        RoadClass *lane10 = [[RoadClass alloc] initWithFile:roadImage atPositionx:240+480 atPositiony:27*7];
+        [self addChild:lane10];
+        [newLanes addObject:lane10];
+        RoadClass *lane11 = [[RoadClass alloc] initWithFile:roadImage atPositionx:240+480 atPositiony:27*9];
+        [self addChild:lane11];
+        [newLanes addObject:lane11];
+        RoadClass *lane12 = [[RoadClass alloc] initWithFile:roadImage atPositionx:240+480 atPositiony:27*11];
+        [self addChild:lane12];
+        [newLanes addObject:lane12];
         
         lanes = newLanes;
         
@@ -233,14 +246,17 @@
              //[deleteMe addObject:player];
          }
      }
-    /*for (int z = 0; z < [lanes count]; z++) {
-        SpriteClass* tempLane = [lanes objectAtIndex:z];
-        [tempLane setRoadx];
-        [tempLane setPosition:ccp([tempLane getSpritex], [tempLane getSpritey])];
-        if ([tempLane getSpritex] < -250) {
+    for (int z = 0; z < [lanes count]; z++) {
+        RoadClass* tempLane = [lanes objectAtIndex:z];
+        if ([tempLane getRoadx] < -235) {
             [deleteMe addObject:tempLane];
+            [lanes removeObject:tempLane];
+            RoadClass *newLane = [[RoadClass alloc] initWithFile:roadImage atPositionx:240+480 atPositiony:[tempLane getRoady]];
+            [self addChild:newLane z:-1];
+            [lanes addObject:newLane];
+            
         }
-    }*/
+    }
     for (int a = 0; a < [deleteMe count]; a++) {
         [self removeChild:[deleteMe objectAtIndex:a] cleanup:YES];
     }

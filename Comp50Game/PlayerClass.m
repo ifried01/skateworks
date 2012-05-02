@@ -30,12 +30,12 @@
    else if (acceleration <= -0.65 && acceleration > -1) {
         up = true;
         down = false;
-       speed = 5;
+       speed = 6;
     }
    else if (acceleration >= 0.65 && acceleration < 1) {
        up = false;
        down = true;
-       speed = 5;
+       speed = 6;
    }
    else {
        up = false;
