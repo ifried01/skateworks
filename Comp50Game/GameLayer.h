@@ -20,6 +20,9 @@
     NSString* roadImage;
     NSMutableArray* lanes;
     double gameTimer;
+    CCLabelTTF* timerLabel;
+    
+    BOOL isPaused;
 }
 
 @end

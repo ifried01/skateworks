@@ -21,11 +21,20 @@
         x = xCoord;
         y = yCoord;
         speed = 2;        
-        
     }
     return self;
 }
-
+/*
+- (void)writeCrap {
+    // Writing
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setInteger:highScore forKey:@"highScore"];
+    [defaults synchronize];
+    
+    // Reading
+    int savedHS = [defaults integerForKey:@"highScore"];
+}
+*/
 
 - (int)setRoadx {
     x = x - speed;

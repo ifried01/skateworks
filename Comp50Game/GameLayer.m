@@ -39,10 +39,12 @@
 	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super init])) {
         self.isTouchEnabled = YES;
+        isPaused = NO;
         
         gameTimer = 0;
         //print "Time:" to screen
         CCLabelTTF *timer = [CCLabelTTF labelWithString:@"Time: "  fontName:@"Helvetica" fontSize:24];
+        timerLabel = [timer retain];
         timer.position = ccp(400, 10);
         
         [self schedule:@selector(update:) interval:1.0/60];
@@ -143,7 +145,6 @@
 	return self;
 }
 
-
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
     // Do stuff like sending accel information to player to make him move'
     /*
@@ -164,8 +165,15 @@
     NSLog(@"z: %g", acceleration.z);
     */
     [player setUpDown:acceleration.x];
+}
 
-    
+- (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (!isPaused) {
+        [[CCDirector sharedDirector] pause];
+    } else {
+        [[CCDirector sharedDirector] resume];
+    }
+    isPaused = !isPaused;
 }
 
 
@@ -173,6 +181,7 @@
     
     //COLLISION HANDLING AND CAR SPAWNING
     gameTimer += dt;
+    [timerLabel setString:[NSString stringWithFormat:@"Time: %i",(int)gameTimer]];
     CCArray* deleteMe = [CCArray array];
     /*CCArray* sprites = [self children];
     if ([[SpriteClass self] children] != nil) {
@@ -260,6 +269,7 @@
     for (int a = 0; a < [deleteMe count]; a++) {
         [self removeChild:[deleteMe objectAtIndex:a] cleanup:YES];
     }
+    
     /*NSInteger s = arc4random()%200;
     if (s == 0) {
         [[SimpleAudioEngine sharedEngine] playEffect:@"horngoby.wav"];
