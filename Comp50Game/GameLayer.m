@@ -67,7 +67,7 @@
          
         images = tempImages;
         
-        roadImage = @"road1.png";
+        roadImage = @"road2.png";
         //NSInteger i = arc4random()%[images count] + 1;
         //NSString *carImage = [images objectAtIndex:i];
     
@@ -93,9 +93,10 @@
         
         //Road spawn
         NSMutableArray* newLanes = [[NSMutableArray alloc] initWithCapacity:12];
-        RoadClass *lane1 = [[RoadClass alloc] initWithFile:roadImage atPositionx:240 atPositiony:27];
-        [self addChild:lane1];
-        [newLanes addObject:lane1];
+        RoadClass *initLane = [[RoadClass alloc] initWithFile:roadImage atPositionx:240 atPositiony:160];
+        [self addChild:initLane];
+        [newLanes addObject:initLane];
+        /*
         RoadClass *lane2 = [[RoadClass alloc] initWithFile:roadImage atPositionx:240 atPositiony:27*3];
         [self addChild:lane2];
         [newLanes addObject:lane2];
@@ -110,11 +111,12 @@
         [newLanes addObject:lane5];
         RoadClass *lane6 = [[RoadClass alloc] initWithFile:roadImage atPositionx:240 atPositiony:27*11];
         [self addChild:lane6];
-        [newLanes addObject:lane6];
+        [newLanes addObject:lane6];*/
         
-        RoadClass *lane7 = [[RoadClass alloc] initWithFile:roadImage atPositionx:240+480 atPositiony:27];
-        [self addChild:lane7];
-        [newLanes addObject:lane7];
+        RoadClass *secondLane = [[RoadClass alloc] initWithFile:roadImage atPositionx:240+480 atPositiony:160];
+        [self addChild:secondLane];
+        [newLanes addObject:secondLane];
+        /*
         RoadClass *lane8 = [[RoadClass alloc] initWithFile:roadImage atPositionx:240+480 atPositiony:27*3];
         [self addChild:lane8];
         [newLanes addObject:lane8];
@@ -129,7 +131,7 @@
         [newLanes addObject:lane11];
         RoadClass *lane12 = [[RoadClass alloc] initWithFile:roadImage atPositionx:240+480 atPositiony:27*11];
         [self addChild:lane12];
-        [newLanes addObject:lane12];
+        [newLanes addObject:lane12];*/
         
         lanes = newLanes;
         
