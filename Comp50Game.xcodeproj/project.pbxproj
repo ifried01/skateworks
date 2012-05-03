@@ -138,6 +138,12 @@
 		5DBABBD31551C95300740EA7 /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBABBD21551C95300740EA7 /* start.png */; };
 		5DBABBD51551C96D00740EA7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBABBD41551C96D00740EA7 /* Default@2x.png */; };
 		5DBABBD71551C9C100740EA7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBABBD61551C9C100740EA7 /* Default@2x.png */; };
+		5DBABBD91551CD0C00740EA7 /* skateshop.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBABBD81551CD0B00740EA7 /* skateshop.png */; };
+		5DBABBDC1551CDAD00740EA7 /* SceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBABBDB1551CDAD00740EA7 /* SceneManager.m */; };
+		5DBABBDF1551CEC100740EA7 /* MenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBABBDE1551CEC000740EA7 /* MenuLayer.m */; };
+		5DBABBE315520C1B00740EA7 /* skatemenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBABBE215520C1B00740EA7 /* skatemenu.png */; };
+		5DBABBE615522D9D00740EA7 /* InstructionLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBABBE515522D9D00740EA7 /* InstructionLayer.m */; };
+		5DBABBE81552304600740EA7 /* instructionbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBABBE71552304600740EA7 /* instructionbg.png */; };
 		5DF39001154B8AC60026298C /* car3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF38FFD154B8AC60026298C /* car3.png */; };
 		5DF39002154B8AC60026298C /* car4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF38FFE154B8AC60026298C /* car4.png */; };
 		5DF39003154B8AC60026298C /* car5.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF38FFF154B8AC60026298C /* car5.png */; };
@@ -399,6 +405,15 @@
 		5DBABBD21551C95300740EA7 /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start.png; sourceTree = SOURCE_ROOT; };
 		5DBABBD41551C96D00740EA7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		5DBABBD61551C9C100740EA7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = SOURCE_ROOT; };
+		5DBABBD81551CD0B00740EA7 /* skateshop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skateshop.png; sourceTree = SOURCE_ROOT; };
+		5DBABBDA1551CDAD00740EA7 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
+		5DBABBDB1551CDAD00740EA7 /* SceneManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneManager.m; sourceTree = "<group>"; };
+		5DBABBDD1551CEC000740EA7 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayer.h; sourceTree = "<group>"; };
+		5DBABBDE1551CEC000740EA7 /* MenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuLayer.m; sourceTree = "<group>"; };
+		5DBABBE215520C1B00740EA7 /* skatemenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skatemenu.png; sourceTree = SOURCE_ROOT; };
+		5DBABBE415522D9C00740EA7 /* InstructionLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionLayer.h; sourceTree = "<group>"; };
+		5DBABBE515522D9D00740EA7 /* InstructionLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionLayer.m; sourceTree = "<group>"; };
+		5DBABBE71552304600740EA7 /* instructionbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instructionbg.png; sourceTree = SOURCE_ROOT; };
 		5DF38FFD154B8AC60026298C /* car3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car3.png; sourceTree = SOURCE_ROOT; };
 		5DF38FFE154B8AC60026298C /* car4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car4.png; sourceTree = SOURCE_ROOT; };
 		5DF38FFF154B8AC60026298C /* car5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car5.png; sourceTree = SOURCE_ROOT; };
@@ -473,6 +488,12 @@
 				5D2A9E061548628A00F88EBA /* GameLayer.h */,
 				5D2A9E071548628A00F88EBA /* GameLayer.m */,
 				5D95AF941538F9940062205C /* GameConfig.h */,
+				5DBABBDA1551CDAD00740EA7 /* SceneManager.h */,
+				5DBABBDB1551CDAD00740EA7 /* SceneManager.m */,
+				5DBABBDD1551CEC000740EA7 /* MenuLayer.h */,
+				5DBABBDE1551CEC000740EA7 /* MenuLayer.m */,
+				5DBABBE415522D9C00740EA7 /* InstructionLayer.h */,
+				5DBABBE515522D9D00740EA7 /* InstructionLayer.m */,
 				5D95AE3A1538F9910062205C /* Resources */,
 				5D95AE4E1538F9910062205C /* libs */,
 				5D95AF871538F9940062205C /* Supporting Files */,
@@ -483,7 +504,10 @@
 		5D95AE3A1538F9910062205C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5DBABBD81551CD0B00740EA7 /* skateshop.png */,
+				5DBABBE215520C1B00740EA7 /* skatemenu.png */,
 				5DBABBD61551C9C100740EA7 /* Default@2x.png */,
+				5DBABBE71552304600740EA7 /* instructionbg.png */,
 				5DBABBCF1551C3A700740EA7 /* road2.png */,
 				5DBABBD21551C95300740EA7 /* start.png */,
 				5DB765B8154EE73A001BD560 /* skateicon.png */,
@@ -901,6 +925,9 @@
 				5DBABBD31551C95300740EA7 /* start.png in Resources */,
 				5DBABBD51551C96D00740EA7 /* Default@2x.png in Resources */,
 				5DBABBD71551C9C100740EA7 /* Default@2x.png in Resources */,
+				5DBABBD91551CD0C00740EA7 /* skateshop.png in Resources */,
+				5DBABBE315520C1B00740EA7 /* skatemenu.png in Resources */,
+				5DBABBE81552304600740EA7 /* instructionbg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1012,6 +1039,9 @@
 				5D84B0401541DD0B00240656 /* SpriteClass.m in Sources */,
 				5D2A9E081548628A00F88EBA /* GameLayer.m in Sources */,
 				5DB6D3521550E94A00232E94 /* RoadClass.m in Sources */,
+				5DBABBDC1551CDAD00740EA7 /* SceneManager.m in Sources */,
+				5DBABBDF1551CEC100740EA7 /* MenuLayer.m in Sources */,
+				5DBABBE615522D9D00740EA7 /* InstructionLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

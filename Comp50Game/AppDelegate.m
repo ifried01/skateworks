@@ -14,6 +14,7 @@
 #import "RootViewController.h"
 #import "SpriteClass.h"
 #import "GameLayer.h"
+#import "SceneManager.h"
 
 @implementation AppDelegate
 
@@ -115,8 +116,8 @@
     [[UIAccelerometer sharedAccelerometer] setUpdateInterval:1.0f/10.0f];
     
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene:[GameLayer scene]];
-    //[[CCDirector sharedDirector] runWithScene: [SpriteClass scene]];
+	//[[CCDirector sharedDirector] runWithScene:[GameLayer scene]];
+    [SceneManager goMenu];
 }
 
 

@@ -76,9 +76,9 @@
             speed = 3;
         }
          //= [NSArray arrayWithObjects:25, 80, 135, 190, nil];
-        [self setPosition:ccp(500, i*54)];
+        [self setPosition:ccp(500, i*53)];
         x = 500;
-        y = 54*i;
+        y = 53*i;
         
         
     }

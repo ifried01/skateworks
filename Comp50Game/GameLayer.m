@@ -45,7 +45,7 @@
         //print "Time:" to screen
         CCLabelTTF *timer = [CCLabelTTF labelWithString:@"Time: "  fontName:@"Helvetica" fontSize:24];
         timerLabel = [timer retain];
-        timer.position = ccp(400, 10);
+        timer.position = ccp(410, 10);
         
         [self schedule:@selector(update:) interval:1.0/60];
         self.isAccelerometerEnabled = YES;
@@ -142,7 +142,7 @@
         //SpriteClass* tempSprite = [[SpriteClass alloc] initWithFile:@"car6.png"];
         //sprite = tempSprite;
         //[self addChild:tempSprite]; 
-        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"skateboard.mp3"];
+        //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"skateboard.mp3"];
     }
 	return self;
 }
@@ -207,13 +207,13 @@
 
     NSInteger c;
     if (gameTimer < 45) {
-     c = arc4random()%50;
+     c = arc4random()%40;
     }
     else if (gameTimer >= 45 && gameTimer < 90) {
-        c = arc4random()%35;
+        c = arc4random()%25;
     }
     else {
-        c = arc4random()%20;
+        c = arc4random()%15;
     }
      if (c == 0) {
          NSInteger i = arc4random()%[images count];

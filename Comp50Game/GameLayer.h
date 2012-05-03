@@ -25,4 +25,6 @@
     BOOL isPaused;
 }
 
++(CCScene *) scene;
+
 @end
