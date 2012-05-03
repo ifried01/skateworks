@@ -21,13 +21,14 @@
     NSMutableArray* lanes;
     double gameTimer;
     CCLabelTTF* timerLabel;
-    
+    int finalTime;
     BOOL isPaused;
 }
 
 +(CCScene *) scene;
-- (double)getTimer;
+- (double)getFinaltime;
 -(void) back: (id) sender;
 -(void) restart: (id) sender;
+
 
 @end

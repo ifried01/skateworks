@@ -8,6 +8,78 @@
 
 #import "SceneManager.h"
 
+
+
+#define TRANSITION_DURATION (1.2f)
+
+@interface FadeWhiteTransition : CCTransitionFade
+
++(id) transitionWithDuration:(ccTime) t scene:(CCScene*)s;
+
+@end
+
+@interface ZoomFlipXLeftOver : CCTransitionZoomFlipX
+
++(id) transitionWithDuration:(ccTime) t scene:(CCScene*)s;
+@end
+
+@interface FlipYDownOver : CCTransitionFlipY
++(id) transitionWithDuration:(ccTime) t scene:(CCScene*)s;
+@end
+
+@implementation FadeWhiteTransition
+
++(id) transitionWithDuration:(ccTime) t scene:(CCScene*)s {
+    return [self transitionWithDuration:t scene:s withColor:ccWHITE];
+}
+
+@end
+
+@implementation ZoomFlipXLeftOver
+
++(id) transitionWithDuration:(ccTime) t scene:(CCScene*)s {
+    return [self transitionWithDuration:t scene:s orientation:kOrientationLeftOver];
+
+}
+
+@end
+
+@implementation FlipYDownOver
+
++(id) transitionWithDuration:(ccTime) t scene:(CCScene*)s {
+    return [self transitionWithDuration:t scene:s orientation:kOrientationDownOver];
+}
+@end
+
+
+static int sceneIdx=0;
+
+static NSString *transitions[] = {
+    @"FlipYDownOver",
+    @"FadeWhiteTransition",
+    @"ZoomFlipXLeftOver",
+};
+
+Class nextTransition()
+{
+    // HACK: else NSClassFromString will fail
+    [CCTransitionRadialCCW node];
+
+    //sceneIdx++;
+    //sceneIdx = sceneIdx % ( sizeof(transitions) / sizeof(transitions[0]) );
+    NSString *r = transitions[sceneIdx];
+    Class c = NSClassFromString(r);
+    return c;
+}
+
+
+
+
+
+
+
+
+
 @interface SceneManager ()
 +(void) goLayer:(CCLayer *)layer;
 +(CCScene *) wrap: (CCLayer *) layer;
@@ -18,6 +90,7 @@
 
 
 +(void) goMenu{
+    sceneIdx = 0;
     CCLayer *layer = [MenuLayer node];
     [SceneManager goLayer: layer];
 }
@@ -25,8 +98,21 @@
 +(void) goLayer: (CCLayer *) layer{
     CCDirector *director = [CCDirector sharedDirector];
     CCScene *newScene = [SceneManager wrap:layer];
+   /* 
+    if (layer == [GameLayer node]) {
+        sceneIdx = 1;
+    }
+    else if (layer == [MenuLayer node]) {
+        sceneIdx = 0;
+    }
+    else {
+        sceneIdx = 2;
+    }
+    */
+    Class transition = nextTransition();
+
     if ([director runningScene]) {
-        [director replaceScene: newScene];
+        [director replaceScene:[transition transitionWithDuration:TRANSITION_DURATION scene:newScene]];
     }else {
         [director runWithScene:newScene];
     }
@@ -39,12 +125,14 @@
 }
 
 +(void) goPlay{
+    sceneIdx = 1;
     CCLayer *layer = [GameLayer node];
     [SceneManager goLayer: layer];
 }
 
 
 +(void) goInstructions{
+    sceneIdx = 2;
     CCLayer *layer = [InstructionLayer node];
     [SceneManager goLayer: layer];
 }

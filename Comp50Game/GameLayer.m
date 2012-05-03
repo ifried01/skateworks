@@ -42,6 +42,7 @@
 	if( (self=[super init])) {
         self.isTouchEnabled = YES;
         isPaused = NO;
+        finalTime = 0;
         
         gameTimer = 0;
         //print "Time:" to screen
@@ -280,6 +281,7 @@
         [[SimpleAudioEngine sharedEngine] playEffect:@"horngoby.wav"];
     }*/
     if ([player getCollide]) {
+        finalTime = (int)gameTimer;
         [SceneManager goLayer:[GameOverLayer node]];
     }
     
@@ -304,8 +306,8 @@
     [SceneManager goPlay];
 }
 
-- (double)getTimer {
-    return gameTimer;
+- (double)getFinaltime {
+    return finalTime;
 }
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc

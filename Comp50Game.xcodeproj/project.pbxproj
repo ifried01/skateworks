@@ -146,6 +146,10 @@
 		5DBABBEA1552313200740EA7 /* Instructions.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBABBE91552313200740EA7 /* Instructions.png */; };
 		5DBABBED15523E8900740EA7 /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBABBEC15523E8800740EA7 /* GameOverLayer.m */; };
 		5DBABBF015523F7E00740EA7 /* InstructionLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBABBEF15523F7D00740EA7 /* InstructionLayer.m */; };
+		5DBABBF21552DBD800740EA7 /* shredbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBABBF11552DBD800740EA7 /* shredbutton.png */; };
+		5DBABBF41552E05A00740EA7 /* skateshop-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBABBF31552E05A00740EA7 /* skateshop-1.png */; };
+		5DBABBF61552E0B000740EA7 /* cityskate.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBABBF51552E0B000740EA7 /* cityskate.png */; };
+		5DBABBF81552E10300740EA7 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBABBF71552E10300740EA7 /* logo.png */; };
 		5DF39001154B8AC60026298C /* car3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF38FFD154B8AC60026298C /* car3.png */; };
 		5DF39002154B8AC60026298C /* car4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF38FFE154B8AC60026298C /* car4.png */; };
 		5DF39003154B8AC60026298C /* car5.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF38FFF154B8AC60026298C /* car5.png */; };
@@ -419,6 +423,10 @@
 		5DBABBEC15523E8800740EA7 /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverLayer.m; sourceTree = "<group>"; };
 		5DBABBEE15523F7D00740EA7 /* InstructionLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionLayer.h; sourceTree = "<group>"; };
 		5DBABBEF15523F7D00740EA7 /* InstructionLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionLayer.m; sourceTree = "<group>"; };
+		5DBABBF11552DBD800740EA7 /* shredbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shredbutton.png; sourceTree = SOURCE_ROOT; };
+		5DBABBF31552E05A00740EA7 /* skateshop-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "skateshop-1.png"; sourceTree = SOURCE_ROOT; };
+		5DBABBF51552E0B000740EA7 /* cityskate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cityskate.png; sourceTree = SOURCE_ROOT; };
+		5DBABBF71552E10300740EA7 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = SOURCE_ROOT; };
 		5DF38FFD154B8AC60026298C /* car3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car3.png; sourceTree = SOURCE_ROOT; };
 		5DF38FFE154B8AC60026298C /* car4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car4.png; sourceTree = SOURCE_ROOT; };
 		5DF38FFF154B8AC60026298C /* car5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car5.png; sourceTree = SOURCE_ROOT; };
@@ -511,6 +519,10 @@
 		5D95AE3A1538F9910062205C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5DBABBF51552E0B000740EA7 /* cityskate.png */,
+				5DBABBF71552E10300740EA7 /* logo.png */,
+				5DBABBF31552E05A00740EA7 /* skateshop-1.png */,
+				5DBABBF11552DBD800740EA7 /* shredbutton.png */,
 				5DBABBD81551CD0B00740EA7 /* skateshop.png */,
 				5DBABBE91552313200740EA7 /* Instructions.png */,
 				5DBABBE215520C1B00740EA7 /* skatemenu.png */,
@@ -937,6 +949,10 @@
 				5DBABBE315520C1B00740EA7 /* skatemenu.png in Resources */,
 				5DBABBE81552304600740EA7 /* instructionbg.png in Resources */,
 				5DBABBEA1552313200740EA7 /* Instructions.png in Resources */,
+				5DBABBF21552DBD800740EA7 /* shredbutton.png in Resources */,
+				5DBABBF41552E05A00740EA7 /* skateshop-1.png in Resources */,
+				5DBABBF61552E0B000740EA7 /* cityskate.png in Resources */,
+				5DBABBF81552E10300740EA7 /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

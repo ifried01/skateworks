@@ -31,9 +31,10 @@
     [self addChild:titleCenterBottom];
     
     CCLabelTTF *timer = [CCLabelTTF labelWithString:@"Your Time: "  fontName:@"Marker Felt" fontSize:36];
-    timerLabel = [timer retain];
+    timerLabel = timer;
     timerLabel.color = ccc3(0, 34, 34);
-    double time = [[GameLayer node] getTimer];
+    int time = [[GameLayer node] getFinaltime];
+    //int ftime = [self writeCrap:time];
     [timerLabel setString:[NSString stringWithFormat:@"Your Time: %i",(int)time]];
     timer.position = ccp(240, 180);
     [self addChild:timerLabel];
@@ -51,6 +52,19 @@
 }
     
     
+
+- (int)writeCrap:(int)time  {
+ // Writing
+ NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+ [defaults setInteger:time forKey:@"highScore"];
+ [defaults synchronize];
+ 
+ // Reading
+ int savedHS = [defaults integerForKey:@"highScore"];
+     
+     return savedHS;
+ }
+
 
 
 -(void) back: (id) sender{
