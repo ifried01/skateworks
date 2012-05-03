@@ -15,6 +15,7 @@
 #import "SpriteClass.h"
 #import "GameLayer.h"
 #import "SceneManager.h"
+#import "InstructionLayer.h"
 
 @implementation AppDelegate
 

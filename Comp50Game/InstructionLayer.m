@@ -2,7 +2,7 @@
 //  InstructionLayer.m
 //  Comp50Game
 //
-//  Created by Eric Douglas on 5/2/12.
+//  Created by Eric Douglas on 5/3/12.
 //  Copyright 2012 Tufts University. All rights reserved.
 //
 
@@ -11,49 +11,73 @@
 
 @implementation InstructionLayer
 
-+(CCScene *) scene
-{
-	// 'scene' is an autorelease object.
-	CCScene *scene = [CCScene node];
-	
-	// 'layer' is an autorelease object.
-	InstructionLayer *instructionLayer = [InstructionLayer node];
+/*-(id) init{
+    self=[super init];
     
-	// add layer as a child to scene
-    [scene addChild: instructionLayer];
-	
-	// return the scene
-	return scene;
-}
-
+    
+    CCSprite* txt = [[CCSprite alloc] initWithFile:@"skatemenu.png"];
+    [txt setPosition:ccp(240, 160)];
+    //text = txt;
+    [self addChild:txt];
+    
+     CCSprite* bg = [[CCSprite alloc] initWithFile:@"road2.png"];
+     [bg setPosition:ccp(240, 160)];
+     //background = bg;
+     [self addChild:bg z:-1];
+    
+    
+    return self;
+    
+    
+}*/
 -(id) init{
-    self = [super init];
+    self=[super init];
+    
     
     CCSprite* bg = [[CCSprite alloc] initWithFile:@"instructionbg.png"];
     [bg setPosition:ccp(240, 160)];
-    //background = bg;
-    [self addChild: bg z:-1];
+    //text = txt;
+    [self addChild:bg];
+    
+     CCSprite* txt = [[CCSprite alloc] initWithFile:@"Instructions.png"];
+     [txt setPosition:ccp(240, 200)];
+     //background = bg;
+     [self addChild:txt];
+    /*CCLabelTTF *titleCenterBottom = [CCLabelTTF labelWithString:@"Game Over" fontName:@"Marker Felt" fontSize:72];
+    titleCenterBottom.position = ccp(240, 250);
+    titleCenterBottom.color = ccc3(178, 34, 34);
+    [self addChild:titleCenterBottom];
+    
+    CCLabelTTF *timer = [CCLabelTTF labelWithString:@"Your Time: "  fontName:@"Marker Felt" fontSize:36];
+    timerLabel = [timer retain];
+    timerLabel.color = ccc3(178, 34, 34);
+    double time = [[GameLayer node] getTimer];
+    [timerLabel setString:[NSString stringWithFormat:@"Your Time: %i",(int)time]];
+    timer.position = ccp(240, 200);
+    [self addChild:timerLabel];*/
     
     
+    CCMenuItemFont *back = [CCMenuItemFont itemFromString:@"Menu" target:self selector: @selector(back:)];
+    CCMenuItemFont *restart = [CCMenuItemFont itemFromString:@"Play" target:self selector: @selector(restart:)];
+    CCMenu *menu = [CCMenu menuWithItems: back, restart, nil];
     
+    menu.position = ccp(240, 50);
+    [menu alignItemsVerticallyWithPadding: 5.0f];
+    [self addChild: menu];
     
+    return self;
 }
 
 
 
-// on "dealloc" you need to release all your retained objects
-- (void) dealloc
-{
-	// in case you have something to dealloc, do it in this method
-	// in this particular example nothing needs to be released.
-	// cocos2d will automatically release all the children (Label)
-	
-	// don't forget to call "super dealloc"
-	[super dealloc];
+
+-(void) back: (id) sender{
+    [SceneManager goMenu];
 }
 
-
-
+-(void) restart: (id) sender{
+    [SceneManager goPlay];
+}
 
 
 @end

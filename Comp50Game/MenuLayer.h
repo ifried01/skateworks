@@ -17,7 +17,7 @@
 }
 
 - (void)onNewGame:(id)sender;
-- (void)onCredits:(id)sender;
+- (void)onInstructions:(id)sender;
 
 
 @end

@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "MenuLayer.h"
+#import "GameLayer.h"
+#import "InstructionLayer.h"
+
 
 @interface SceneManager : NSObject {
 
@@ -16,5 +19,7 @@
 
 +(void) goMenu;
 +(void) goLayer: (CCLayer *) layer;
++(void) goPlay;
++(void)goInstructions;
 
 @end

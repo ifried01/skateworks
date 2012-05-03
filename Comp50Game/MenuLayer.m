@@ -13,6 +13,7 @@
 #import "InstructionLayer.h"
 #import "CDAudioManager.h"
 #import "CocosDenshion.h"
+#import "GameOverLayer.h"
 
 @implementation MenuLayer
 
@@ -27,9 +28,9 @@
     //CCLabelTTF *titleCenterTop = [CCLabelTTF labelWithString:@"How to build a..." fontName:@"Marker Felt" fontSize:26];
     CCLabelTTF *titleCenterBottom = [CCLabelTTF labelWithString:@"SkateWorks" fontName:@"Marker Felt" fontSize:72];
     
-    CCMenuItemFont *startNew = [CCMenuItemFont itemFromString:@"New Game" target:self selector: @selector(onNewGame:)];
-    CCMenuItemFont *credits = [CCMenuItemFont itemFromString:@"Instructions" target:self selector: @selector(onCredits:)];
-    CCMenu *menu = [CCMenu menuWithItems:startNew, credits, nil];
+    CCMenuItemFont *startNew = [CCMenuItemFont itemFromString:@"Shred!" target:self selector: @selector(onNewGame:)];
+    CCMenuItemFont *instruction = [CCMenuItemFont itemFromString:@"Instructions" target:self selector: @selector(onInstructions:)];
+    CCMenu *menu = [CCMenu menuWithItems:startNew, instruction, nil];
     
     
     ///titleCenterTop.position = ccp(160, 380);
@@ -49,8 +50,8 @@
     //[self addChild: titleRight];
     
     menu.position = ccp(240, 110);
-    [menu alignItemsVerticallyWithPadding: 30.0f];
-    [self addChild:menu z: 2];
+    [menu alignItemsVerticallyWithPadding: 20.0f];
+    [self addChild:menu];
     
     game = [GameLayer node];
     instructions = [InstructionLayer node];
@@ -66,12 +67,12 @@
 
 - (void)onNewGame:(id)sender{
     //[SceneManager goMenu];
-    [SceneManager goLayer:game];
+    [SceneManager goPlay];
 }
 
 
-- (void)onCredits:(id)sender{
-    [SceneManager goLayer:instructions];
+- (void)onInstructions:(id)sender{
+    [SceneManager goInstructions];
 }
 
 

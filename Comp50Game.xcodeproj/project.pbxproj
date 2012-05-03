@@ -142,8 +142,10 @@
 		5DBABBDC1551CDAD00740EA7 /* SceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBABBDB1551CDAD00740EA7 /* SceneManager.m */; };
 		5DBABBDF1551CEC100740EA7 /* MenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBABBDE1551CEC000740EA7 /* MenuLayer.m */; };
 		5DBABBE315520C1B00740EA7 /* skatemenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBABBE215520C1B00740EA7 /* skatemenu.png */; };
-		5DBABBE615522D9D00740EA7 /* InstructionLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBABBE515522D9D00740EA7 /* InstructionLayer.m */; };
 		5DBABBE81552304600740EA7 /* instructionbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBABBE71552304600740EA7 /* instructionbg.png */; };
+		5DBABBEA1552313200740EA7 /* Instructions.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBABBE91552313200740EA7 /* Instructions.png */; };
+		5DBABBED15523E8900740EA7 /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBABBEC15523E8800740EA7 /* GameOverLayer.m */; };
+		5DBABBF015523F7E00740EA7 /* InstructionLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBABBEF15523F7D00740EA7 /* InstructionLayer.m */; };
 		5DF39001154B8AC60026298C /* car3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF38FFD154B8AC60026298C /* car3.png */; };
 		5DF39002154B8AC60026298C /* car4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF38FFE154B8AC60026298C /* car4.png */; };
 		5DF39003154B8AC60026298C /* car5.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF38FFF154B8AC60026298C /* car5.png */; };
@@ -411,9 +413,12 @@
 		5DBABBDD1551CEC000740EA7 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayer.h; sourceTree = "<group>"; };
 		5DBABBDE1551CEC000740EA7 /* MenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuLayer.m; sourceTree = "<group>"; };
 		5DBABBE215520C1B00740EA7 /* skatemenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skatemenu.png; sourceTree = SOURCE_ROOT; };
-		5DBABBE415522D9C00740EA7 /* InstructionLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionLayer.h; sourceTree = "<group>"; };
-		5DBABBE515522D9D00740EA7 /* InstructionLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionLayer.m; sourceTree = "<group>"; };
 		5DBABBE71552304600740EA7 /* instructionbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instructionbg.png; sourceTree = SOURCE_ROOT; };
+		5DBABBE91552313200740EA7 /* Instructions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instructions.png; sourceTree = SOURCE_ROOT; };
+		5DBABBEB15523E8800740EA7 /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverLayer.h; sourceTree = "<group>"; };
+		5DBABBEC15523E8800740EA7 /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverLayer.m; sourceTree = "<group>"; };
+		5DBABBEE15523F7D00740EA7 /* InstructionLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionLayer.h; sourceTree = "<group>"; };
+		5DBABBEF15523F7D00740EA7 /* InstructionLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionLayer.m; sourceTree = "<group>"; };
 		5DF38FFD154B8AC60026298C /* car3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car3.png; sourceTree = SOURCE_ROOT; };
 		5DF38FFE154B8AC60026298C /* car4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car4.png; sourceTree = SOURCE_ROOT; };
 		5DF38FFF154B8AC60026298C /* car5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car5.png; sourceTree = SOURCE_ROOT; };
@@ -492,8 +497,10 @@
 				5DBABBDB1551CDAD00740EA7 /* SceneManager.m */,
 				5DBABBDD1551CEC000740EA7 /* MenuLayer.h */,
 				5DBABBDE1551CEC000740EA7 /* MenuLayer.m */,
-				5DBABBE415522D9C00740EA7 /* InstructionLayer.h */,
-				5DBABBE515522D9D00740EA7 /* InstructionLayer.m */,
+				5DBABBEB15523E8800740EA7 /* GameOverLayer.h */,
+				5DBABBEC15523E8800740EA7 /* GameOverLayer.m */,
+				5DBABBEE15523F7D00740EA7 /* InstructionLayer.h */,
+				5DBABBEF15523F7D00740EA7 /* InstructionLayer.m */,
 				5D95AE3A1538F9910062205C /* Resources */,
 				5D95AE4E1538F9910062205C /* libs */,
 				5D95AF871538F9940062205C /* Supporting Files */,
@@ -505,6 +512,7 @@
 			isa = PBXGroup;
 			children = (
 				5DBABBD81551CD0B00740EA7 /* skateshop.png */,
+				5DBABBE91552313200740EA7 /* Instructions.png */,
 				5DBABBE215520C1B00740EA7 /* skatemenu.png */,
 				5DBABBD61551C9C100740EA7 /* Default@2x.png */,
 				5DBABBE71552304600740EA7 /* instructionbg.png */,
@@ -928,6 +936,7 @@
 				5DBABBD91551CD0C00740EA7 /* skateshop.png in Resources */,
 				5DBABBE315520C1B00740EA7 /* skatemenu.png in Resources */,
 				5DBABBE81552304600740EA7 /* instructionbg.png in Resources */,
+				5DBABBEA1552313200740EA7 /* Instructions.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1041,7 +1050,8 @@
 				5DB6D3521550E94A00232E94 /* RoadClass.m in Sources */,
 				5DBABBDC1551CDAD00740EA7 /* SceneManager.m in Sources */,
 				5DBABBDF1551CEC100740EA7 /* MenuLayer.m in Sources */,
-				5DBABBE615522D9D00740EA7 /* InstructionLayer.m in Sources */,
+				5DBABBED15523E8900740EA7 /* GameOverLayer.m in Sources */,
+				5DBABBF015523F7E00740EA7 /* InstructionLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

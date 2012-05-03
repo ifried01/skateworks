@@ -1,5 +1,5 @@
 //
-//  InstructionLayer.h
+//  GameOverLayer.h
 //  Comp50Game
 //
 //  Created by Eric Douglas on 5/3/12.
@@ -11,10 +11,11 @@
 #import "SceneManager.h"
 #import "GameLayer.h"
 
-@interface InstructionLayer : CCLayer {
+@interface GameOverLayer : CCLayer {
     CCLabelTTF* timerLabel;
 }
 -(void) back: (id) sender;
 -(void) restart: (id) sender;
+
 
 @end

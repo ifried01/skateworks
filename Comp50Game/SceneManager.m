@@ -38,5 +38,17 @@
     return newScene;
 }
 
++(void) goPlay{
+    CCLayer *layer = [GameLayer node];
+    [SceneManager goLayer: layer];
+}
+
+
++(void) goInstructions{
+    CCLayer *layer = [InstructionLayer node];
+    [SceneManager goLayer: layer];
+}
+
+
 @end
 

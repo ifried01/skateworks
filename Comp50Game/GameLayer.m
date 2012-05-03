@@ -13,6 +13,8 @@
 #import "SimpleAudioEngine.h"
 #import "CDAudioManager.h"
 #import "CocosDenshion.h"
+#import "SceneManager.h"
+#import "GameOverLayer.h"
 
 
 @implementation GameLayer
@@ -143,6 +145,7 @@
         //sprite = tempSprite;
         //[self addChild:tempSprite]; 
         //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"skateboard.mp3"];
+    
     }
 	return self;
 }
@@ -276,8 +279,34 @@
     if (s == 0) {
         [[SimpleAudioEngine sharedEngine] playEffect:@"horngoby.wav"];
     }*/
+    if ([player getCollide]) {
+        [SceneManager goLayer:[GameOverLayer node]];
+    }
     
+    /*if (isPaused) {
+        CCMenuItemFont *back = [CCMenuItemFont itemFromString:@"Menu" target:self selector: @selector(back:)];
+        CCMenuItemFont *restart = [CCMenuItemFont itemFromString:@"Restart" target:self selector: @selector(restart:)];
+        CCMenu *menu = [CCMenu menuWithItems: back, restart, nil];
+        
+        menu.position = ccp(240, 130);
+        [menu alignItemsVerticallyWithPadding: 10.0f];
+        [self addChild: menu];
+    }
+    */
 } 
+
+
+-(void) back: (id) sender{
+    [SceneManager goMenu];
+}
+
+-(void) restart: (id) sender{
+    [SceneManager goPlay];
+}
+
+- (double)getTimer {
+    return gameTimer;
+}
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc
 {

@@ -26,5 +26,8 @@
 }
 
 +(CCScene *) scene;
+- (double)getTimer;
+-(void) back: (id) sender;
+-(void) restart: (id) sender;
 
 @end
