@@ -46,9 +46,10 @@
         
         gameTimer = 0;
         //print "Time:" to screen
-        CCLabelTTF *timer = [CCLabelTTF labelWithString:@"Time: "  fontName:@"Helvetica" fontSize:24];
+        CCLabelTTF *timer = [CCLabelTTF labelWithString:@"Time: "  fontName:@"Marker Felt" fontSize:24];
         timerLabel = [timer retain];
-        timer.position = ccp(410, 10);
+        timer.position = ccp(425, 10);
+        timer.color = ccc3(218, 165, 32);
         
         [self schedule:@selector(update:) interval:1.0/60];
         self.isAccelerometerEnabled = YES;
@@ -210,14 +211,17 @@
     //NSInteger z = [lanes count];
 
     NSInteger c;
-    if (gameTimer < 45) {
-     c = arc4random()%40;
+    if (gameTimer < 15) {
+     c = rand()%60;
+    }
+    else if (gameTimer >= 15 && gameTimer < 45) {
+        c = rand()%40;
     }
     else if (gameTimer >= 45 && gameTimer < 90) {
-        c = arc4random()%25;
+        c = rand()%20;
     }
     else {
-        c = arc4random()%15;
+        c =rand()%10;
     }
      if (c == 0) {
          NSInteger i = arc4random()%[images count];

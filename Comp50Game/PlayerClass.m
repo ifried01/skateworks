@@ -73,7 +73,7 @@
 - (id)initWithFile:(NSString *)filename {
     if( self = [super initWithFile:filename]) {
         [self schedule:@selector(update:) interval:1.0/60];
-        [self setPosition:ccp(50, 50)];
+        [self setPosition:ccp(70, 70)];
         up = false;
         down = false;
         speed = 3;

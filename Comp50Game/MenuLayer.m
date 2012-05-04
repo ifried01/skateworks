@@ -20,7 +20,9 @@
 -(id) init{
     self = [super init];
     
-    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"skateboard.mp3"];
+    if (![[SimpleAudioEngine sharedEngine] isBackgroundMusicPlaying]) {
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"Skateworks.mp3"];
+    }
     
     //CCLabelTTF *titleLeft = [CCLabelTTF labelWithString:@"Menu " fontName:@"Marker Felt" fontSize:48];
     //CCLabelTTF *titleRight = [CCLabelTTF labelWithString:@" System" fontName:@"Marker Felt" fontSize:48];
@@ -29,10 +31,15 @@
     //CCLabelTTF *titleCenterBottom = [CCLabelTTF labelWithString:@"SkateWorks" fontName:@"Marker Felt" fontSize:72];
     
     //CCMenuItemFont *startNew = [CCMenuItemImage itemFromNormalImage:@"shredbutton.png" selectedImage:@"shredbutton.png" target:self selector: @selector(onNewGame:)];
-    CCMenuItemFont *startNew = [CCMenuItemFont itemFromString:@"Shred!" target:self selector:@selector(onNewGame:)];
-    CCMenuItemFont *instruction = [CCMenuItemFont itemFromString:@"Instructions" target:self selector: @selector(onInstructions:)];
-    //startNew.color = ccc3(<#const GLubyte r#>, <#const GLubyte g#>, <#const GLubyte b#>)
+    CCMenuItemFont *startNew = [CCMenuItemFont itemFromString:@"Shred" target:self selector:@selector(onNewGame:)];
+    CCMenuItemFont *instruction = [CCMenuItemFont itemFromString:@"Skate 101" target:self selector: @selector(onInstructions:)];
+    //startNew.color = ccc3(0, 0, 0);
     CCMenu *menu = [CCMenu menuWithItems:startNew, instruction, nil];
+    
+    CCLabelTTF *credit = [CCLabelTTF labelWithString:@"By Eric Douglas, Inbar Fried, Aaron Wishnick"  fontName:@"Marker Felt" fontSize:20];
+    [credit setPosition:ccp(310, 13)];
+    credit.color = ccc3(218, 165, 32);
+     
     
     
     ///titleCenterTop.position = ccp(160, 380);
@@ -50,8 +57,16 @@
     
     //titleRight.position = ccp(220, 345);
     //[self addChild: titleRight];
+    CCSprite* button1 = [[CCSprite alloc] initWithFile:@"skateboardbutton.png"];
+    [button1 setPosition:ccp(240, 155)];
+     [self addChild:button1];
+    
+    CCSprite* button2 = [[CCSprite alloc] initWithFile:@"skateboardbutton.png"];
+    [button2 setPosition:ccp(240, 105)];
+    [self addChild:button2];
     
     menu.position = ccp(240, 130);
+    menu.color = ccc3(255, 255, 255);
     [menu alignItemsVerticallyWithPadding: 15.0f];
     [self addChild:menu];
     
@@ -63,9 +78,10 @@
     //background = bg;
     [self addChild: bg z:-1];
     CCSprite* logo = [[CCSprite alloc] initWithFile:@"logo.png"];
-    [logo setPosition:ccp(240, 235)];
+    [logo setPosition:ccp(240, 245)];
     //background = bg;
     [self addChild: logo];
+    [self addChild:credit];
     
     return self;
 }
