@@ -11,6 +11,7 @@
 #import "MenuLayer.h"
 #import "GameLayer.h"
 #import "InstructionLayer.h"
+#import "HighscoreLayer.h"
 
 
 @interface SceneManager : NSObject {
@@ -21,5 +22,6 @@
 +(void) goLayer: (CCLayer *) layer;
 +(void) goPlay;
 +(void)goInstructions;
++(void)goHighscore;
 
 @end

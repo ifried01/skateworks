@@ -33,8 +33,9 @@
     //CCMenuItemFont *startNew = [CCMenuItemImage itemFromNormalImage:@"shredbutton.png" selectedImage:@"shredbutton.png" target:self selector: @selector(onNewGame:)];
     CCMenuItemFont *startNew = [CCMenuItemFont itemFromString:@"Shred" target:self selector:@selector(onNewGame:)];
     CCMenuItemFont *instruction = [CCMenuItemFont itemFromString:@"Skate 101" target:self selector: @selector(onInstructions:)];
+    CCMenuItemFont *highscore = [CCMenuItemFont itemFromString:@"Sick Runs" target:self selector:@selector(onHighscore:)];
     //startNew.color = ccc3(0, 0, 0);
-    CCMenu *menu = [CCMenu menuWithItems:startNew, instruction, nil];
+    CCMenu *menu = [CCMenu menuWithItems:startNew, instruction, highscore, nil];
     
     CCLabelTTF *credit = [CCLabelTTF labelWithString:@"By Eric Douglas, Inbar Fried, Aaron Wishnick"  fontName:@"Marker Felt" fontSize:20];
     [credit setPosition:ccp(310, 13)];
@@ -65,7 +66,11 @@
     [button2 setPosition:ccp(240, 105)];
     [self addChild:button2];
     
-    menu.position = ccp(240, 130);
+    CCSprite* button3 = [[CCSprite alloc] initWithFile:@"skateboardbutton.png"];
+    [button3 setPosition:ccp(240, 55)];
+    [self addChild:button3];
+    
+    menu.position = ccp(240, 105);
     menu.color = ccc3(255, 255, 255);
     [menu alignItemsVerticallyWithPadding: 15.0f];
     [self addChild:menu];
@@ -96,7 +101,11 @@
 - (void)onInstructions:(id)sender{
     [SceneManager goInstructions];
 }
-
+                                 
+                               
+- (void)onHighscore:(id)sender{
+    [SceneManager goHighscore];
+}
 
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc

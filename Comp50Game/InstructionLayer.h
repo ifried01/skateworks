@@ -12,7 +12,7 @@
 #import "GameLayer.h"
 
 @interface InstructionLayer : CCLayer {
-    CCLabelTTF* timerLabel;
+
 }
 -(void) back: (id) sender;
 -(void) restart: (id) sender;

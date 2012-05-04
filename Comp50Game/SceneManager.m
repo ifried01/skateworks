@@ -23,6 +23,11 @@
 +(id) transitionWithDuration:(ccTime) t scene:(CCScene*)s;
 @end
 
+@interface ZoomFlipXRightOver : CCTransitionZoomFlipX
+
++(id) transitionWithDuration:(ccTime)t scene:(CCScene *)s;
+@end
+
 @interface FlipYDownOver : CCTransitionFlipY
 +(id) transitionWithDuration:(ccTime) t scene:(CCScene*)s;
 @end
@@ -44,6 +49,14 @@
 
 @end
 
+@implementation ZoomFlipXRightOver
+
++(id) transitionWithDuration:(ccTime)t scene:(CCScene *)s {
+    return [self transitionWithDuration:t scene:s orientation:kOrientationRightOver];
+}
+
+@end
+
 @implementation FlipYDownOver
 
 +(id) transitionWithDuration:(ccTime) t scene:(CCScene*)s {
@@ -58,6 +71,7 @@ static NSString *transitions[] = {
     @"FlipYDownOver",
     @"FadeWhiteTransition",
     @"ZoomFlipXLeftOver",
+    @"ZoomFlipXRightOver",
 };
 
 Class nextTransition()
@@ -134,6 +148,12 @@ Class nextTransition()
 +(void) goInstructions{
     sceneIdx = 2;
     CCLayer *layer = [InstructionLayer node];
+    [SceneManager goLayer: layer];
+}
+
++(void) goHighscore{
+    sceneIdx = 3;
+    CCLayer* layer = [HighscoreLayer node];
     [SceneManager goLayer: layer];
 }
 

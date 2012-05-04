@@ -18,6 +18,7 @@
 
 - (void)onNewGame:(id)sender;
 - (void)onInstructions:(id)sender;
+- (void)onHighscore:(id)sender;
 
 
 @end

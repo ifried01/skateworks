@@ -30,7 +30,7 @@
     //text = txt;
     [self addChild: fall];
     CCSprite* gameOver = [[CCSprite alloc] initWithFile:@"GameOver.png"];
-    [gameOver setPosition:ccp(240, 250)];
+    [gameOver setPosition:ccp(115, 240)];
     //text = txt;
     [self addChild: gameOver];
      /*
@@ -43,22 +43,23 @@
     titleCenterBottom.color = ccc3(96, 47, 107);
     [self addChild:titleCenterBottom];*/
     
-    CCLabelTTF *timer = [CCLabelTTF labelWithString:@"Your Time: "  fontName:@"Marker Felt" fontSize:36];
+    CCLabelTTF *timer = [CCLabelTTF labelWithString:@"Your Time: "  fontName:@"Marker Felt" fontSize:48];
     timerLabel = timer;
-    timerLabel.color = ccc3(0, 0, 0);
+    timerLabel.color = ccc3(255, 127, 0);
     int time = [[GameLayer node] getFinaltime];
     //int ftime = [self writeCrap:time];
-    [timerLabel setString:[NSString stringWithFormat:@"Last Run: %i",(int)time]];
-    timer.position = ccp(240, 165);
+    [timerLabel setString:[NSString stringWithFormat:@"Last Ride: %i",(int)time]];
+    timer.position = ccp(365, 240);
     [self addChild:timerLabel];
     
 
-    CCMenuItemFont *back = [CCMenuItemFont itemFromString:@"Menu" target:self selector: @selector(back:)];
-    CCMenuItemFont *restart = [CCMenuItemFont itemFromString:@"Restart" target:self selector: @selector(restart:)];
-    CCMenu *menu = [CCMenu menuWithItems: back, restart, nil];
+    CCMenuItemFont *back = [CCMenuItemFont itemFromString:@"Main Menu" target:self selector: @selector(back:)];
+    CCMenuItemFont *restart = [CCMenuItemFont itemFromString:@"Reboard" target:self selector: @selector(restart:)];
+    CCMenuItemFont *highscore = [CCMenuItemFont itemFromString:@"Best Runs" target:self selector: @selector(highscore:)];
+    CCMenu *menu = [CCMenu menuWithItems: restart, back, highscore, nil];
     menu.color = ccc3(255, 255, 255);
-    menu.position = ccp(243, 85);
-    [menu alignItemsVerticallyWithPadding: 6.0f];
+    menu.position = ccp(243, 100);
+    [menu alignItemsVerticallyWithPadding: 10.0f];
     [self addChild: menu];
 
     return self;
@@ -86,6 +87,10 @@
 
 -(void) restart: (id) sender{
     [SceneManager goPlay];
+}
+
+-(void) highscore: (id) sender{
+    [SceneManager goHighscore];
 }
 
 @end

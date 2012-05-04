@@ -17,6 +17,7 @@
 -(void) back: (id) sender;
 -(void) restart: (id) sender;
 - (int)writeCrap:(int)time;
+-(void) highscore: (id) sender;
 
 
 @end
