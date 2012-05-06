@@ -54,7 +54,7 @@
         [self schedule:@selector(update:) interval:1.0/60];
         self.isAccelerometerEnabled = YES;
         [[UIAccelerometer sharedAccelerometer] setDelegate:self];
-        double calibrate = [UIAcceleration.x];
+        //double calibrate = [UIAcceleration.x];
         
        //NSArray* inputImages = [NSArray arrayWithObjects:@"car1.png", @"car3.png", @"car4.png", @"car5.png", @"car6.png", nil];
         
