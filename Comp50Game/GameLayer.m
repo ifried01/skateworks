@@ -54,20 +54,40 @@
         [self schedule:@selector(update:) interval:1.0/60];
         self.isAccelerometerEnabled = YES;
         [[UIAccelerometer sharedAccelerometer] setDelegate:self];
+        double calibrate = [UIAcceleration.x];
         
        //NSArray* inputImages = [NSArray arrayWithObjects:@"car1.png", @"car3.png", @"car4.png", @"car5.png", @"car6.png", nil];
         
         NSString* image1 = @"car1.png";
-        NSString* image2 = @"car3.png";
-        NSString* image3 = @"car4.png";
-        NSString* image4 = @"car5.png";
-        NSString* image5 = @"car6.png";
-        NSMutableArray *tempImages = [[NSMutableArray alloc] initWithCapacity:10];
+        NSString* image2 = @"car2.png";
+        NSString* image3 = @"car3.png";
+        NSString* image4 = @"car4.png";
+        NSString* image5 = @"car5.png";
+        NSString* image6 = @"car6.png";
+        NSString* image7 = @"car7.png";
+        NSString* image8 = @"car8.png";
+        NSString* image9 = @"car9.png";
+        NSString* image10 = @"car10.png";
+        NSString* image11 = @"car11.png";
+        NSString* image12 = @"car12.png";
+        NSString* image13 = @"car13.png";
+        NSString* image14 = @"car14.png";
+        
+        NSMutableArray *tempImages = [[NSMutableArray alloc] initWithCapacity:15];
         [tempImages addObject:image1];
         [tempImages addObject:image2];
         [tempImages addObject:image3];
         [tempImages addObject:image4];
         [tempImages addObject:image5];
+        [tempImages addObject:image6];
+        [tempImages addObject:image7];
+        [tempImages addObject:image8];
+        [tempImages addObject:image9];
+        [tempImages addObject:image10];
+        [tempImages addObject:image11];
+        [tempImages addObject:image12];
+        [tempImages addObject:image13];
+        [tempImages addObject:image14];
          
         images = tempImages;
         
@@ -177,6 +197,7 @@
     NSLog(@"y: %g", acceleration.y);
     NSLog(@"z: %g", acceleration.z);
     */
+    
     [player setUpDown:acceleration.x];
 }
 
