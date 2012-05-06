@@ -157,6 +157,13 @@ Class nextTransition()
     [SceneManager goLayer: layer];
 }
 
++(void) goGameover {
+    sceneIdx = 1;
+    CCLayer* layer = [GameOverLayer node];
+    [SceneManager goLayer:layer];
+    
+}
+
 
 @end
 

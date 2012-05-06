@@ -16,6 +16,10 @@
     return y;
 }
 
+- (int) getPlayerx {
+    return x;
+}
+
 - (void)setUpDown:(double)acceleration {
     if (acceleration < -0.15 && acceleration > -0.65) {
         up = true;
@@ -73,12 +77,12 @@
 - (id)initWithFile:(NSString *)filename {
     if( self = [super initWithFile:filename]) {
         [self schedule:@selector(update:) interval:1.0/60];
-        [self setPosition:ccp(70, 70)];
+        [self setPosition:ccp(70, 160)];
         up = false;
         down = false;
         speed = 3;
         x = 50;
-        y = 50;
+        y = 160;
         collide = false;
         
     }

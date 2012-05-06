@@ -44,12 +44,12 @@
      //background = bg;
      [self addChild:txt];
     
-    CCSprite* arrow = [[CCSprite alloc] initWithFile:@"arrow-right.png"];
-    [arrow setPosition:ccp(305, 70)];
+    CCSprite* arrow = [[CCSprite alloc] initWithFile:@"downarrow.png"];
+    [arrow setPosition:ccp(305, 25)];
     //background = bg;
     [self addChild:arrow];
     CCSprite* shaka = [[CCSprite alloc] initWithFile:@"shaka.png"];
-    [shaka setPosition:ccp(315, 28)];
+    [shaka setPosition:ccp(315, 70)];
     //background = bg;
     [self addChild:shaka];
     /*CCLabelTTF *titleCenterBottom = [CCLabelTTF labelWithString:@"Game Over" fontName:@"Marker Felt" fontSize:72];
@@ -68,9 +68,12 @@
     
     CCMenuItemFont *back = [CCMenuItemFont itemFromString:@"Go Back" target:self selector: @selector(back:)];
     CCMenuItemFont *restart = [CCMenuItemFont itemFromString:@"Go Skate" target:self selector: @selector(restart:)];
-    CCMenu *menu = [CCMenu menuWithItems: back, restart, nil];
+    [back setFontName:@"CourierNewPS-BoldMT"];
+    [restart setFontName:@"CourierNewPS-BoldMT"];
+    CCMenu *menu = [CCMenu menuWithItems: restart, back, nil];
     
-    menu.position = ccp(240, 50);
+    menu.position = ccp(220, 50);
+    menu.color = ccc3(120, 81, 169);
     [menu alignItemsVerticallyWithPadding: 5.0f];
     [self addChild: menu];
     

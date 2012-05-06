@@ -21,6 +21,7 @@
     NSMutableArray* lanes;
     double gameTimer;
     CCLabelTTF* timerLabel;
+    CCLabelTTF* pauseLabel;
     int finalTime;
     BOOL isPaused;
 }

@@ -13,6 +13,7 @@
 @interface MenuLayer : CCLayer {
     CCLayer* game;
     CCLayer* instructions;
+    bool paused;
     //CCSprite* background;
 }
 

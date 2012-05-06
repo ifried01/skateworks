@@ -23,28 +23,41 @@
     [self addChild:arrow];*/
     
     CCMenuItemFont *back = [CCMenuItemFont itemFromString:@"Main Menu" target:self selector: @selector(back:)];
-    CCMenuItemFont *game = [CCMenuItemFont itemFromString:@"Attempt a Sick Run" target:self selector: @selector(restart:)];
-    CCMenu *menu = [CCMenu menuWithItems: back, game, nil];
+    [back setFontName:@"STHeitiTC-Medium"];
+    [back setFontSize:28];
+    CCMenu *menu = [CCMenu menuWithItems: back, nil];
     
-    menu.position = ccp(240, 260);
-    menu.color = ccc3(255, 127, 0);
+    menu.position = ccp(260, 260);
+    menu.color = ccc3(15, 77, 146);
     [menu alignItemsHorizontallyWithPadding: 40.0f];
     [self addChild: menu];
     
-    CCLabelTTF *scorest = [CCLabelTTF labelWithString:@"Gnarliest: "  fontName:@"Marker Felt" fontSize:30];
+    int hs1 = [[NSUserDefaults standardUserDefaults] integerForKey:@"highScore1"];
+    int hs2 = [[NSUserDefaults standardUserDefaults] integerForKey:@"highScore2"];
+    int hs3 = [[NSUserDefaults standardUserDefaults] integerForKey:@"highScore3"];
+    
+    CCLabelTTF *scorest = [CCLabelTTF labelWithString:@"Gnarliest: "  fontName:@"STHeitiTC-Medium" fontSize:26];
     score1 = scorest;
     score1.color = ccc3(218, 165, 32);
-    [score1 setPosition:ccp(240, 140)];
+    [score1 setPosition:ccp(230, 140)];
+    [score1 setString:[NSString stringWithFormat:@"Gnarliest: %i",(int)hs1]];
     
-    CCLabelTTF *scorer = [CCLabelTTF labelWithString:@"Gnarlier: "  fontName:@"Marker Felt" fontSize:30];
+    CCLabelTTF *scorer = [CCLabelTTF labelWithString:@"Gnarlier: "  fontName:@"STHeitiTC-Medium" fontSize:26];
     score2 = scorer;
     score2.color = ccc3(218, 165, 32);
-    [score2 setPosition:ccp(240, 100)];
+    [score2 setPosition:ccp(230, 90)];
+    [score2 setString:[NSString stringWithFormat:@"Gnarlier: %i",(int)hs2]];
     
-    CCLabelTTF *score = [CCLabelTTF labelWithString:@"Gnarly: "  fontName:@"Marker Felt" fontSize:30];
+    CCLabelTTF *score = [CCLabelTTF labelWithString:@"Gnarly: "  fontName:@"STHeitiTC-Medium" fontSize:26];
     score3 = score;
     score3.color = ccc3(218, 165, 32);
-    [score3 setPosition:ccp(240, 60)];
+    [score3 setPosition:ccp(230, 40)];
+    [score3 setString:[NSString stringWithFormat:@"Gnarly: %i",(int)hs3]];
+    
+    CCSprite* flame = [[CCSprite alloc] initWithFile:@"mmsb.png"];
+    [flame setPosition:ccp(220, 260)];
+    //text = txt;
+    [self addChild: flame];
     
     [self addChild:score1];
     [self addChild:score2];
@@ -60,5 +73,6 @@
 -(void) restart: (id) sender{
     [SceneManager goPlay];
 }
+
 
 @end

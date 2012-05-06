@@ -118,6 +118,8 @@
     
 	// Run the intro Scene
 	//[[CCDirector sharedDirector] runWithScene:[GameLayer scene]];
+   // NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+   //[[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
     [SceneManager goMenu];
 }
 
@@ -157,6 +159,7 @@
 - (void)applicationSignificantTimeChange:(UIApplication *)application {
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
 }
+
 
 - (void)dealloc {
 	[[CCDirector sharedDirector] end];

@@ -46,10 +46,10 @@
         
         gameTimer = 0;
         //print "Time:" to screen
-        CCLabelTTF *timer = [CCLabelTTF labelWithString:@"Time: "  fontName:@"Marker Felt" fontSize:24];
+        CCLabelTTF *timer = [CCLabelTTF labelWithString:@"Time: "  fontName:@"TimesNewRomanPS-ItalicMT" fontSize:24];
         timerLabel = [timer retain];
         timer.position = ccp(425, 10);
-        timer.color = ccc3(218, 165, 32);
+        timer.color = ccc3(244, 240, 236);
         
         [self schedule:@selector(update:) interval:1.0/60];
         self.isAccelerometerEnabled = YES;
@@ -139,6 +139,12 @@
         
         lanes = newLanes;
         
+        CCLabelTTF *pause = [CCLabelTTF labelWithString:@"Chill Out"  fontName:@"TimesNewRomanPS-ItalicMT" fontSize:24];
+        pause.position = ccp(430, 305);
+        pause.color = ccc3(72, 145, 206);
+        [self addChild:pause];
+        pauseLabel = pause;
+        
         PlayerClass* tempPlayer = [[PlayerClass alloc] initWithFile:@"player1.png"];
         player = tempPlayer;
         [self addChild:tempPlayer];
@@ -174,23 +180,36 @@
     [player setUpDown:acceleration.x];
 }
 
-- (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    if (!isPaused) {
-        [[CCDirector sharedDirector] pause];
-    } else {
-        [[CCDirector sharedDirector] resume];
+- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInView:[touch view]];
+    CGRect pauseLoc = CGRectMake(400, 0, 90, 30);
+    if (CGRectContainsPoint(pauseLoc, location)) {
+        if (!isPaused) {
+            [[CCDirector sharedDirector] pause];
+        } else {
+            [[CCDirector sharedDirector] resume];
+        }
+        isPaused = !isPaused;
+        if (!isPaused) {
+            [pauseLabel setString:@"Chill Out"];
+        }
+        else {
+            [pauseLabel setString:@"Carve On"];
+        }
     }
-    isPaused = !isPaused;
 }
 
 
 - (void)update:(ccTime)dt {
     
     //COLLISION HANDLING AND CAR SPAWNING
-    gameTimer += dt;
+    if (![player getCollide]) {
+        gameTimer += dt;
+    }
     [timerLabel setString:[NSString stringWithFormat:@"Time: %i",(int)gameTimer]];
     CCArray* deleteMe = [CCArray array];
-    /*CCArray* sprites = [self children];
+    /*CCArray* spritßes = [self children];
     if ([[SpriteClass self] children] != nil) {
         CCArray* playerArray = [[PlayerClass self] children];
         CCSprite* player = [playerArray objectAtIndex:0];
@@ -259,8 +278,42 @@
          if ([temp getSpritex] < -30) {
              [deleteMe addObject:temp];
          }
-         if (CGRectIntersectsRect([temp boundingBox], [player boundingBox])) {
+         if (CGRectIntersectsRect([temp boundingBox], [player boundingBox]) && ![player getCollide]) {
              [player setCollide:true];
+             
+             finalTime = (int)gameTimer;
+             CCSprite* outline = [[CCSprite alloc] initWithFile:@"outline.png"];
+             [outline setPosition:ccp([player getPlayerx], [player getPlayery])];
+             //text = txt;
+             [self addChild: outline];
+             [self removeChild:player cleanup:YES];
+             
+             int hs1 = [[NSUserDefaults standardUserDefaults] integerForKey:@"highScore1"];
+             int hs2 = [[NSUserDefaults standardUserDefaults] integerForKey:@"highScore2"];
+             int hs3 = [[NSUserDefaults standardUserDefaults] integerForKey:@"highScore3"];
+             
+             NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+             if (gameTimer >= hs1) {
+                 [defaults setInteger:(int)hs1 forKey:@"highScore2"];
+                 [defaults setInteger:(int)hs2 forKey:@"highScore3"];
+                 [defaults setInteger:(int)gameTimer forKey:@"highScore1"];
+             }
+             else if (hs1 > gameTimer && gameTimer >= hs2) {
+                 [defaults setInteger:(int)hs2 forKey:@"highScore3"];
+                 [defaults setInteger:(int)gameTimer forKey:@"highScore2"];
+             }
+             else if (hs2 > gameTimer && gameTimer >= hs3) {
+                 [defaults setInteger:(int)gameTimer forKey:@"highScore3"];
+             }
+             [defaults setInteger:(int)gameTimer forKey:@"gametime"];
+             [defaults synchronize];
+             
+             if ([[SimpleAudioEngine sharedEngine] isBackgroundMusicPlaying]) {
+                 [[SimpleAudioEngine sharedEngine] playEffect:@"horngoby.wav"];
+             }
+             
+             
+             [SceneManager goGameover];
              //[[SimpleAudioEngine sharedEngine] playEffect:@"carcrash.mp3"];
              //[deleteMe addObject:player];
          }
@@ -284,10 +337,32 @@
     if (s == 0) {
         [[SimpleAudioEngine sharedEngine] playEffect:@"horngoby.wav"];
     }*/
-    if ([player getCollide]) {
+    /*if ([player getCollide]) {
         finalTime = (int)gameTimer;
-        [SceneManager goLayer:[GameOverLayer node]];
-    }
+        [self removeChild:player cleanup:YES];
+        int hs1 = [[NSUserDefaults standardUserDefaults] integerForKey:@"highScore1"];
+        int hs2 = [[NSUserDefaults standardUserDefaults] integerForKey:@"highScore2"];
+        int hs3 = [[NSUserDefaults standardUserDefaults] integerForKey:@"highScore3"];
+        
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        if (gameTimer >= hs1) {
+            [defaults setInteger:(int)hs1 forKey:@"highScore2"];
+            [defaults setInteger:(int)hs2 forKey:@"highScore3"];
+            [defaults setInteger:(int)gameTimer forKey:@"highScore1"];
+        }
+        else if (hs1 > gameTimer && gameTimer >= hs2) {
+            [defaults setInteger:(int)hs2 forKey:@"highScore3"];
+            [defaults setInteger:(int)gameTimer forKey:@"highScore2"];
+        }
+        else if (hs2 > gameTimer && gameTimer >= hs3) {
+            [defaults setInteger:(int)gameTimer forKey:@"highScore3"];
+        }
+        [defaults setInteger:(int)gameTimer forKey:@"gametime"];
+        [defaults synchronize];
+        
+        
+        [SceneManager goGameover];
+    }*/
     
     /*if (isPaused) {
         CCMenuItemFont *back = [CCMenuItemFont itemFromString:@"Menu" target:self selector: @selector(back:)];

@@ -22,6 +22,7 @@
 }   
 
 - (int)getPlayery;
+- (int)getPlayerx;
 - (id)initWithFile:(NSString*)filename;
 - (void)setUpDown:(double)acceleration;
 - (int)setPlayery;

@@ -18,10 +18,8 @@
 -(id) init{
     self=[super init];
     
-    [[SimpleAudioEngine sharedEngine] playEffect:@"horngoby.wav"];
-    
-    
-     CCSprite* bg = [[CCSprite alloc] initWithFile:@"broken.png"];
+
+     CCSprite* bg = [[CCSprite alloc] initWithFile:@"skateboardhs.png"];
      [bg setPosition:ccp(240, 160)];
      //text = txt;
     [self addChild: bg];
@@ -29,10 +27,18 @@
     [fall setPosition:ccp(130, 160)];
     //text = txt;
     [self addChild: fall];
+    CCSprite* sign = [[CCSprite alloc] initWithFile:@"crossing.png"];
+    [sign setPosition:ccp(240, 120)];
+    //text = txt;
+    [self addChild: sign];
     CCSprite* gameOver = [[CCSprite alloc] initWithFile:@"GameOver.png"];
-    [gameOver setPosition:ccp(115, 240)];
+    [gameOver setPosition:ccp(375, 245)];
     //text = txt;
     [self addChild: gameOver];
+    CCSprite* deck = [[CCSprite alloc] initWithFile:@"goverdeck3.png"];
+    [deck setPosition:ccp(105, 255)];
+    //text = txt;
+    [self addChild: deck];
      /*
      CCSprite* bg = [[CCSprite alloc] initWithFile:@"road2.png"];
      [bg setPosition:ccp(240, 160)];
@@ -43,41 +49,35 @@
     titleCenterBottom.color = ccc3(96, 47, 107);
     [self addChild:titleCenterBottom];*/
     
-    CCLabelTTF *timer = [CCLabelTTF labelWithString:@"Your Time: "  fontName:@"Marker Felt" fontSize:48];
+    CCLabelTTF *timer = [CCLabelTTF labelWithString:@"Your Time: "  fontName:@"Marker Felt" fontSize:36];
     timerLabel = timer;
-    timerLabel.color = ccc3(255, 127, 0);
-    int time = [[GameLayer node] getFinaltime];
+    timerLabel.color = ccc3(201, 192, 187);
+    int time = [[NSUserDefaults standardUserDefaults] integerForKey:@"gametime"];
     //int ftime = [self writeCrap:time];
-    [timerLabel setString:[NSString stringWithFormat:@"Last Ride: %i",(int)time]];
-    timer.position = ccp(365, 240);
+    [timerLabel setString:[NSString stringWithFormat:@"Session: %i",(int)time]];
+    timer.position = ccp(105, 255);
     [self addChild:timerLabel];
+    
     
 
     CCMenuItemFont *back = [CCMenuItemFont itemFromString:@"Main Menu" target:self selector: @selector(back:)];
     CCMenuItemFont *restart = [CCMenuItemFont itemFromString:@"Reboard" target:self selector: @selector(restart:)];
-    CCMenuItemFont *highscore = [CCMenuItemFont itemFromString:@"Best Runs" target:self selector: @selector(highscore:)];
-    CCMenu *menu = [CCMenu menuWithItems: restart, back, highscore, nil];
-    menu.color = ccc3(255, 255, 255);
-    menu.position = ccp(243, 100);
+    CCMenuItemFont *highscore = [CCMenuItemFont itemFromString:@"Killer Rides" target:self selector: @selector(highscore:)];
+    [back setFontSize:25];
+    [restart setFontSize:25];
+    [highscore setFontSize:25];
+    [back setFontName:@"Trebuchet-BoldItalic"];
+    [restart setFontName:@"Trebuchet-BoldItalic"];
+    [highscore setFontName:@"Trebuchet-BoldItalic"];
+    CCMenu *menu = [CCMenu menuWithItems: restart, highscore, back, nil];
+    menu.color = ccc3(192, 192, 192);
+    menu.position = ccp(239, 127);
     [menu alignItemsVerticallyWithPadding: 10.0f];
     [self addChild: menu];
 
     return self;
 }
     
-    
-
-- (int)writeCrap:(int)time  {
- // Writing
- NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
- [defaults setInteger:time forKey:@"highScore"];
- [defaults synchronize];
- 
- // Reading
- int savedHS = [defaults integerForKey:@"highScore"];
-     
-     return savedHS;
- }
 
 
 
