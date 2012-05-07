@@ -12,6 +12,13 @@
 @implementation PlayerClass
 
 
+-(double)getPlayerstoked {
+    return stoked;
+}
+-(bool)getJump {
+    return jumping;
+}
+
 - (int) getPlayery {
     return y;
 }
@@ -21,22 +28,40 @@
 }
 
 - (void)setUpDown:(double)acceleration {
-    if (acceleration < -0.15 && acceleration > -0.65) {
+    
+    
+    /*int direction = 1;
+    double calibration = [[NSUserDefaults standardUserDefaults] doubleForKey:@"accel.x"];
+    float calibRangeNeg = 1 - fabs(calibration);
+    float calibRangePos = 1 - calibration;
+    float acelx = acceleration * direction;
+    //float accelx;
+    float offset = calibration * (direction * -1 );*/
+    /*if (acelx > calibration) {
+        accelx = (acelx + offset)/(calibRangePos);
+    }
+    else if (acelx < calibration) {
+        accelx = (acelx + offset)/(calibRangeNeg);
+    }
+    NSLog(@"%f", accelx);*/
+    float accelx = acceleration;
+    
+    if (accelx < -0.15 && accelx > -0.65) {
         up = true;
         down = false;
         speed = 3;
     }
-    else if (acceleration > 0.15 && acceleration < 0.65) {
+    else if (accelx > 0.15 && accelx < 0.65) {
         down = true;
         up = false;
         speed = 3;
     }
-   else if (acceleration <= -0.65 && acceleration > -1) {
+   else if (accelx <= -0.65 && accelx > -1) {
         up = true;
         down = false;
        speed = 6;
     }
-   else if (acceleration >= 0.65 && acceleration < 1) {
+   else if (accelx >= 0.65 && accelx < 1) {
        up = false;
        down = true;
        speed = 6;
@@ -45,6 +70,43 @@
        up = false;
        down = false;
    }
+    
+}
+
+-(void) jump {
+    jumping = true;
+    id action1 = [CCScaleBy actionWithDuration:0.6 scale:1.8];
+    id action2 = [CCScaleBy actionWithDuration:0.6 scale:0.5555];
+    [self runAction:[CCSequence actions:action1, action2, nil]];
+    stoked = 16.2;
+}
+
+- (void)setUD:(double)acceleration {
+    double callib = [[NSUserDefaults standardUserDefaults] doubleForKey:@"accel.x"];
+    if (acceleration < callib && fabs(fabs(callib) - fabs(acceleration)) > 0.30 && fabs(fabs(callib) - fabs(acceleration)) < 0.65) {
+        down = false;
+        up = true;
+        speed = 3;
+    }
+    else if (acceleration > callib && fabs(fabs(callib) - fabs(acceleration)) > 0.30 && fabs(fabs(callib) - fabs(acceleration)) < 0.65) {
+        down = true;
+        up = false;
+        speed = 3;
+    }
+    else if (acceleration > callib && fabs(fabs(callib) - fabs(acceleration)) >= 0.65 && fabs(fabs(callib) - fabs(acceleration)) < 1) {
+        down = true;
+        up = false;
+        speed = 6;
+    }
+    else if (acceleration < callib && fabs(fabs(callib) - fabs(acceleration)) >= 0.65 && fabs(fabs(callib) - fabs(acceleration)) < 1) {
+        down = false;
+        up = true;
+        speed = 6;
+    }
+    else {
+        down = false;
+        up = true;
+    }
     
 }
 
@@ -58,14 +120,17 @@
     return collide;
 }
 
+-(void) setPlayermove:(float) move {
+    y = y + move;
+}
 
 - (int) setPlayery {
-    if (down == true && y < 280) {
+    if (down == true && y < 280 && !jumping) {
         y = y + speed;
         //down = false;
         //up = false;
     }
-    else if (up == true && y > 35) {
+    else if (up == true && y > 35 && !jumping) {
         y = y - speed;
         //down = false;
         //up = false;
@@ -77,11 +142,13 @@
 - (id)initWithFile:(NSString *)filename {
     if( self = [super initWithFile:filename]) {
         [self schedule:@selector(update:) interval:1.0/60];
-        [self setPosition:ccp(70, 160)];
+        [self setPosition:ccp(60, 160)];
         up = false;
         down = false;
+        jumping = false;
         speed = 3;
-        x = 50;
+        stoked = 0.5;
+        x = 60;
         y = 160;
         collide = false;
         
@@ -100,9 +167,13 @@
 }*/
 
 - (void)update:(ccTime)dt {
+    if (stoked < 15) {
+        jumping = false;
+    }
     [self setPlayery];
     [self setPosition:ccp(x, y)];
-    //NSLog(@"Collide = %d", (int)collide);
+    stoked -= dt;
+    NSLog(@"Stokage = %d", (int)stoked);
     
 }
 

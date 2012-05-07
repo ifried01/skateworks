@@ -23,6 +23,8 @@
 		5D26A82315570E2D00A1345C /* car13.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D26A82115570E2D00A1345C /* car13.png */; };
 		5D26A82415570E2D00A1345C /* car14.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D26A82215570E2D00A1345C /* car14.png */; };
 		5D2A9E081548628A00F88EBA /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A9E071548628A00F88EBA /* GameLayer.m */; };
+		5D2C981C1557EE800088B9DB /* ollie.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 5D2C981B1557EE800088B9DB /* ollie.aiff */; };
+		5D2C981F1557EFCF0088B9DB /* reland.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 5D2C981E1557EFCF0088B9DB /* reland.aiff */; };
 		5D45361415559FE600DB165F /* crossing.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D45361315559FE600DB165F /* crossing.png */; };
 		5D45361B1555B0A400DB165F /* goverdeck3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D45361A1555B0A400DB165F /* goverdeck3.png */; };
 		5D45361F1555B5CA00DB165F /* logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D45361E1555B5CA00DB165F /* logo2.png */; };
@@ -163,7 +165,6 @@
 		5DBABBD01551C3A700740EA7 /* road2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBABBCF1551C3A700740EA7 /* road2.png */; };
 		5DBABBD31551C95300740EA7 /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBABBD21551C95300740EA7 /* start.png */; };
 		5DBABBD51551C96D00740EA7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBABBD41551C96D00740EA7 /* Default@2x.png */; };
-		5DBABBD71551C9C100740EA7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBABBD61551C9C100740EA7 /* Default@2x.png */; };
 		5DBABBDC1551CDAD00740EA7 /* SceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBABBDB1551CDAD00740EA7 /* SceneManager.m */; };
 		5DBABBDF1551CEC100740EA7 /* MenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBABBDE1551CEC000740EA7 /* MenuLayer.m */; };
 		5DBABBE81552304600740EA7 /* instructionbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBABBE71552304600740EA7 /* instructionbg.png */; };
@@ -196,6 +197,8 @@
 		5D26A82215570E2D00A1345C /* car14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car14.png; sourceTree = SOURCE_ROOT; };
 		5D2A9E061548628A00F88EBA /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		5D2A9E071548628A00F88EBA /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
+		5D2C981B1557EE800088B9DB /* ollie.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = ollie.aiff; sourceTree = SOURCE_ROOT; };
+		5D2C981E1557EFCF0088B9DB /* reland.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = reland.aiff; sourceTree = SOURCE_ROOT; };
 		5D45361315559FE600DB165F /* crossing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crossing.png; sourceTree = SOURCE_ROOT; };
 		5D45361A1555B0A400DB165F /* goverdeck3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goverdeck3.png; sourceTree = SOURCE_ROOT; };
 		5D45361E1555B5CA00DB165F /* logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo2.png; sourceTree = SOURCE_ROOT; };
@@ -566,6 +569,8 @@
 		5D95AE3A1538F9910062205C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5D2C981E1557EFCF0088B9DB /* reland.aiff */,
+				5D2C981B1557EE800088B9DB /* ollie.aiff */,
 				5D26A82115570E2D00A1345C /* car13.png */,
 				5D26A82215570E2D00A1345C /* car14.png */,
 				5D26A80815570DD200A1345C /* car1.png */,
@@ -1004,7 +1009,6 @@
 				5DBABBD01551C3A700740EA7 /* road2.png in Resources */,
 				5DBABBD31551C95300740EA7 /* start.png in Resources */,
 				5DBABBD51551C96D00740EA7 /* Default@2x.png in Resources */,
-				5DBABBD71551C9C100740EA7 /* Default@2x.png in Resources */,
 				5DBABBE81552304600740EA7 /* instructionbg.png in Resources */,
 				5DBABBEA1552313200740EA7 /* Instructions.png in Resources */,
 				5DBABBF61552E0B000740EA7 /* cityskate.png in Resources */,
@@ -1042,6 +1046,8 @@
 				5D26A81F15570DD200A1345C /* car12.png in Resources */,
 				5D26A82315570E2D00A1345C /* car13.png in Resources */,
 				5D26A82415570E2D00A1345C /* car14.png in Resources */,
+				5D2C981C1557EE800088B9DB /* ollie.aiff in Resources */,
+				5D2C981F1557EFCF0088B9DB /* reland.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

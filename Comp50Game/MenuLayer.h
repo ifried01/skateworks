@@ -14,7 +14,6 @@
     CCLayer* game;
     CCLayer* instructions;
     bool paused;
-    //CCSprite* background;
 }
 
 - (void)onNewGame:(id)sender;

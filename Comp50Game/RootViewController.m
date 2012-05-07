@@ -83,8 +83,7 @@
 	//
 	// Sample: Autorotate only in landscpe mode
 	//
-	// return YES for the supported orientations
-	
+	// return YES for the supported orientations 
 	return ( UIInterfaceOrientationIsLandscape( interfaceOrientation ) );
 	
 #else

@@ -21,6 +21,7 @@
     self = [super init];
     
     self.isTouchEnabled = YES;
+    self.isAccelerometerEnabled = YES;
     //paused = false;
     if (![[SimpleAudioEngine sharedEngine] isBackgroundMusicPlaying]) {
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"Skateworks.mp3"];
@@ -137,6 +138,21 @@
     if (CGRectContainsPoint(musicLoc, touch)) {
         
 }*/
+
+- (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
+    // Do stuff like sending accel information to player to make him move'
+    /*
+     int currentX = player.position.x;
+     //int currentY = player.position.y;
+     
+     if (acceleration.x > 0.25) {*/
+    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setDouble:acceleration.x forKey:@"accel.x"];
+    NSLog(@"%f", (double)acceleration.x);
+
+}
+
 
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc

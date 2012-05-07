@@ -44,6 +44,12 @@
         isPaused = NO;
         finalTime = 0;
         
+        UIApplication  *app = [UIApplication sharedApplication];
+        
+        if (!app.isIdleTimerDisabled) {
+            app.idleTimerDisabled = YES;
+        }
+        
         gameTimer = 0;
         //print "Time:" to screen
         CCLabelTTF *timer = [CCLabelTTF labelWithString:@"Time: "  fontName:@"TimesNewRomanPS-ItalicMT" fontSize:24];
@@ -54,7 +60,7 @@
         [self schedule:@selector(update:) interval:1.0/60];
         self.isAccelerometerEnabled = YES;
         [[UIAccelerometer sharedAccelerometer] setDelegate:self];
-        //double calibrate = [UIAcceleration.x];
+        //double calibrate = [[UIAccelerometer sharedAccelerometer] 
         
        //NSArray* inputImages = [NSArray arrayWithObjects:@"car1.png", @"car3.png", @"car4.png", @"car5.png", @"car6.png", nil];
         
@@ -118,7 +124,7 @@
         //Road spawn
         NSMutableArray* newLanes = [[NSMutableArray alloc] initWithCapacity:12];
         RoadClass *initLane = [[RoadClass alloc] initWithFile:roadImage atPositionx:240 atPositiony:160];
-        [self addChild:initLane];
+        [self addChild:initLane z:-1];
         [newLanes addObject:initLane];
         /*
         RoadClass *lane2 = [[RoadClass alloc] initWithFile:roadImage atPositionx:240 atPositiony:27*3];
@@ -138,7 +144,7 @@
         [newLanes addObject:lane6];*/
         
         RoadClass *secondLane = [[RoadClass alloc] initWithFile:roadImage atPositionx:240+480 atPositiony:160];
-        [self addChild:secondLane];
+        [self addChild:secondLane z:-1];
         [newLanes addObject:secondLane];
         /*
         RoadClass *lane8 = [[RoadClass alloc] initWithFile:roadImage atPositionx:240+480 atPositiony:27*3];
@@ -165,6 +171,14 @@
         [self addChild:pause];
         pauseLabel = pause;
         
+        stokage = [CCLabelTTF labelWithString:@"Stoked"  fontName:@"Marker Felt" fontSize:24];
+        stokage.position = ccp(35, 303);
+        stokage.color = ccc3(255, 29, 206);
+        id action1 = [CCRotateBy actionWithDuration:0.1 angle:15];
+        id action2 = [CCRepeatForever actionWithAction:[CCSequence actions: action1, [action1 reverse], nil]];
+        [stokage runAction:action2];
+        [self addChild:stokage];
+        
         PlayerClass* tempPlayer = [[PlayerClass alloc] initWithFile:@"player1.png"];
         player = tempPlayer;
         [self addChild:tempPlayer];
@@ -179,24 +193,33 @@
 }
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
+    /*double calibration = [[NSUserDefaults standardUserDefaults] doubleForKey:@"accel.x"];
+    int direction = 1;
+    float sensitivity = 25;
+    #define kFilteringFactor 0.1
+    UIAccelerationValue rollingX;
+    rollingX = (acceleration.x * kFilteringFactor) + (rollingX * (1.0 - kFilteringFactor));
+    float acely = acceleration.x - rollingX;
+    
+	float offset = calibration * (sensitivity * ( direction * -1 ));
+    float movement = (acely * sensitivity) + offset;
+    
+    if ( [player getPlayery] > 35 && movement < 0) {
+		//paddle is at the right edge of the screen and the device is tiled left. Move the paddle!
+		[player setPlayermove:movement];
+	}
+    if ( [player getPlayery] < 280 && movement > 0) {
+		//paddle is at the right edge of the screen and the device is tiled left. Move the paddle!
+		[player setPlayermove:movement];
+	}*/
     // Do stuff like sending accel information to player to make him move'
     /*
     int currentX = player.position.x;
     //int currentY = player.position.y;
     
-    if (acceleration.x > 0.25) {
-        //player.position.x = currentX - acceleration.x
-        printf("HERE\n");
-        currentX = currentX - acceleration.x;
-    }
-//
-//    [player setPosition:(CGPoint)]*/
-    
-    //NSLog(@"x: %g", acceleration.x);
-    /*
-    NSLog(@"y: %g", acceleration.y);
-    NSLog(@"z: %g", acceleration.z);
-    */
+    if (acceleration.x > 0.25) {*/
+    //double accelX = [[NSUserDefaults standardUserDefaults] doubleForKey:@"accel.x"];
+    //NSLog(@"%f", (acceleration.x));
     
     [player setUpDown:acceleration.x];
 }
@@ -218,6 +241,10 @@
         else {
             [pauseLabel setString:@"Carve On"];
         }
+    }
+    else if ([player getPlayerstoked] < 0) {
+        [[SimpleAudioEngine sharedEngine] playEffect:@"reland.aiff"];
+        [player jump];
     }
 }
 
@@ -248,8 +275,20 @@
      // NSLog(@"Updating!");
      */
     
+    if ([player getPlayerstoked] > 0) {
+        [self removeChild:stokage cleanup:NO];
+    }
+    else if ([player getPlayerstoked] < 0 && ![[self children] containsObject:stokage]) {
+        [self addChild:stokage];
+    }
+    
     //NSInteger z = [lanes count];
-
+    /*if ([player getPlayerstoked] < 0) {
+        [self addChild:stokage];
+    }
+    else {
+        [self removeChild:stokage cleanup:YES];
+    }*/
     NSInteger c;
     if (gameTimer < 15) {
      c = rand()%60;
@@ -268,7 +307,7 @@
          NSString *carImage = [images objectAtIndex:i];
          SpriteClass* tempSprite = [[SpriteClass alloc] initWithFile:carImage];
          [sprites addObject:tempSprite];
-         [self addChild:tempSprite];
+         [self addChild:tempSprite z:-1];
          for (int x = 0; x < [sprites count]; x++) {
              if (CGRectIntersectsRect([tempSprite boundingBox], [[sprites objectAtIndex:x] boundingBox]) && tempSprite != [sprites objectAtIndex:x]) {
                  [deleteMe addObject:tempSprite];
@@ -299,7 +338,7 @@
          if ([temp getSpritex] < -30) {
              [deleteMe addObject:temp];
          }
-         if (CGRectIntersectsRect([temp boundingBox], [player boundingBox]) && ![player getCollide]) {
+         if (CGRectIntersectsRect([temp boundingBox], [player boundingBox]) && ![player getCollide] && ![player getJump]) {
              [player setCollide:true];
              
              finalTime = (int)gameTimer;
@@ -328,10 +367,8 @@
              }
              [defaults setInteger:(int)gameTimer forKey:@"gametime"];
              [defaults synchronize];
-             
-             if ([[SimpleAudioEngine sharedEngine] isBackgroundMusicPlaying]) {
-                 [[SimpleAudioEngine sharedEngine] playEffect:@"horngoby.wav"];
-             }
+
+            [[SimpleAudioEngine sharedEngine] playEffect:@"horngoby.wav"];
              
              
              [SceneManager goGameover];

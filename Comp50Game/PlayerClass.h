@@ -19,14 +19,21 @@
     bool down;
     int speed;
     bool collide;
+    bool jumping;
+    double stoked;
 }   
 
 - (int)getPlayery;
 - (int)getPlayerx;
 - (id)initWithFile:(NSString*)filename;
 - (void)setUpDown:(double)acceleration;
+- (void)setUD:(double)acceleration;
 - (int)setPlayery;
 - (bool)setCollide:(bool)collided;
 - (bool)getCollide;
+-(void) setPlayermove:(float) move;
+-(void) jump;
+-(double)getPlayerstoked;
+-(bool)getJump;
 
 @end

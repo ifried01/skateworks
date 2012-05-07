@@ -24,6 +24,7 @@
     CCLabelTTF* pauseLabel;
     int finalTime;
     BOOL isPaused;
+    CCLabelTTF *stokage;
 }
 
 +(CCScene *) scene;
