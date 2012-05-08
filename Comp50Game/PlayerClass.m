@@ -78,7 +78,7 @@
     id action1 = [CCScaleBy actionWithDuration:0.6 scale:1.8];
     id action2 = [CCScaleBy actionWithDuration:0.6 scale:0.5555];
     [self runAction:[CCSequence actions:action1, action2, nil]];
-    stoked = 16.2;
+    stoked = 11.2;
 }
 
 - (void)setUD:(double)acceleration {
@@ -135,7 +135,6 @@
         //down = false;
         //up = false;
     }
-    NSLog(@"%f", speed);
     
     return y;
 }
@@ -168,7 +167,7 @@
 }*/
 
 - (void)update:(ccTime)dt {
-    if (stoked < 15) {
+    if (stoked < 10) {
         jumping = false;
     }
     [self setPlayery];

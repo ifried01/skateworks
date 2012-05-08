@@ -166,7 +166,7 @@
         lanes = newLanes;
         
         CCLabelTTF *pause = [CCLabelTTF labelWithString:@"Chill Out"  fontName:@"TimesNewRomanPS-BoldMT" fontSize:23];
-        pause.position = ccp(430, 305);
+        pause.position = ccp(430, 306);
         pause.color = ccc3(72, 145, 206);
         [self addChild:pause];
         pauseLabel = pause;
