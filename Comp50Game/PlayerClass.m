@@ -46,22 +46,22 @@
     NSLog(@"%f", accelx);*/
     float accelx = acceleration;
     
-    if (accelx < -0.15 && accelx > -0.65) {
+    if (accelx < -0.15 && accelx > -0.70) {
         up = true;
         down = false;
         speed = 3;
     }
-    else if (accelx > 0.15 && accelx < 0.65) {
+    else if (accelx > 0.15 && accelx < 0.70) {
         down = true;
         up = false;
         speed = 3;
     }
-   else if (accelx <= -0.65 && accelx > -1) {
+   else if (accelx <= -0.70 && accelx > -1) {
         up = true;
         down = false;
        speed = 6;
     }
-   else if (accelx >= 0.65 && accelx < 1) {
+   else if (accelx >= 0.70 && accelx < 1) {
        up = false;
        down = true;
        speed = 6;
@@ -96,12 +96,12 @@
     else if (acceleration > callib && fabs(fabs(callib) - fabs(acceleration)) >= 0.65 && fabs(fabs(callib) - fabs(acceleration)) < 1) {
         down = true;
         up = false;
-        speed = 6;
+        speed = 5;
     }
     else if (acceleration < callib && fabs(fabs(callib) - fabs(acceleration)) >= 0.65 && fabs(fabs(callib) - fabs(acceleration)) < 1) {
         down = false;
         up = true;
-        speed = 6;
+        speed = 5;
     }
     else {
         down = false;
@@ -135,6 +135,7 @@
         //down = false;
         //up = false;
     }
+    NSLog(@"%f", speed);
     
     return y;
 }
@@ -146,7 +147,7 @@
         up = false;
         down = false;
         jumping = false;
-        speed = 3;
+        speed = 0;
         stoked = 0.5;
         x = 60;
         y = 160;
@@ -173,7 +174,7 @@
     [self setPlayery];
     [self setPosition:ccp(x, y)];
     stoked -= dt;
-    NSLog(@"Stokage = %d", (int)stoked);
+    //NSLog(@"Stokage = %d", (int)stoked);
     
 }
 

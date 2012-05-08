@@ -62,7 +62,7 @@
 
     CCMenuItemFont *back = [CCMenuItemFont itemFromString:@"Main Menu" target:self selector: @selector(back:)];
     CCMenuItemFont *restart = [CCMenuItemFont itemFromString:@"Reboard" target:self selector: @selector(restart:)];
-    CCMenuItemFont *highscore = [CCMenuItemFont itemFromString:@"Killer Rides" target:self selector: @selector(highscore:)];
+    CCMenuItemFont *highscore = [CCMenuItemFont itemFromString:@"Killer Seshs" target:self selector: @selector(highscore:)];
     [back setFontSize:25];
     [restart setFontSize:25];
     [highscore setFontSize:25];

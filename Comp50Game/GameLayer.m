@@ -165,7 +165,7 @@
         
         lanes = newLanes;
         
-        CCLabelTTF *pause = [CCLabelTTF labelWithString:@"Chill Out"  fontName:@"TimesNewRomanPS-ItalicMT" fontSize:24];
+        CCLabelTTF *pause = [CCLabelTTF labelWithString:@"Chill Out"  fontName:@"TimesNewRomanPS-BoldMT" fontSize:23];
         pause.position = ccp(430, 305);
         pause.color = ccc3(72, 145, 206);
         [self addChild:pause];
@@ -174,14 +174,15 @@
         stokage = [CCLabelTTF labelWithString:@"Stoked"  fontName:@"Marker Felt" fontSize:24];
         stokage.position = ccp(35, 303);
         stokage.color = ccc3(255, 29, 206);
-        id action1 = [CCRotateBy actionWithDuration:0.1 angle:15];
-        id action2 = [CCRepeatForever actionWithAction:[CCSequence actions: action1, [action1 reverse], nil]];
-        [stokage runAction:action2];
+        id action1 = [CCRotateBy actionWithDuration:0.08 angle:10];
+        id action2 = [CCRotateBy actionWithDuration:0.08 angle:-10];
+        id action3 = [CCRepeatForever actionWithAction:[CCSequence actions: action1, [action1 reverse], action2, [action2 reverse], nil]];
+        [stokage runAction:action3];
         [self addChild:stokage];
         
         PlayerClass* tempPlayer = [[PlayerClass alloc] initWithFile:@"player1.png"];
         player = tempPlayer;
-        [self addChild:tempPlayer];
+        [self addChild:tempPlayer z:1];
         [self addChild:timer];
         //SpriteClass* tempSprite = [[SpriteClass alloc] initWithFile:@"car6.png"];
         //sprite = tempSprite;
@@ -291,23 +292,23 @@
     }*/
     NSInteger c;
     if (gameTimer < 15) {
-     c = rand()%60;
+     c = arc4random()%60;
     }
     else if (gameTimer >= 15 && gameTimer < 45) {
-        c = rand()%40;
+        c = arc4random()%40;
     }
     else if (gameTimer >= 45 && gameTimer < 90) {
-        c = rand()%20;
+        c = arc4random()%20;
     }
     else {
-        c =rand()%10;
+        c = arc4random()%10;
     }
      if (c == 0) {
          NSInteger i = arc4random()%[images count];
          NSString *carImage = [images objectAtIndex:i];
          SpriteClass* tempSprite = [[SpriteClass alloc] initWithFile:carImage];
          [sprites addObject:tempSprite];
-         [self addChild:tempSprite z:-1];
+         [self addChild:tempSprite z:0];
          for (int x = 0; x < [sprites count]; x++) {
              if (CGRectIntersectsRect([tempSprite boundingBox], [[sprites objectAtIndex:x] boundingBox]) && tempSprite != [sprites objectAtIndex:x]) {
                  [deleteMe addObject:tempSprite];

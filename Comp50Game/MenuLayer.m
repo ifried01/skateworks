@@ -147,9 +147,9 @@
      
      if (acceleration.x > 0.25) {*/
     
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setDouble:acceleration.x forKey:@"accel.x"];
-    NSLog(@"%f", (double)acceleration.x);
+    //NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    //[defaults setDouble:acceleration.x forKey:@"accel.x"];
+    //NSLog(@"%f", (double)acceleration.x);
 
 }
 

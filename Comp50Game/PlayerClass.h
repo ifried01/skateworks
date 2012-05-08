@@ -17,7 +17,7 @@
     int y;
     bool up;
     bool down;
-    int speed;
+    float speed;
     bool collide;
     bool jumping;
     double stoked;
