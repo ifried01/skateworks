@@ -90,6 +90,7 @@
     
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setDouble:acceleration.x forKey:@"accel.x"];
+    [defaults setDouble:acceleration.z forKey:@"accel.z"];
     //NSLog(@"%f", (double)acceleration.x);
     
 }

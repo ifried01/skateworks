@@ -21,6 +21,7 @@
     bool collide;
     bool jumping;
     double stoked;
+    
 }   
 
 - (int)getPlayery;

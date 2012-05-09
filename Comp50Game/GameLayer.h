@@ -30,6 +30,10 @@
     double previousSpawn;
     int laneTimers[5];
     int defaultTimes[5];
+    double calibration;
+    double reference;
+    double upper;
+    double lower;
 }
 
 +(CCScene *) scene;

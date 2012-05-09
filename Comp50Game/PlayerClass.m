@@ -44,6 +44,7 @@
         accelx = (acelx + offset)/(calibRangeNeg);
     }
     NSLog(@"%f", accelx);*/
+    
     if (acceleration > upper - 0.88) {
         up = false;
         down = true;

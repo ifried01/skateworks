@@ -118,8 +118,10 @@
     
 	// Run the intro Scene
 	//[[CCDirector sharedDirector] runWithScene:[GameLayer scene]];
-   // NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
-   //[[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+    //Clear user defaults
+    //NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+    //[[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+    
     [SceneManager goMenu];
 }
 

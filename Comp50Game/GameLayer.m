@@ -215,6 +215,21 @@
         //sprite = tempSprite;
         //[self addChild:tempSprite]; 
         //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"skateboard.mp3"];
+        
+        calibration = [[NSUserDefaults standardUserDefaults] doubleForKey:@"accel.x"];
+        reference = [[NSUserDefaults standardUserDefaults] doubleForKey:@"accel.z"];
+        
+        if (reference > 0) {
+            if (calibration > 0) {
+                calibration = 2 - calibration;
+            }
+            else {
+                calibration = -2 - calibration;
+            }
+        }
+        
+        lower = -1 + calibration;
+        upper = 1 + calibration;
     
     }
 	return self;
@@ -247,7 +262,6 @@
     
     if (acceleration.x > 0.25) {*/
     
-    double calibration = [[NSUserDefaults standardUserDefaults] doubleForKey:@"accel.x"];
     double accel;
     
     if (acceleration.z < 0) {
@@ -256,17 +270,13 @@
     else {
         if (acceleration.x < 0) {
             accel = -2 - acceleration.x;
-            calibration = -2 - calibration;
         }
         else {
             accel = 2 - acceleration.x;
-            calibration = 2 - calibration;
         }
         
     }
     accel = accel;
-    double lower = -1 + calibration;
-    double upper = 1 + calibration;
     //NSLog(@"%f %f %f",  accel, lower, upper);
     [player setUpDown:accel inLower:lower inUpper:upper];
 }
