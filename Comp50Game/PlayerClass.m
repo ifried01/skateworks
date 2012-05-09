@@ -30,9 +30,9 @@
 - (void)setUpDown:(double)acceleration inLower:(double)lower inUpper:(double)upper {
     
     
-    /*int direction = 1;
-    double calibration = [[NSUserDefaults standardUserDefaults] doubleForKey:@"accel.x"];
-    float calibRangeNeg = 1 - fabs(calibration);
+    //int direction = 1;
+    double calibration = [[NSUserDefaults standardUserDefaults] doubleForKey:@"accel.z"];
+    /*float calibRangeNeg = 1 - fabs(calibration);
     float calibRangePos = 1 - calibration;
     float acelx = acceleration * direction;
     //float accelx;
@@ -44,20 +44,37 @@
         accelx = (acelx + offset)/(calibRangeNeg);
     }
     NSLog(@"%f", accelx);*/
-    
+    if (calibration < 0) {
     if (acceleration > upper - 0.88) {
-        up = false;
-        down = true;
+        up = true;
+        down = false;
         //speed = 3;
     }
     else if (acceleration < lower + 0.88) {
-        down = false;
-        up = true;
+        down = true;
+        up = false;
         //speed = 3;
     }
     else {
         up = false;
         down = false;
+    }
+    }
+    else {
+        if (acceleration > upper - 0.88) {
+            up = false;
+            down = true;
+            //speed = 3;
+        }
+        else if (acceleration < lower + 0.88) {
+            down = false;
+            up = true;
+            //speed = 3;
+        }
+        else {
+            up = false;
+            down = false;
+        }
     }
     
     
@@ -100,29 +117,18 @@
 
 - (void)setUD:(double)acceleration {
     double callib = [[NSUserDefaults standardUserDefaults] doubleForKey:@"accel.x"];
-    if (acceleration < callib && fabs(fabs(callib) - fabs(acceleration)) > 0.30 && fabs(fabs(callib) - fabs(acceleration)) < 0.65) {
-        down = false;
+    NSLog(@"callib: %f, accel: %f", callib, acceleration);
+    if (acceleration > callib + 0.12 && acceleration < 2 + callib) {
         up = true;
-        speed = 3;
+        down = false;
     }
-    else if (acceleration > callib && fabs(fabs(callib) - fabs(acceleration)) > 0.30 && fabs(fabs(callib) - fabs(acceleration)) < 0.65) {
+    else if (acceleration < callib - 0.12 && acceleration > callib - 2) {
         down = true;
         up = false;
-        speed = 3;
-    }
-    else if (acceleration > callib && fabs(fabs(callib) - fabs(acceleration)) >= 0.65 && fabs(fabs(callib) - fabs(acceleration)) < 1) {
-        down = true;
-        up = false;
-        speed = 5;
-    }
-    else if (acceleration < callib && fabs(fabs(callib) - fabs(acceleration)) >= 0.65 && fabs(fabs(callib) - fabs(acceleration)) < 1) {
-        down = false;
-        up = true;
-        speed = 5;
     }
     else {
         down = false;
-        up = true;
+        up = false;
     }
     
 }
@@ -142,12 +148,12 @@
 }
 
 - (int) setPlayery {
-    if (down == true && y < 280 && !jumping) {
+    if (up == true && y < 280 && !jumping) {
         y = y + speed;
         //down = false;
         //up = false;
     }
-    else if (up == true && y > 35 && !jumping) {
+    else if (down == true && y > 35 && !jumping) {
         y = y - speed;
         //down = false;
         //up = false;

@@ -217,19 +217,27 @@
         //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"skateboard.mp3"];
         
         calibration = [[NSUserDefaults standardUserDefaults] doubleForKey:@"accel.x"];
+        NSLog(@"%f", calibration);
         reference = [[NSUserDefaults standardUserDefaults] doubleForKey:@"accel.z"];
         
-        if (reference > 0) {
-            if (calibration > 0) {
-                calibration = 2 - calibration;
+        if (reference < 0) {
+            
+            lower = calibration - 1;
+            upper = calibration + 1;
+            /*if (calibration > 0) {
+                upper = 2 - calibration;
+                lower = -calibration;
             }
             else {
-                calibration = -2 - calibration;
-            }
+                upper = -2 - calibration;
+                lower = -(1-calibration);
+            }*/
         }
-        
-        lower = -1 + calibration;
-        upper = 1 + calibration;
+        else {
+            lower = -1 + calibration;
+            upper = 1 + calibration;
+        }
+        NSLog(@"cal %f accel %f up %f low %f", calibration, reference, upper, lower);
     
     }
 	return self;
@@ -276,9 +284,10 @@
         }
         
     }
-    accel = accel;
-    //NSLog(@"%f %f %f",  accel, lower, upper);
+    //accel = accel;
+    //NSLog(@"accel : %f upper : %f lower : %f",  accel, lower, upper);
     [player setUpDown:accel inLower:lower inUpper:upper];
+    //[player setUD:acceleration.x];
 }
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -403,14 +412,14 @@
             spawnTimer = (arc4random()%130+80)/100;
         }
         else if (gameTimer >= 50 && gameTimer < 80) {
-            spawnTimer = (arc4random()%100+50)/100;
+            spawnTimer = (arc4random()%110+70)/100;
         }
         else if (gameTimer >= 80 && gameTimer < 110) {
-            spawnTimer = (arc4random()%70+40)/100;
+            spawnTimer = (arc4random()%75+50)/100;
         }
-        //else if (gameTimer >= 90 && gameTimer < 120) {
-          //  spawnTimer = 0.5;
-        //}
+        else if (gameTimer >= 110 && gameTimer < 140) {
+            spawnTimer = 0.5;
+        }
         else {
             spawnTimer = 0.25;
         }
