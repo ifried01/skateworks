@@ -45,30 +45,30 @@
     }
     NSLog(@"%f", accelx);*/
     if (calibration < 0) {
-    if (acceleration > upper - 0.88) {
-        up = true;
-        down = false;
+        if (acceleration > upper - 0.88) {
+            up = true;
+            down = false;
         //speed = 3;
-    }
-    else if (acceleration < lower + 0.88) {
-        down = true;
-        up = false;
+        }
+        else if (acceleration < lower + 0.88) {
+            down = true;
+            up = false;
         //speed = 3;
-    }
-    else {
-        up = false;
-        down = false;
-    }
+        }
+        else {
+            up = false;
+            down = false;
+        }
     }
     else {
         if (acceleration > upper - 0.88) {
-            up = false;
-            down = true;
+            up = true;
+            down = false;
             //speed = 3;
         }
         else if (acceleration < lower + 0.88) {
-            down = false;
-            up = true;
+            down = true;
+            up = false;
             //speed = 3;
         }
         else {
