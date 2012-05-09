@@ -18,7 +18,9 @@
 -(id) init{
     self=[super init];
     
-
+    
+    self.isAccelerometerEnabled = YES;
+    
      CCSprite* bg = [[CCSprite alloc] initWithFile:@"skateboardhs.png"];
      [bg setPosition:ccp(240, 160)];
      //text = txt;
@@ -78,7 +80,19 @@
     return self;
 }
     
-
+- (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
+    // Do stuff like sending accel information to player to make him move'
+    /*
+     int currentX = player.position.x;
+     //int currentY = player.position.y;
+     
+     if (acceleration.x > 0.25) {*/
+    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setDouble:acceleration.x forKey:@"accel.x"];
+    //NSLog(@"%f", (double)acceleration.x);
+    
+}
 
 
 -(void) back: (id) sender{

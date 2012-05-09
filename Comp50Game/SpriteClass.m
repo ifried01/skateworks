@@ -59,26 +59,26 @@
     if( self = [super initWithFile:filename]) {
         
         //NSInteger i = arc4random()%5 + 1;
-        int i = rand() % 5 + 1;
-        if (i == 5) {
+        lane = rand() % 5 + 1;
+        if (lane == 5) {
             speed = 7;
         }
-        else if (i == 1) {
+        else if (lane == 1) {
             speed = 5;
         }
-        else if (i == 4) {
+        else if (lane == 4) {
             speed = 4;
         }
-        else if (i == 3) {
+        else if (lane == 3) {
             speed = 6;
         }
         else {
             speed = 3;
         }
          //= [NSArray arrayWithObjects:25, 80, 135, 190, nil];
-        [self setPosition:ccp(500, i*53)];
+        [self setPosition:ccp(500, lane*53)];
         x = 500;
-        y = 53*i;
+        y = 53*lane;
         
         
     }
@@ -87,9 +87,8 @@
 
 
 
-- (void) myMethod:(ccTime)dt
-{
-    NSLog(@"Your method should do something every frame here...");
+-(int)getLane {
+    return lane;
 }
 
 /*-(void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event 

@@ -51,6 +51,8 @@
         }
         
         gameTimer = 0;
+        spawnTimer = arc4random()%2+1;
+        previousSpawn = 0;
         //print "Time:" to screen
         CCLabelTTF *timer = [CCLabelTTF labelWithString:@"Time: "  fontName:@"TimesNewRomanPS-ItalicMT" fontSize:24];
         timerLabel = [timer retain];
@@ -96,6 +98,16 @@
         [tempImages addObject:image14];
          
         images = tempImages;
+        
+        for (int h = 0; h < 5; h++) {
+            laneTimers[h] = 0;
+        }
+        defaultTimes[0] = 40;
+        defaultTimes[1] = 50;
+        defaultTimes[2] = 40;
+        defaultTimes[3] = 45;
+        defaultTimes[4] = 35;
+        
         
         roadImage = @"road2.png";
         //NSInteger i = arc4random()%[images count] + 1;
@@ -174,11 +186,26 @@
         stokage = [CCLabelTTF labelWithString:@"Stoked"  fontName:@"Marker Felt" fontSize:24];
         stokage.position = ccp(35, 303);
         stokage.color = ccc3(255, 29, 206);
-        id action1 = [CCRotateBy actionWithDuration:0.08 angle:10];
-        id action2 = [CCRotateBy actionWithDuration:0.08 angle:-10];
+        id action1 = [CCRotateBy actionWithDuration:0.06 angle:12];
+        id action2 = [CCRotateBy actionWithDuration:0.06 angle:-12];
         id action3 = [CCRepeatForever actionWithAction:[CCSequence actions: action1, [action1 reverse], action2, [action2 reverse], nil]];
+        
+        stokeBuild = [CCLabelTTF labelWithString:@"Mellow"  fontName:@"Marker Felt" fontSize:24];
+        stokeBuild.position = ccp(38, 306);
+        //stokeBuild.color = ccc3(0, 255, 127);
+        stokeBuild.color = ccc3(158, 253, 56);
+        [stokeBuild setOpacity:1.0];
+        CCFadeTo *fadeIn = [CCFadeTo actionWithDuration:0.70 opacity:50];
+        CCFadeTo *fadeOut = [CCFadeTo actionWithDuration:0.70 opacity:200];
+        
+        CCSequence *pulseSequence = [CCSequence actionOne:fadeIn two:fadeOut];
+        CCRepeatForever *repeat = [CCRepeatForever actionWithAction:pulseSequence];
         [stokage runAction:action3];
+        [stokeBuild runAction:repeat];
+        
+        
         [self addChild:stokage];
+        [self addChild:stokeBuild];
         
         PlayerClass* tempPlayer = [[PlayerClass alloc] initWithFile:@"player1.png"];
         player = tempPlayer;
@@ -219,10 +246,29 @@
     //int currentY = player.position.y;
     
     if (acceleration.x > 0.25) {*/
-    //double accelX = [[NSUserDefaults standardUserDefaults] doubleForKey:@"accel.x"];
-    //NSLog(@"%f", (acceleration.x));
     
-    [player setUpDown:acceleration.x];
+    double calibration = [[NSUserDefaults standardUserDefaults] doubleForKey:@"accel.x"];
+    double accel;
+    
+    if (acceleration.z < 0) {
+        accel = acceleration.x;
+    }
+    else {
+        if (acceleration.x < 0) {
+            accel = -2 - acceleration.x;
+            calibration = -2 - calibration;
+        }
+        else {
+            accel = 2 - acceleration.x;
+            calibration = 2 - calibration;
+        }
+        
+    }
+    accel = accel;
+    double lower = -1 + calibration;
+    double upper = 1 + calibration;
+    //NSLog(@"%f %f %f",  accel, lower, upper);
+    [player setUpDown:accel inLower:lower inUpper:upper];
 }
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -243,7 +289,7 @@
             [pauseLabel setString:@"Carve On"];
         }
     }
-    else if ([player getPlayerstoked] < 0) {
+    else if ([player getPlayerstoked] < 0 && !isPaused) {
         [[SimpleAudioEngine sharedEngine] playEffect:@"reland.aiff"];
         [player jump];
     }
@@ -277,10 +323,12 @@
      */
     
     if ([player getPlayerstoked] > 0) {
-        [self removeChild:stokage cleanup:NO];
+        [stokage setString:@""];
+        [stokeBuild setString:@"Mellow"];
     }
-    else if ([player getPlayerstoked] < 0 && ![[self children] containsObject:stokage]) {
-        [self addChild:stokage];
+    else {
+        [stokeBuild setString:@""];
+        [stokage setString:@"Stoked"];
     }
     
     //NSInteger z = [lanes count];
@@ -290,7 +338,7 @@
     else {
         [self removeChild:stokage cleanup:YES];
     }*/
-    NSInteger c;
+    /*NSInteger c;
     if (gameTimer < 15) {
      c = arc4random()%60;
     }
@@ -314,7 +362,49 @@
                  [deleteMe addObject:tempSprite];
              }
          }
-     }
+     }*/
+    for (int bulba = 0; bulba < 5; bulba++) {
+        laneTimers[bulba]--;
+    }
+    if (gameTimer - previousSpawn > spawnTimer) {
+        NSInteger i = arc4random()%[images count];
+        NSString *carImage = [images objectAtIndex:i];
+        SpriteClass* tempSprite = [[SpriteClass alloc] initWithFile:carImage];
+        if (laneTimers[[tempSprite getLane]-1] < 0) {
+            [sprites addObject:tempSprite];
+            [self addChild:tempSprite z:0];
+            laneTimers[[tempSprite getLane]-1] = defaultTimes[[tempSprite getLane]-1];
+        }
+        else {
+            [deleteMe addObject:tempSprite];
+        }
+        /*
+        for (int x = 0; x < [sprites count]; x++) {
+            if (CGRectIntersectsRect([tempSprite boundingBox], [[sprites objectAtIndex:x] boundingBox]) && tempSprite != [sprites objectAtIndex:x]) {
+                [deleteMe addObject:tempSprite];
+            }
+        }*/
+        
+        previousSpawn = gameTimer;
+        if (gameTimer < 20) {
+            spawnTimer = (arc4random()%160+110)/100;
+        }
+        else if (gameTimer >= 20 && gameTimer < 50) {
+            spawnTimer = (arc4random()%130+80)/100;
+        }
+        else if (gameTimer >= 50 && gameTimer < 80) {
+            spawnTimer = (arc4random()%100+50)/100;
+        }
+        else if (gameTimer >= 80 && gameTimer < 110) {
+            spawnTimer = (arc4random()%70+40)/100;
+        }
+        //else if (gameTimer >= 90 && gameTimer < 120) {
+          //  spawnTimer = 0.5;
+        //}
+        else {
+            spawnTimer = 0.25;
+        }
+    }
     
     
     //WHY CAN'T XCODE RECOGNIZE the class ROADSPRITE?????!!!!!??!?!?!?!
@@ -339,6 +429,7 @@
          if ([temp getSpritex] < -30) {
              [deleteMe addObject:temp];
          }
+        
          if (CGRectIntersectsRect([temp boundingBox], [player boundingBox]) && ![player getCollide] && ![player getJump]) {
              [player setCollide:true];
              

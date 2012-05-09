@@ -23,7 +23,6 @@
 		5D26A82315570E2D00A1345C /* car13.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D26A82115570E2D00A1345C /* car13.png */; };
 		5D26A82415570E2D00A1345C /* car14.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D26A82215570E2D00A1345C /* car14.png */; };
 		5D2A9E081548628A00F88EBA /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A9E071548628A00F88EBA /* GameLayer.m */; };
-		5D2C981C1557EE800088B9DB /* ollie.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 5D2C981B1557EE800088B9DB /* ollie.aiff */; };
 		5D2C981F1557EFCF0088B9DB /* reland.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 5D2C981E1557EFCF0088B9DB /* reland.aiff */; };
 		5D45361415559FE600DB165F /* crossing.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D45361315559FE600DB165F /* crossing.png */; };
 		5D45361B1555B0A400DB165F /* goverdeck3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D45361A1555B0A400DB165F /* goverdeck3.png */; };
@@ -175,6 +174,8 @@
 		5DBABBF81552E10300740EA7 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBABBF71552E10300740EA7 /* logo.png */; };
 		5DBABBFC1552E4FE00740EA7 /* GameOver.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBABBFB1552E4FE00740EA7 /* GameOver.png */; };
 		5DBABC0015530B9400740EA7 /* skateboardbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBABBFF15530B9400740EA7 /* skateboardbutton.png */; };
+		5DC49D6115599DA4005B77BF /* flower.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DC49D5F15599DA4005B77BF /* flower.png */; };
+		5DC49D6215599DA4005B77BF /* rideon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DC49D6015599DA4005B77BF /* rideon.png */; };
 		5DF6A8BD155372C60067FB43 /* HighscoreLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6A8BC155372C60067FB43 /* HighscoreLayer.m */; };
 		5DF6A8C0155373040067FB43 /* highscore.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF6A8BF155373040067FB43 /* highscore.png */; };
 /* End PBXBuildFile section */
@@ -197,7 +198,6 @@
 		5D26A82215570E2D00A1345C /* car14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car14.png; sourceTree = SOURCE_ROOT; };
 		5D2A9E061548628A00F88EBA /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		5D2A9E071548628A00F88EBA /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
-		5D2C981B1557EE800088B9DB /* ollie.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = ollie.aiff; sourceTree = SOURCE_ROOT; };
 		5D2C981E1557EFCF0088B9DB /* reland.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = reland.aiff; sourceTree = SOURCE_ROOT; };
 		5D45361315559FE600DB165F /* crossing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crossing.png; sourceTree = SOURCE_ROOT; };
 		5D45361A1555B0A400DB165F /* goverdeck3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goverdeck3.png; sourceTree = SOURCE_ROOT; };
@@ -476,6 +476,8 @@
 		5DBABBF71552E10300740EA7 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = SOURCE_ROOT; };
 		5DBABBFB1552E4FE00740EA7 /* GameOver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameOver.png; sourceTree = SOURCE_ROOT; };
 		5DBABBFF15530B9400740EA7 /* skateboardbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skateboardbutton.png; sourceTree = SOURCE_ROOT; };
+		5DC49D5F15599DA4005B77BF /* flower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flower.png; sourceTree = SOURCE_ROOT; };
+		5DC49D6015599DA4005B77BF /* rideon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rideon.png; sourceTree = SOURCE_ROOT; };
 		5DF6A8BB155372C60067FB43 /* HighscoreLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighscoreLayer.h; sourceTree = "<group>"; };
 		5DF6A8BC155372C60067FB43 /* HighscoreLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighscoreLayer.m; sourceTree = "<group>"; };
 		5DF6A8BF155373040067FB43 /* highscore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = highscore.png; sourceTree = SOURCE_ROOT; };
@@ -569,8 +571,9 @@
 		5D95AE3A1538F9910062205C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5DC49D5F15599DA4005B77BF /* flower.png */,
+				5DC49D6015599DA4005B77BF /* rideon.png */,
 				5D2C981E1557EFCF0088B9DB /* reland.aiff */,
-				5D2C981B1557EE800088B9DB /* ollie.aiff */,
 				5D26A82115570E2D00A1345C /* car13.png */,
 				5D26A82215570E2D00A1345C /* car14.png */,
 				5D26A80815570DD200A1345C /* car1.png */,
@@ -1046,8 +1049,9 @@
 				5D26A81F15570DD200A1345C /* car12.png in Resources */,
 				5D26A82315570E2D00A1345C /* car13.png in Resources */,
 				5D26A82415570E2D00A1345C /* car14.png in Resources */,
-				5D2C981C1557EE800088B9DB /* ollie.aiff in Resources */,
 				5D2C981F1557EFCF0088B9DB /* reland.aiff in Resources */,
+				5DC49D6115599DA4005B77BF /* flower.png in Resources */,
+				5DC49D6215599DA4005B77BF /* rideon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

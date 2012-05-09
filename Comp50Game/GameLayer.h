@@ -25,6 +25,11 @@
     int finalTime;
     BOOL isPaused;
     CCLabelTTF *stokage;
+    CCLabelTTF* stokeBuild;
+    float spawnTimer;
+    double previousSpawn;
+    int laneTimers[5];
+    int defaultTimes[5];
 }
 
 +(CCScene *) scene;

@@ -39,25 +39,36 @@
     CCLabelTTF *scorest = [CCLabelTTF labelWithString:@"Gnarliest: "  fontName:@"STHeitiTC-Medium" fontSize:26];
     score1 = scorest;
     score1.color = ccc3(218, 165, 32);
-    [score1 setPosition:ccp(230, 140)];
+    [score1 setPosition:ccp(250, 145)];
     [score1 setString:[NSString stringWithFormat:@"Gnarliest: %i",(int)hs1]];
     
     CCLabelTTF *scorer = [CCLabelTTF labelWithString:@"Gnarlier: "  fontName:@"STHeitiTC-Medium" fontSize:26];
     score2 = scorer;
     score2.color = ccc3(218, 165, 32);
-    [score2 setPosition:ccp(230, 90)];
+    [score2 setPosition:ccp(250, 95)];
     [score2 setString:[NSString stringWithFormat:@"Gnarlier: %i",(int)hs2]];
     
     CCLabelTTF *score = [CCLabelTTF labelWithString:@"Gnarly: "  fontName:@"STHeitiTC-Medium" fontSize:26];
     score3 = score;
     score3.color = ccc3(218, 165, 32);
-    [score3 setPosition:ccp(230, 40)];
+    [score3 setPosition:ccp(250, 45)];
     [score3 setString:[NSString stringWithFormat:@"Gnarly: %i",(int)hs3]];
     
     CCSprite* flame = [[CCSprite alloc] initWithFile:@"mmsb.png"];
     [flame setPosition:ccp(220, 260)];
     //text = txt;
     [self addChild: flame];
+    
+    CCSprite* flower = [[CCSprite alloc] initWithFile:@"flower.png"];
+    [flower setPosition:ccp(35, 40)];
+    //text = txt;
+    [self addChild: flower];
+    
+    CCSprite* ride = [[CCSprite alloc] initWithFile:@"rideon.png"];
+    [ride setPosition:ccp(85, 50)];
+    //text = txt;
+    [self addChild: ride];
+    
     
     [self addChild:score1];
     [self addChild:score2];

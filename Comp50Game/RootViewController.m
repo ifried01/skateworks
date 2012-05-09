@@ -52,6 +52,8 @@
 	//  - The ViewController way
 	//    - A bit slower, but the UiKit objects are placed in the right place
 	//
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+
 	
 #if GAME_AUTOROTATION==kGameAutorotationNone
 	//

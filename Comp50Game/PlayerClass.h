@@ -26,7 +26,7 @@
 - (int)getPlayery;
 - (int)getPlayerx;
 - (id)initWithFile:(NSString*)filename;
-- (void)setUpDown:(double)acceleration;
+- (void)setUpDown:(double)acceleration inLower:(double)lower inUpper:(double)upper;
 - (void)setUD:(double)acceleration;
 - (int)setPlayery;
 - (bool)setCollide:(bool)collided;

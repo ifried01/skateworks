@@ -27,7 +27,7 @@
     return x;
 }
 
-- (void)setUpDown:(double)acceleration {
+- (void)setUpDown:(double)acceleration inLower:(double)lower inUpper:(double)upper {
     
     
     /*int direction = 1;
@@ -44,41 +44,57 @@
         accelx = (acelx + offset)/(calibRangeNeg);
     }
     NSLog(@"%f", accelx);*/
-    float accelx = acceleration;
-    
-    if (accelx < -0.15 && accelx > -0.70) {
-        up = true;
-        down = false;
-        speed = 3;
-    }
-    else if (accelx > 0.15 && accelx < 0.70) {
-        down = true;
+    if (acceleration > upper - 0.88) {
         up = false;
+        down = true;
+        //speed = 3;
+    }
+    else if (acceleration < lower + 0.88) {
+        down = false;
+        up = true;
+        //speed = 3;
+    }
+    else {
+        up = false;
+        down = false;
+    }
+    
+    
+    
+    /*
+    if (acceleration <= upper - 0.30 && acceleration > upper - 0.85) {
+        up = false;
+        down = true;
         speed = 3;
     }
-   else if (accelx <= -0.70 && accelx > -1) {
-        up = true;
-        down = false;
-       speed = 6;
+    else if (acceleration > upper - 0.30 && acceleration < upper) {
+        up = false;
+        down = true;
+        speed = 5;
     }
-   else if (accelx >= 0.70 && accelx < 1) {
-       up = false;
-       down = true;
-       speed = 6;
+   else if (acceleration >= lower + 0.30 && acceleration < lower + 0.85) {
+       down = false;
+       up = true;
+       speed = 3;
+    }
+   else if (acceleration > lower + 0.30 && acceleration < lower) {
+       down = false;
+       up = true;
+       speed = 5;
    }
    else {
        up = false;
        down = false;
    }
-    
+    */
 }
 
 -(void) jump {
     jumping = true;
-    id action1 = [CCScaleBy actionWithDuration:0.6 scale:1.8];
-    id action2 = [CCScaleBy actionWithDuration:0.6 scale:0.5555];
+    id action1 = [CCScaleBy actionWithDuration:0.55 scale:1.8];
+    id action2 = [CCScaleBy actionWithDuration:0.60 scale:0.5555];
     [self runAction:[CCSequence actions:action1, action2, nil]];
-    stoked = 11.2;
+    stoked = 4.15;
 }
 
 - (void)setUD:(double)acceleration {
@@ -146,8 +162,8 @@
         up = false;
         down = false;
         jumping = false;
-        speed = 0;
-        stoked = 0.5;
+        speed = 3;
+        stoked = 0;
         x = 60;
         y = 160;
         collide = false;
@@ -167,7 +183,7 @@
 }*/
 
 - (void)update:(ccTime)dt {
-    if (stoked < 10) {
+    if (stoked < 3) {
         jumping = false;
     }
     [self setPlayery];
