@@ -203,9 +203,9 @@
         [stokage runAction:action3];
         [stokeBuild runAction:repeat];
         
-        wipeOut = [CCLabelTTF labelWithString:@"Wipe Out"  fontName:@"Marker Felt" fontSize:60];
+        wipeOut = [CCLabelTTF labelWithString:@"Wipe Out"  fontName:@"ArialRoundedMTBold" fontSize:60];
         wipeOut.position = ccp(240, 160);
-        wipeOut.color = ccc3(230, 32, 60);
+        wipeOut.color = ccc3(255, 36, 0);
         
         
         [self addChild:stokage];
