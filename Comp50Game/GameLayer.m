@@ -203,9 +203,14 @@
         [stokage runAction:action3];
         [stokeBuild runAction:repeat];
         
+        wipeOut = [CCLabelTTF labelWithString:@"Wipe Out"  fontName:@"Marker Felt" fontSize:60];
+        wipeOut.position = ccp(240, 160);
+        wipeOut.color = ccc3(230, 32, 60);
+        
         
         [self addChild:stokage];
         [self addChild:stokeBuild];
+        [self addChild:wipeOut z:1];
         
         PlayerClass* tempPlayer = [[PlayerClass alloc] initWithFile:@"player1.png"];
         player = tempPlayer;
@@ -217,13 +222,11 @@
         //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"skateboard.mp3"];
         
         calibration = [[NSUserDefaults standardUserDefaults] doubleForKey:@"accel.x"];
-        NSLog(@"%f", calibration);
+        //NSLog(@"%f", calibration);
         reference = [[NSUserDefaults standardUserDefaults] doubleForKey:@"accel.z"];
         
-        if (reference < 0) {
-            
-            lower = calibration - 1;
-            upper = calibration + 1;
+        lower = calibration - 1;
+        upper = calibration + 1;
             /*if (calibration > 0) {
                 upper = 2 - calibration;
                 lower = -calibration;
@@ -232,12 +235,7 @@
                 upper = -2 - calibration;
                 lower = -(1-calibration);
             }*/
-        }
-        else {
-            lower = -1 + calibration;
-            upper = 1 + calibration;
-        }
-        NSLog(@"cal %f accel %f up %f low %f", calibration, reference, upper, lower);
+        //NSLog(@"cal %f accel %f up %f low %f", calibration, reference, upper, lower);
     
     }
 	return self;
@@ -285,7 +283,7 @@
         
     }
     //accel = accel;
-    //NSLog(@"accel : %f upper : %f lower : %f",  accel, lower, upper);
+    //NSLog(@"accel : %f upper : %f lower : %f",  accel, upper, lower);
     [player setUpDown:accel inLower:lower inUpper:upper];
     //[player setUD:acceleration.x];
 }
@@ -344,11 +342,20 @@
     if ([player getPlayerstoked] > 0) {
         [stokage setString:@""];
         [stokeBuild setString:@"Mellow"];
+        [wipeOut setString:@""];
+    }
+    else if (![[self children] containsObject:player]) {
+        [stokeBuild setString:@""];
+        [stokage setString:@""];
+        [wipeOut setString:@"Wipe Out"];
+        [pauseLabel setString:@""];
     }
     else {
         [stokeBuild setString:@""];
         [stokage setString:@"Stoked"];
+        [wipeOut setString:@""];
     }
+    
     
     //NSInteger z = [lanes count];
     /*if ([player getPlayerstoked] < 0) {
@@ -405,23 +412,23 @@
         }*/
         
         previousSpawn = gameTimer;
-        if (gameTimer < 20) {
-            spawnTimer = (arc4random()%160+110)/100;
+        if (gameTimer < 15) {
+            spawnTimer = (arc4random()%140+110)/100;
         }
-        else if (gameTimer >= 20 && gameTimer < 50) {
-            spawnTimer = (arc4random()%130+80)/100;
+        else if (gameTimer >= 15 && gameTimer < 50) {
+            spawnTimer = (arc4random()%120+80)/100;
         }
         else if (gameTimer >= 50 && gameTimer < 80) {
-            spawnTimer = (arc4random()%110+70)/100;
+            spawnTimer = (arc4random()%100+70)/100;
         }
         else if (gameTimer >= 80 && gameTimer < 110) {
-            spawnTimer = (arc4random()%75+50)/100;
+            spawnTimer = (arc4random()%85+55)/100;
         }
         else if (gameTimer >= 110 && gameTimer < 140) {
-            spawnTimer = 0.5;
+            spawnTimer = (arc4random()%70+40)/100;
         }
         else {
-            spawnTimer = 0.25;
+            spawnTimer = (arc4random()%55+25)/100;
         }
     }
     
@@ -453,11 +460,13 @@
              [player setCollide:true];
              
              finalTime = (int)gameTimer;
-             CCSprite* outline = [[CCSprite alloc] initWithFile:@"outline.png"];
-             [outline setPosition:ccp([player getPlayerx], [player getPlayery])];
+             SpriteClass* outline = [[SpriteClass alloc] initWithFile:@"outline.png" atX:[player getPlayerx] atY:[player getPlayery]];
+            [outline setPosition:ccp([player getPlayerx], [player getPlayery])];
              //text = txt;
-             [self addChild: outline];
+             [sprites addObject:outline];
+             [self addChild: outline z: -1];
              [self removeChild:player cleanup:YES];
+             
              
              int hs1 = [[NSUserDefaults standardUserDefaults] integerForKey:@"highScore1"];
              int hs2 = [[NSUserDefaults standardUserDefaults] integerForKey:@"highScore2"];

@@ -26,6 +26,7 @@
     BOOL isPaused;
     CCLabelTTF *stokage;
     CCLabelTTF* stokeBuild;
+    CCLabelTTF* wipeOut;
     float spawnTimer;
     double previousSpawn;
     int laneTimers[5];

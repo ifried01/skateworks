@@ -22,6 +22,7 @@
 - (int)getSpritex;
 - (int)getSpritey;
 - (id)initWithFile:(NSString*)filename;
+- (id)initWithFile:(NSString *)filename atX:(int)coordX atY:(int)coordY;
 - (int)setCarx;
 - (int)getLane;
 // returns a CCScene that contains the HelloWorldLayer as the only child

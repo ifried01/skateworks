@@ -41,17 +41,18 @@
     [self addChild:bg];
     
      CCSprite* txt = [[CCSprite alloc] initWithFile:@"Instructions.png"];
-     [txt setPosition:ccp(240, 195)];
+     [txt setPosition:ccp(240, 194)];
      //background = bg;
     
     CCSprite* arrow = [[CCSprite alloc] initWithFile:@"downarrow.png"];
     [arrow setPosition:ccp(305, 18)];
     //background = bg;
     [self addChild:arrow];
-    CCSprite* shaka = [[CCSprite alloc] initWithFile:@"inverter.png"];
-    [shaka setPosition:ccp(220, 195)];
+    CCSprite* inverter = [[CCSprite alloc] initWithFile:@"inverter.png"];
+    [inverter setPosition:ccp(220, 195)];
     //background = bg;
-    [self addChild:shaka];
+    [self addChild:inverter];
+
     [self addChild:txt];
     /*CCLabelTTF *titleCenterBottom = [CCLabelTTF labelWithString:@"Game Over" fontName:@"Marker Felt" fontSize:72];
     titleCenterBottom.position = ccp(240, 250);
@@ -75,7 +76,7 @@
     [restart setFontSize:28];
     CCMenu *menu = [CCMenu menuWithItems: restart, back, nil];
     
-    menu.position = ccp(220, 40);
+    menu.position = ccp(224, 40);
     menu.color = ccc3(153, 50, 204);
     [menu alignItemsVerticallyWithPadding: 3.0f];
     [self addChild: menu];

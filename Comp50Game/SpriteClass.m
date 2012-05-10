@@ -85,6 +85,23 @@
     return self;
 }
 
+// on "init" you need to initialize your instance
+- (id)initWithFile:(NSString *)filename atX:(int)coordX atY:(int)coordY{
+    if( self = [super initWithFile:filename]) {
+        
+        //NSInteger i = arc4random()%5 + 1;
+        lane = rand() % 5 + 1;
+        x = coordX;
+        y = coordY;
+        //= [NSArray arrayWithObjects:25, 80, 135, 190, nil];
+        [self setPosition:ccp(x, y)];
+        speed = 2;
+        
+        
+    }
+    return self;
+}
+
 
 
 -(int)getLane {

@@ -44,13 +44,13 @@
         accelx = (acelx + offset)/(calibRangeNeg);
     }
     NSLog(@"%f", accelx);*/
-    if (calibration < 0) {
-        if (acceleration > upper - 0.88) {
+   if (calibration < 0) {
+        if (acceleration > upper - 0.86) {
             up = true;
             down = false;
         //speed = 3;
         }
-        else if (acceleration < lower + 0.88) {
+        else if (acceleration < lower + 0.86) {
             down = true;
             up = false;
         //speed = 3;
@@ -59,14 +59,14 @@
             up = false;
             down = false;
         }
-    }
+   }
     else {
-        if (acceleration > upper - 0.88) {
+        if (acceleration > upper - 0.86 - calibration) {
             up = true;
             down = false;
             //speed = 3;
         }
-        else if (acceleration < lower + 0.88) {
+        else if (acceleration < lower + 0.86 - calibration) {
             down = true;
             up = false;
             //speed = 3;
